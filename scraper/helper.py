@@ -1,236 +1,40 @@
-from __future__ import annotations
+import requests, json, time
+import random, subprocess
 
-import asyncio
-import json
-import random
-import re, subprocess
-import time
-import uuid
+def load_proxies(file_path: str):
+    proxies = []
+    with open(file_path, "r") as f:
+        lines = f.readlines()
+        for line in lines:
+            proxies.append(line.split(":"))
+    print(f"Total {len(proxies)} loaded.")
+    return proxies
+            
+def get_timezone_from_ip(ip: str | None = None) -> str:
+    try:
+        url = f"http://ip-api.com/json/{ip}" if ip else "http://ip-api.com/json"
+        data = requests.get(url, timeout=5).json()
+        if data.get("status") == "success":
+            tz = data.get("timezone", "UTC")
+            print(f"[INFO] Timezone: {tz}")
+            return tz
+    except Exception as e:
+        print(f"[WARN] Could not fetch timezone: {e}")
+    return "UTC"
 
-import requests
-from aioconsole import ainput
-from crawlee.fingerprint_suite import (
-    DefaultFingerprintGenerator,
-    HeaderGeneratorOptions,
-    ScreenOptions,
-)
-from patchright.async_api import async_playwright
-
-# ── Single shared generator ───────────────────────────────────────────────────
-_generator = DefaultFingerprintGenerator(
-    header_options=HeaderGeneratorOptions(
-        browsers=["chrome"],           # Chrome-only — Edge/Firefox have different CDP tells
-        devices=["desktop"],
-        locales=["en-US", "en-GB", "de-DE", "fr-FR", "es-ES"],
-    ),
-    screen_options=ScreenOptions(
-        min_width=1280,
-        max_width=2560,
-        min_height=720,
-        max_height=1440,
-    ),
-)
-
-# ── Realistic plugin definitions (matches real Chrome exactly) ────────────────
-_CHROME_PLUGINS = [
-    {
-        "name": "PDF Viewer",
-        "filename": "internal-pdf-viewer",
-        "description": "Portable Document Format",
-        "mimeTypes": [
-            {"type": "application/pdf", "suffixes": "pdf"},
-            {"type": "text/pdf",        "suffixes": "pdf"},
-        ],
-    },
-    {
-        "name": "Chrome PDF Viewer",
-        "filename": "internal-pdf-viewer",
-        "description": "Portable Document Format",
-        "mimeTypes": [
-            {"type": "application/pdf", "suffixes": "pdf"},
-            {"type": "text/pdf",        "suffixes": "pdf"},
-        ],
-    },
-    {
-        "name": "Chromium PDF Viewer",
-        "filename": "internal-pdf-viewer",
-        "description": "Portable Document Format",
-        "mimeTypes": [
-            {"type": "application/pdf", "suffixes": "pdf"},
-            {"type": "text/pdf",        "suffixes": "pdf"},
-        ],
-    },
-    {
-        "name": "Microsoft Edge PDF Viewer",
-        "filename": "internal-pdf-viewer",
-        "description": "Portable Document Format",
-        "mimeTypes": [
-            {"type": "application/pdf", "suffixes": "pdf"},
-            {"type": "text/pdf",        "suffixes": "pdf"},
-        ],
-    },
-    {
-        "name": "WebKit built-in PDF",
-        "filename": "internal-pdf-viewer",
-        "description": "Portable Document Format",
-        "mimeTypes": [
-            {"type": "application/pdf", "suffixes": "pdf"},
-            {"type": "text/pdf",        "suffixes": "pdf"},
-        ],
-    },
-]
-
-# ── Realistic Windows Chrome UA builder ──────────────────────────────────────
-_WIN_CHROME_VERSIONS = [
-    ("124", "124.0.6367.82"),
-    ("125", "125.0.6422.112"),
-    ("126", "126.0.6478.56"),
-    ("127", "127.0.6533.88"),
-    ("128", "128.0.6613.120"),
-    ("129", "129.0.6668.100"),
-    ("130", "130.0.6723.91"),
-    ("131", "131.0.6778.108"),
-    ("132", "132.0.6834.83"),
-    ("133", "133.0.6943.53"),
-    ("134", "134.0.6998.89"),
-]
-
-def _make_windows_ua(major: str, full: str) -> str:
-    """
-    Build a Windows 10/11 Chrome UA that is consistent with Client Hints.
-    Always Win32 platform — never Linux, never Mac.
-    """
-    return (
-        f"Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
-        f"AppleWebKit/537.36 (KHTML, like Gecko) "
-        f"Chrome/{full} Safari/537.36"
-    )
-
-
-# ── Client Hints brand set ────────────────────────────────────────────────────
-def _build_client_hints(major: str, full: str) -> dict:   # add full param
-    return {
-        "brands": [
-            {"brand": "Google Chrome",  "version": major},
-            {"brand": "Chromium",       "version": major},
-            {"brand": "Not/A)Brand",    "version": "99"},
-        ],
-        "mobile":    False,
-        "platform":  "Windows",
-        # High-entropy values detectors actually request:
-        "uaFullVersion":    full,
-        "fullVersionList": [
-            {"brand": "Google Chrome",  "version": full},
-            {"brand": "Chromium",       "version": full},
-            {"brand": "Not/A)Brand",    "version": "99.0.0.0"},
-        ],
-        "platformVersion": "10.0.0",
-        "architecture":    "x86",
-        "bitness":         "64",
-        "model":           "",
-        "wow64":           False,
-    }
-
-# ── Accept-Language ───────────────────────────────────────────────────────────
-def _build_accept_language(languages: list[str]) -> str:
-    parts = []
-    for i, lang in enumerate(languages):
-        if i == 0:
-            parts.append(lang)
-        else:
-            q = round(1.0 - i * 0.1, 1)
-            q = max(q, 0.1)
-            parts.append(f"{lang};q={q}")
-    return ",".join(parts)
-
-
-# ── Viewport from screen ──────────────────────────────────────────────────────
-def _viewport_from_screen(width: int, height: int) -> dict:
-    taskbar = random.randint(40, 48)
-    toolbar = random.randint(88, 104)
-    outer_h = height - taskbar
-    inner_h = outer_h - toolbar
-    return {
-        "outerWidth":  width,
-        "outerHeight": outer_h,
-        "innerWidth":  width,
-        "innerHeight": max(inner_h, 400),
-        "availWidth":  width,
-        "availHeight": outer_h,
-    }
-
-
-# ── Fingerprint generator ─────────────────────────────────────────────────────
-def generate() -> dict:
-    """
-    Generate a fully consistent Windows Chrome fingerprint.
-    Platform is always Win32 regardless of what the crawlee generator returns —
-    this is the #1 OS-mismatch fix.
-    """
-    fp = _generator.generate()
-
-    # Always Windows — override whatever crawlee generated
-    major, full = get_real_chrome_version()
-    ua       = _make_windows_ua(major, full)
-    platform = "Win32"                          # FIX: was leaking Linux/Mac
-    language  = fp.navigator.language or "en-US"
-    languages = list(fp.navigator.languages or [language])
-
-    if languages[0] != language:
-        languages.insert(0, language)
-    languages = languages[:4]
-
-    sw  = fp.screen.width  or 1920
-    sh  = fp.screen.height or 1080
-    dpr = fp.screen.devicePixelRatio or 1.0
-
-    viewport = _viewport_from_screen(sw, sh)
-
-    raw_headers = dict(fp.headers) if fp.headers else {}
-    raw_headers["Accept-Language"] = _build_accept_language(languages)
-    raw_headers["User-Agent"]      = ua
-    # Sec-CH-UA headers must match UA exactly
-    raw_headers["Sec-CH-UA"]                  = (
-        f'"Google Chrome";v="{major}", "Chromium";v="{major}", "Not/A)Brand";v="99"'
-    )
-    raw_headers["Sec-CH-UA-Mobile"]           = "?0"
-    raw_headers["Sec-CH-UA-Platform"]         = '"Windows"'
-    raw_headers["Sec-CH-UA-Platform-Version"] = '"10.0.0"'
-    raw_headers["Sec-CH-UA-Arch"]             = '"x86"'
-    raw_headers["Sec-CH-UA-Bitness"]          = '"64"'
-
-    for bad in ("x-forwarded-for", "x-real-ip", "via", "forwarded"):
-        raw_headers.pop(bad, None)
-
-    return {
-        "fingerprint_id": uuid.uuid4().hex,
-        "user_agent":           ua,
-        "platform":             platform,
-        "language":             language,
-        "languages":            languages,
-        "hardware_concurrency": fp.navigator.hardwareConcurrency or random.choice([4, 8, 12, 16]),
-        "device_memory":        fp.navigator.deviceMemory or random.choice([8, 16]),
-        "max_touch_points":     0,              # desktop Windows = 0
-        "vendor":               "Google Inc.",
-        "product_sub":          "20030107",
-        "user_agent_data":      _build_client_hints(major, full),
-        "chrome_major":         major,
-        "screen_width":         sw,
-        "screen_height":        sh,
-        "avail_width":          viewport["availWidth"],
-        "avail_height":         viewport["availHeight"],
-        "inner_width":          viewport["innerWidth"],
-        "inner_height":         viewport["innerHeight"],
-        "outer_width":          viewport["outerWidth"],
-        "outer_height":         viewport["outerHeight"],
-        "device_pixel_ratio":   dpr,
-        "color_depth":          fp.screen.colorDepth or 24,
-        "webgl_vendor":         fp.videoCard.vendor   if fp.videoCard else "Intel Inc.",
-        "webgl_renderer":       fp.videoCard.renderer if fp.videoCard else "Intel Iris OpenGL Engine",
-        "plugins":              _CHROME_PLUGINS,
-        "headers":              raw_headers,
-    }
-
+def get_proxy_public_ip(ip: str, port: str, user: str, pwd: str) -> str:
+    try:
+        r = requests.get(
+            "https://api.ipify.org",
+            proxies={"https": f"http://{user}:{pwd}@{ip}:{port}"},
+            timeout=8,
+        )
+        addr = r.text.strip()
+        print(f"[INFO] Proxy public IP: {addr}")
+        return addr
+    except Exception as e:
+        print(f"[WARN] Could not get proxy public IP: {e}")
+    return ip
 
 # ── JS injection script ───────────────────────────────────────────────────────
 def build_js_script(fingerprint: dict) -> str:
@@ -541,65 +345,6 @@ def build_js_script(fingerprint: dict) -> str:
 }})();
 """
 
-
-# ── Proxy / network helpers ───────────────────────────────────────────────────
-
-def get_timezone_from_ip(ip: str | None = None) -> str:
-    try:
-        url = f"http://ip-api.com/json/{ip}" if ip else "http://ip-api.com/json"
-        data = requests.get(url, timeout=5).json()
-        if data.get("status") == "success":
-            tz = data.get("timezone", "UTC")
-            print(f"[INFO] Timezone: {tz}")
-            return tz
-    except Exception as e:
-        print(f"[WARN] Could not fetch timezone: {e}")
-    return "UTC"
-
-
-def get_proxy_public_ip(ip: str, port: str, user: str, pwd: str) -> str:
-    try:
-        r = requests.get(
-            "https://api.ipify.org",
-            proxies={"https": f"http://{user}:{pwd}@{ip}:{port}"},
-            timeout=8,
-        )
-        addr = r.text.strip()
-        print(f"[INFO] Proxy public IP: {addr}")
-        return addr
-    except Exception as e:
-        print(f"[WARN] Could not get proxy public IP: {e}")
-    return ip
-
-
-def start_gost_tunnel(
-    remote_ip: str, remote_port: str, user: str, pwd: str, local_port: int
-) -> subprocess.Popen:
-    """
-    Spin up a local SOCKS5 tunnel via gost.
-
-    FIX: Use socks5h:// (not http://) for the upstream so DNS is resolved
-    remotely — eliminates the DNS leak.  If your proxy only speaks HTTP,
-    change the scheme back to http:// and separately fix DNS at the OS level
-    (e.g. dnscrypt-proxy or systemd-resolved pointing at a DoH server).
-    """
-    subprocess.run(
-        ["pkill", "-f", f"socks5://127.0.0.1:{local_port}"],
-        stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL,
-    )
-    time.sleep(0.5)
-
-    # socks5h:// = remote DNS resolution → no DNS leak
-    cmd = [
-        "gost",
-        "-L", f"socks5://127.0.0.1:{local_port}",
-        "-F", f"http://{user}:{pwd}@{remote_ip}:{remote_port}",
-    ]
-    proc = subprocess.Popen(cmd, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-    print(f"[INFO] gost tunnel: 127.0.0.1:{local_port} → {remote_ip}:{remote_port} (remote DNS)")
-    return proc
-
-
 # ── WebRTC IP spoof script (proxy mode only) ──────────────────────────────────
 def _webrtc_ip_spoof_script(proxy_public_ip: str) -> str:
     return f"""
@@ -636,85 +381,3 @@ def _webrtc_ip_spoof_script(proxy_public_ip: str) -> str:
   Object.defineProperty(window.RTCPeerConnection, 'name', {{ value: 'RTCPeerConnection' }});
 }})();
 """
-
-def get_real_chrome_version() -> tuple[str, str]:
-    cmds = [
-        ["google-chrome", "--version"],
-        ["google-chrome-stable", "--version"],
-        ["/usr/bin/google-chrome", "--version"],
-    ]
-    for cmd in cmds:
-        try:
-            out = subprocess.run(cmd, capture_output=True, text=True, timeout=5).stdout
-            # FIX: capture full 4-part version like 146.0.7680.164
-            m = re.search(r"(\d+)\.(\d+\.\d+\.\d+)", out)
-            if m:
-                major = m.group(1)
-                full  = m.group(1) + "." + m.group(2)
-                print(f"[INFO] Real Chrome version: {full}")
-                return major, full
-        except Exception:
-            continue
-    return "146", "146.0.7680.164"  # update fallback to match your installed version
-
-
-async def main():
-    proxy = ""
-    gost_proc = None
-    local_port = None
-    proxy_public_ip = None
-    proxy_ip = None
-
-    if proxy:
-        proxy_ip, port, user, pwd = proxy.split(":")
-        proxy_public_ip = get_proxy_public_ip(proxy_ip, port, user, pwd)
-        local_port = 10001
-        gost_proc = start_gost_tunnel(proxy_ip, port, user, pwd, local_port)
-        await asyncio.sleep(1.5)
-
-    timezone    = get_timezone_from_ip(proxy_ip)
-    fingerprint = generate()
-    script      = build_js_script(fingerprint)
-
-    print(f"[INFO] Fingerprint ID : {fingerprint['fingerprint_id']}")
-    print(f"[INFO] User-Agent     : {fingerprint['user_agent']}")
-    print(f"[INFO] Platform       : {fingerprint['platform']}")
-
-   
-    async with async_playwright() as pw:
-        browser = await pw.chromium.launch(headless=False)
-        context_options: dict = {
-            "timezone_id":   timezone,
-            "no_viewport":   True,
-            "user_agent": fingerprint["user_agent"],
-
-            "extra_http_headers": {
-                "Accept-Language": fingerprint["headers"]["Accept-Language"],
-            },
-        }
-
-        if proxy:
-            context_options["args"] += [
-                f"--host-resolver-rules=MAP * ~NOTFOUND , EXCLUDE {proxy_ip}",
-                "--proxy-bypass-list=<-loopback>",
-            ]
-            context_options["proxy"] = {"server": f"socks5://127.0.0.1:{local_port}"}
-
-        context = await browser.new_context(
-            **context_options
-        )
-        await context.add_init_script(script)
-        if proxy:
-          await context.add_init_script(_webrtc_ip_spoof_script(proxy_public_ip))
-
-
-        page = await context.new_page()
-        await page.goto("https://browserscan.net", wait_until="load", timeout=60000)
-
-        await ainput("Press Enter to exit.")
-        await context.close()
-        if gost_proc:
-          gost_proc.terminate()
-
-
-asyncio.run(main())

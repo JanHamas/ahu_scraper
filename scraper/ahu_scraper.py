@@ -1,14 +1,20 @@
 from patchright.async_api import async_playwright
-import config.setting as setting, asyncio
+from config import setting
 from aioconsole import ainput
-from util import
+from . import helper, fg_generator
+import asyncio
 
 
+async def worker(browser: object, proxy: list):
+    proxy_ip = proxy[0]
+    proxy_ip, port, user, pwd = proxy
 
-async def worker(browser):
-    proxy = "45.147.133.69:12323:14ac990c0bff4:cc22ef0dc0"
-    proxy_ip, port, user, pwd = proxy.split(":")
     timezone    = helper.get_timezone_from_ip(proxy_ip)
+    fingerprint = fg_generator.generate()
+    script = helper.build_js_script(fingerprint)
+
+    proxy_public_ip = helper.get_proxy_public_ip(proxy_ip, port, user, pwd)
+
     context_options: dict = {
             "timezone_id":   timezone,
             "no_viewport":   True,
@@ -17,23 +23,28 @@ async def worker(browser):
             "extra_http_headers": {
                 "Accept-Language": fingerprint["headers"]["Accept-Language"],
             },
+            "proxy": {
+                "server": f"http://{proxy_ip}:{port}",
+                "username": user,
+                "password": pwd
+            },
         }
-    if proxy:
-            context_options["args"] += [
-                f"--host-resolver-rules=MAP * ~NOTFOUND , EXCLUDE {proxy_ip}",
-                "--proxy-bypass-list=<-loopback>",
-            ]
-            context_options["proxy"] = {"server": f"socks5://127.0.0.1:{local_port}"}
 
     context = await browser.new_context(
         **context_options
     )
     await context.add_init_script(script)
-    context = await browser.new_context(**context_options)
+    await context.add_init_script(helper._webrtc_ip_spoof_script(proxy_public_ip))
+    
     page = await context.new_page()
     await page.goto(setting.BASE_URL, wait_until="load", timeout=setting.PAGE_TIMEOUT)
     await ainput("Press enter")
+    await context.close()
+
+
+
 async def main():
+    proxies = helper.load_proxies(setting.PROXIES_PATH)
     async with async_playwright() as pw:
         browser_options = {
             "headless": setting.HEADLESS
@@ -41,8 +52,9 @@ async def main():
         browser = await pw.chromium.launch(**browser_options)
         
         tasks = []
-        for _ in range(setting.CONCURRENCTY):
-            tasks.append(worker(browser))
+        for i in range(setting.CONCURRENCTY):
+            print(proxies[i % len(proxies)])
+            tasks.append(worker(browser, proxies[i % len(proxies)]))
 
         # gather all tasks 
         await asyncio.gather(*tasks)
