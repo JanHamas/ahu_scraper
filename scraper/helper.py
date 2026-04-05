@@ -7,7 +7,7 @@ def load_proxies(file_path: str):
         lines = f.readlines()
         for line in lines:
             proxies.append(line.split(":"))
-    print(f"Total {len(proxies)} loaded.")
+    print(f"Total {len(proxies)} proxy loaded.")
     return proxies
             
 def get_timezone_from_ip(ip: str | None = None) -> str:
@@ -346,7 +346,7 @@ def build_js_script(fingerprint: dict) -> str:
 """
 
 # ── WebRTC IP spoof script (proxy mode only) ──────────────────────────────────
-def _webrtc_ip_spoof_script(proxy_public_ip: str) -> str:
+def webrtc_ip_spoof_script(proxy_public_ip: str) -> str:
     return f"""
 (() => {{
   const FAKE_IP = "{proxy_public_ip}";

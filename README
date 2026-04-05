@@ -1,0 +1,19 @@
+ahu_scraper/
+├── main.py
+├── .env
+├── config/
+│   ├── setting.py
+│   └── proxies.txt          # ip:port:user:password (one per line)
+├── scraper/
+│   ├── __init__.py
+│   ├── ahu_scraper.py       # main orchestrator
+│   ├── keyword_generator.py # adaptive 3→4→5 letter keywords
+│   ├── captcha_bypasser.py  # reCAPTCHA v3 via 2captcha
+│   ├── page_parser.py       # Playwright element extraction
+│   └── helper.py            # proxy, fingerprint, timezone utils
+│   └── fg_generator.py      # browser fingerprint generator
+├── database/
+│   ├── __init__.py
+│   └── db.py                # SQLite normalized schema + handler
+└── logs/
+    └── scraper.log
