@@ -4,6 +4,7 @@ from pathlib import Path
 # ── Paths ──────────────────────────────────────────────────────────────────────
 BASE_DIR     = Path(__file__).resolve().parent.parent
 PROXIES_PATH = BASE_DIR / "config" / "proxies.txt"
+STATE_FILE = BASE_DIR / "config" / "proxy_state.json"
 DB_PATH      = BASE_DIR / "database" / "ahu_companies.db"
 LOG_PATH     = BASE_DIR / "logs" / "scraper.log"
 
@@ -26,6 +27,8 @@ DELAY_ON_RETRY         = random.randint(3000, 7000) # after a failed request
 
 # ── Retry ──────────────────────────────────────────────────────────────────────
 MAX_RETRY = 3
+
+
 
 
 

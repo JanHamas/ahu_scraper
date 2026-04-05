@@ -1,17 +1,35 @@
-import requests, json, time
-import random, subprocess
+import requests, json
+import random
+from config import setting
+from pathlib import Path
+
 
 def load_proxies(file_path: str):
     proxies = []
+    
+    # Load current start number from state file
+    if Path(setting.STATE_FILE).exists():
+        with open(setting.STATE_FILE, "r") as f:
+            proxies_start_number = json.load(f).get("proxies_start_number", 0)
+    else:
+        proxies_start_number = 0
+
     with open(file_path, "r") as f:
-        lines = f.readlines()
-        for line in lines:
-            parts = line.split(":")
+        all_proxies = f.readlines()
+        for i in range(setting.CONCURRENCY):
+            index = (proxies_start_number + i) % len(all_proxies)
+            parts = all_proxies[index].strip().split(":")
             if len(parts) == 4:
-              proxies.append(parts)
+                proxies.append(parts)
+        new_start = (proxies_start_number + setting.CONCURRENCY) % len(all_proxies)
+
+    # Save updated start number
+    with open(setting.STATE_FILE, "w") as f:
+        json.dump({"proxies_start_number": new_start}, f)
+
     print(f"Total {len(proxies)} proxy loaded.")
     return proxies
-            
+         
 def get_timezone_from_ip(ip: str | None = None) -> str:
     try:
         url = f"http://ip-api.com/json/{ip}" if ip else "http://ip-api.com/json"

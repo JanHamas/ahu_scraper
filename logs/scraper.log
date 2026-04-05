@@ -65,3 +65,20 @@ Call log:
 2026-04-06 00:30:14 [INFO    ] [WORKER-1] Processing keyword: 'abq'
 2026-04-06 00:30:14 [INFO    ] [CAPTCHA] Requesting fresh reCAPTCHA v3 token...
 2026-04-06 00:30:14 [DEBUG   ] [CAPTCHA] Solving via proxy: 45.147.133.69:12323
+2026-04-06 01:09:46 [INFO    ] 
+ 
+ 
+
+2026-04-06 01:09:46 [INFO    ] ============================================================
+2026-04-06 01:09:46 [INFO    ]   AHU Company Scraper - Starting
+2026-04-06 01:09:46 [INFO    ] ============================================================
+2026-04-06 01:09:46 [INFO    ] [DB] Connected to /home/hamas/Desktop/ahu_scraper/database/ahu_companies.db
+2026-04-06 01:09:46 [INFO    ] [MAIN] 17534 keywords pending !0 companies in DB
+2026-04-06 01:09:48 [INFO    ] [MAIN] Browser launched | workers: 1
+2026-04-06 01:09:48 [INFO    ] [WORKER-1] Starting
+2026-04-06 01:09:48 [INFO    ] [FG] Real Chrome version: 146.0.7680.177
+2026-04-06 01:09:50 [INFO    ] [WORKER-1] Processing keyword: 'abq'
+2026-04-06 01:09:50 [INFO    ] [CAPTCHA] Requesting fresh reCAPTCHA v3 token...
+2026-04-06 01:09:50 [DEBUG   ] [CAPTCHA] Solving via proxy: 45.147.133.69:12323
+2026-04-06 01:10:48 [INFO    ] [CAPTCHA] ✅ Token received
+2026-04-06 01:10:51 [DEBUG   ] [CAPTCHA] Token injected into page DOM and pagination links
