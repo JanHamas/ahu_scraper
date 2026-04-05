@@ -2,7 +2,7 @@ import itertools
 import string
 from scraper.logger import get_logger
 
-log = get_logger
+log = get_logger()
 
 CHARS = string.ascii_lowercase   # a-z
 

@@ -1,0 +1,391 @@
+2026-04-05 19:32:42 [INFO    ] ============================================================
+2026-04-05 19:32:42 [INFO    ]   AHU Company Scraper - Starting
+2026-04-05 19:32:42 [INFO    ] ============================================================
+2026-04-05 19:32:42 [INFO    ] [DB] Connected to database/ahu_companies.db
+2026-04-05 19:32:42 [INFO    ] [MAIN] 17576 keywords pending !0 companies in DB
+2026-04-05 19:32:42 [ERROR   ] [MAIN] No proxies found - without proxies scraper not working.
+2026-04-05 19:34:19 [INFO    ] ============================================================
+2026-04-05 19:34:19 [INFO    ]   AHU Company Scraper - Starting
+2026-04-05 19:34:19 [INFO    ] ============================================================
+2026-04-05 19:34:19 [INFO    ] [DB] Connected to database/ahu_companies.db
+2026-04-05 19:34:19 [INFO    ] [MAIN] 17576 keywords pending !0 companies in DB
+2026-04-05 19:34:19 [ERROR   ] [MAIN] No proxies found - without proxies scraper not working.
+2026-04-05 19:41:52 [INFO    ] ============================================================
+2026-04-05 19:41:52 [INFO    ]   AHU Company Scraper - Starting
+2026-04-05 19:41:52 [INFO    ] ============================================================
+2026-04-05 19:41:52 [INFO    ] [DB] Connected to database/ahu_companies.db
+2026-04-05 19:41:52 [INFO    ] [MAIN] 17576 keywords pending !0 companies in DB
+2026-04-05 19:42:04 [INFO    ] [MAIN] Browser launched | workers: 2
+2026-04-05 19:42:04 [INFO    ] [WORKER-1] Starting
+2026-04-05 19:42:05 [INFO    ] [FG] Real Chrome version: 146.0.7680.177
+2026-04-05 19:42:05 [INFO    ] [WORKER-2] Starting
+2026-04-05 19:42:06 [INFO    ] [FG] Real Chrome version: 146.0.7680.177
+2026-04-05 19:43:22 [INFO    ] ============================================================
+2026-04-05 19:43:22 [INFO    ]   AHU Company Scraper - Starting
+2026-04-05 19:43:22 [INFO    ] ============================================================
+2026-04-05 19:43:22 [INFO    ] [DB] Connected to database/ahu_companies.db
+2026-04-05 19:43:22 [INFO    ] [MAIN] 17576 keywords pending !0 companies in DB
+2026-04-05 19:43:24 [INFO    ] [MAIN] Browser launched | workers: 2
+2026-04-05 19:43:24 [INFO    ] [WORKER-1] Starting
+2026-04-05 19:43:24 [INFO    ] [FG] Real Chrome version: 146.0.7680.177
+2026-04-05 19:43:27 [INFO    ] [WORKER-2] Starting
+2026-04-05 19:43:27 [INFO    ] [FG] Real Chrome version: 146.0.7680.177
+2026-04-05 19:43:30 [ERROR   ] [CAPTCHA] 2CAPTCHA_API_KEY not set in .env!
+2026-04-05 19:43:30 [INFO    ] [WORKER-1] Processing keyword: 'aaa'
+2026-04-05 19:43:30 [INFO    ] [CAPTCHA] Requesting fresh reCAPTCHA v3 token...
+2026-04-05 19:43:30 [DEBUG   ] [CAPTCHA] Solving via proxy: 45.147.133.69:12323
+2026-04-05 19:43:30 [ERROR   ] [CAPTCHA] 2CAPTCHA_API_KEY not set in .env!
+2026-04-05 19:43:30 [INFO    ] [WORKER-2] Processing keyword: 'aab'
+2026-04-05 19:43:30 [INFO    ] [CAPTCHA] Requesting fresh reCAPTCHA v3 token...
+2026-04-05 19:43:30 [DEBUG   ] [CAPTCHA] Solving via proxy: 45.147.133.69:12323
+2026-04-05 19:43:32 [ERROR   ] [CAPTCHA] 2Captcha error: ERROR_WRONG_USER_KEY
+2026-04-05 19:43:32 [ERROR   ] [CAPTCHA] ❌ Failed to get token
+2026-04-05 19:43:32 [ERROR   ] [SCRAPER] No token for 'aaa' - skipping
+2026-04-05 19:43:32 [DEBUG   ] [DB] Keyword 'aaa' → failed (0 results)
+2026-04-05 19:43:32 [WARNING ] [WORKER-1] 'aaa' failed - requeued
+2026-04-05 19:43:32 [INFO    ] [DB] Stats → Companies: 0 | Keywords done: 0 | pending: 17575 | overflow: 0 | failed: 1
+2026-04-05 19:43:32 [INFO    ] [WORKER-1] Processing keyword: 'aac'
+2026-04-05 19:43:32 [INFO    ] [CAPTCHA] Requesting fresh reCAPTCHA v3 token...
+2026-04-05 19:43:32 [DEBUG   ] [CAPTCHA] Solving via proxy: 45.147.133.69:12323
+2026-04-05 19:43:32 [ERROR   ] [CAPTCHA] 2Captcha error: ERROR_WRONG_USER_KEY
+2026-04-05 19:43:32 [ERROR   ] [CAPTCHA] ❌ Failed to get token
+2026-04-05 19:43:32 [ERROR   ] [SCRAPER] No token for 'aab' - skipping
+2026-04-05 19:43:32 [DEBUG   ] [DB] Keyword 'aab' → failed (0 results)
+2026-04-05 19:43:32 [WARNING ] [WORKER-2] 'aab' failed - requeued
+2026-04-05 19:43:32 [INFO    ] [DB] Stats → Companies: 0 | Keywords done: 0 | pending: 17574 | overflow: 0 | failed: 2
+2026-04-05 19:43:32 [INFO    ] [WORKER-2] Processing keyword: 'aad'
+2026-04-05 19:43:32 [INFO    ] [CAPTCHA] Requesting fresh reCAPTCHA v3 token...
+2026-04-05 19:43:32 [DEBUG   ] [CAPTCHA] Solving via proxy: 45.147.133.69:12323
+2026-04-05 19:43:32 [ERROR   ] [CAPTCHA] 2Captcha error: ERROR_WRONG_USER_KEY
+2026-04-05 19:43:32 [ERROR   ] [CAPTCHA] ❌ Failed to get token
+2026-04-05 19:43:32 [ERROR   ] [SCRAPER] No token for 'aad' - skipping
+2026-04-05 19:43:32 [DEBUG   ] [DB] Keyword 'aad' → failed (0 results)
+2026-04-05 19:43:32 [WARNING ] [WORKER-2] 'aad' failed - requeued
+2026-04-05 19:43:32 [INFO    ] [DB] Stats → Companies: 0 | Keywords done: 0 | pending: 17573 | overflow: 0 | failed: 3
+2026-04-05 19:43:32 [INFO    ] [WORKER-2] Processing keyword: 'aae'
+2026-04-05 19:43:32 [INFO    ] [CAPTCHA] Requesting fresh reCAPTCHA v3 token...
+2026-04-05 19:43:32 [DEBUG   ] [CAPTCHA] Solving via proxy: 45.147.133.69:12323
+2026-04-05 19:43:33 [ERROR   ] [CAPTCHA] 2Captcha error: ERROR_WRONG_USER_KEY
+2026-04-05 19:43:33 [ERROR   ] [CAPTCHA] ❌ Failed to get token
+2026-04-05 19:43:33 [ERROR   ] [SCRAPER] No token for 'aac' - skipping
+2026-04-05 19:43:33 [DEBUG   ] [DB] Keyword 'aac' → failed (0 results)
+2026-04-05 19:43:33 [WARNING ] [WORKER-1] 'aac' failed - requeued
+2026-04-05 19:43:33 [INFO    ] [DB] Stats → Companies: 0 | Keywords done: 0 | pending: 17572 | overflow: 0 | failed: 4
+2026-04-05 19:43:33 [INFO    ] [WORKER-1] Processing keyword: 'aaf'
+2026-04-05 19:43:33 [INFO    ] [CAPTCHA] Requesting fresh reCAPTCHA v3 token...
+2026-04-05 19:43:33 [DEBUG   ] [CAPTCHA] Solving via proxy: 45.147.133.69:12323
+2026-04-05 19:43:33 [ERROR   ] [CAPTCHA] 2Captcha error: ERROR_WRONG_USER_KEY
+2026-04-05 19:43:33 [ERROR   ] [CAPTCHA] ❌ Failed to get token
+2026-04-05 19:43:33 [ERROR   ] [SCRAPER] No token for 'aae' - skipping
+2026-04-05 19:43:33 [DEBUG   ] [DB] Keyword 'aae' → failed (0 results)
+2026-04-05 19:43:33 [WARNING ] [WORKER-2] 'aae' failed - requeued
+2026-04-05 19:43:33 [INFO    ] [DB] Stats → Companies: 0 | Keywords done: 0 | pending: 17571 | overflow: 0 | failed: 5
+2026-04-05 19:43:33 [INFO    ] [WORKER-2] Processing keyword: 'aag'
+2026-04-05 19:43:33 [INFO    ] [CAPTCHA] Requesting fresh reCAPTCHA v3 token...
+2026-04-05 19:43:33 [DEBUG   ] [CAPTCHA] Solving via proxy: 45.147.133.69:12323
+2026-04-05 19:43:34 [ERROR   ] [CAPTCHA] 2Captcha error: ERROR_WRONG_USER_KEY
+2026-04-05 19:43:34 [ERROR   ] [CAPTCHA] ❌ Failed to get token
+2026-04-05 19:43:34 [ERROR   ] [SCRAPER] No token for 'aaf' - skipping
+2026-04-05 19:43:34 [DEBUG   ] [DB] Keyword 'aaf' → failed (0 results)
+2026-04-05 19:43:34 [WARNING ] [WORKER-1] 'aaf' failed - requeued
+2026-04-05 19:43:34 [INFO    ] [DB] Stats → Companies: 0 | Keywords done: 0 | pending: 17570 | overflow: 0 | failed: 6
+2026-04-05 19:43:34 [INFO    ] [WORKER-1] Processing keyword: 'aah'
+2026-04-05 19:43:34 [INFO    ] [CAPTCHA] Requesting fresh reCAPTCHA v3 token...
+2026-04-05 19:43:34 [DEBUG   ] [CAPTCHA] Solving via proxy: 45.147.133.69:12323
+2026-04-05 19:43:34 [ERROR   ] [CAPTCHA] 2Captcha error: ERROR_WRONG_USER_KEY
+2026-04-05 19:43:34 [ERROR   ] [CAPTCHA] ❌ Failed to get token
+2026-04-05 19:43:34 [ERROR   ] [SCRAPER] No token for 'aag' - skipping
+2026-04-05 19:43:34 [DEBUG   ] [DB] Keyword 'aag' → failed (0 results)
+2026-04-05 19:43:34 [WARNING ] [WORKER-2] 'aag' failed - requeued
+2026-04-05 19:43:34 [INFO    ] [DB] Stats → Companies: 0 | Keywords done: 0 | pending: 17569 | overflow: 0 | failed: 7
+2026-04-05 19:43:34 [INFO    ] [WORKER-2] Processing keyword: 'aai'
+2026-04-05 19:43:34 [INFO    ] [CAPTCHA] Requesting fresh reCAPTCHA v3 token...
+2026-04-05 19:43:34 [DEBUG   ] [CAPTCHA] Solving via proxy: 45.147.133.69:12323
+2026-04-05 19:43:34 [ERROR   ] [CAPTCHA] 2Captcha error: ERROR_WRONG_USER_KEY
+2026-04-05 19:43:34 [ERROR   ] [CAPTCHA] ❌ Failed to get token
+2026-04-05 19:43:34 [ERROR   ] [SCRAPER] No token for 'aah' - skipping
+2026-04-05 19:43:34 [DEBUG   ] [DB] Keyword 'aah' → failed (0 results)
+2026-04-05 19:43:34 [WARNING ] [WORKER-1] 'aah' failed - requeued
+2026-04-05 19:43:34 [INFO    ] [DB] Stats → Companies: 0 | Keywords done: 0 | pending: 17568 | overflow: 0 | failed: 8
+2026-04-05 19:43:34 [INFO    ] [WORKER-1] Processing keyword: 'aaj'
+2026-04-05 19:43:34 [INFO    ] [CAPTCHA] Requesting fresh reCAPTCHA v3 token...
+2026-04-05 19:43:34 [DEBUG   ] [CAPTCHA] Solving via proxy: 45.147.133.69:12323
+2026-04-05 19:43:36 [ERROR   ] [CAPTCHA] 2Captcha error: ERROR_WRONG_USER_KEY
+2026-04-05 19:43:36 [ERROR   ] [CAPTCHA] ❌ Failed to get token
+2026-04-05 19:43:36 [ERROR   ] [SCRAPER] No token for 'aai' - skipping
+2026-04-05 19:43:36 [DEBUG   ] [DB] Keyword 'aai' → failed (0 results)
+2026-04-05 19:43:36 [WARNING ] [WORKER-2] 'aai' failed - requeued
+2026-04-05 19:43:36 [INFO    ] [DB] Stats → Companies: 0 | Keywords done: 0 | pending: 17567 | overflow: 0 | failed: 9
+2026-04-05 19:43:36 [INFO    ] [WORKER-2] Processing keyword: 'aak'
+2026-04-05 19:43:36 [INFO    ] [CAPTCHA] Requesting fresh reCAPTCHA v3 token...
+2026-04-05 19:43:36 [DEBUG   ] [CAPTCHA] Solving via proxy: 45.147.133.69:12323
+2026-04-05 19:43:36 [ERROR   ] [CAPTCHA] 2Captcha error: ERROR_WRONG_USER_KEY
+2026-04-05 19:43:36 [ERROR   ] [CAPTCHA] ❌ Failed to get token
+2026-04-05 19:43:36 [ERROR   ] [SCRAPER] No token for 'aaj' - skipping
+2026-04-05 19:43:36 [DEBUG   ] [DB] Keyword 'aaj' → failed (0 results)
+2026-04-05 19:43:36 [WARNING ] [WORKER-1] 'aaj' failed - requeued
+2026-04-05 19:43:36 [INFO    ] [DB] Stats → Companies: 0 | Keywords done: 0 | pending: 17566 | overflow: 0 | failed: 10
+2026-04-05 19:43:36 [INFO    ] [WORKER-1] Processing keyword: 'aal'
+2026-04-05 19:43:36 [INFO    ] [CAPTCHA] Requesting fresh reCAPTCHA v3 token...
+2026-04-05 19:43:36 [DEBUG   ] [CAPTCHA] Solving via proxy: 45.147.133.69:12323
+2026-04-05 19:43:37 [ERROR   ] [CAPTCHA] 2Captcha error: ERROR_WRONG_USER_KEY
+2026-04-05 19:43:37 [ERROR   ] [CAPTCHA] ❌ Failed to get token
+2026-04-05 19:43:37 [ERROR   ] [SCRAPER] No token for 'aak' - skipping
+2026-04-05 19:43:37 [DEBUG   ] [DB] Keyword 'aak' → failed (0 results)
+2026-04-05 19:43:37 [WARNING ] [WORKER-2] 'aak' failed - requeued
+2026-04-05 19:43:37 [INFO    ] [DB] Stats → Companies: 0 | Keywords done: 0 | pending: 17565 | overflow: 0 | failed: 11
+2026-04-05 19:43:37 [INFO    ] [WORKER-2] Processing keyword: 'aam'
+2026-04-05 19:43:37 [INFO    ] [CAPTCHA] Requesting fresh reCAPTCHA v3 token...
+2026-04-05 19:43:37 [DEBUG   ] [CAPTCHA] Solving via proxy: 45.147.133.69:12323
+2026-04-05 19:43:38 [ERROR   ] [CAPTCHA] 2Captcha error: ERROR_WRONG_USER_KEY
+2026-04-05 19:43:38 [ERROR   ] [CAPTCHA] ❌ Failed to get token
+2026-04-05 19:43:38 [ERROR   ] [SCRAPER] No token for 'aal' - skipping
+2026-04-05 19:43:38 [DEBUG   ] [DB] Keyword 'aal' → failed (0 results)
+2026-04-05 19:43:38 [WARNING ] [WORKER-1] 'aal' failed - requeued
+2026-04-05 19:43:38 [INFO    ] [DB] Stats → Companies: 0 | Keywords done: 0 | pending: 17564 | overflow: 0 | failed: 12
+2026-04-05 19:43:38 [INFO    ] [WORKER-1] Processing keyword: 'aan'
+2026-04-05 19:43:38 [INFO    ] [CAPTCHA] Requesting fresh reCAPTCHA v3 token...
+2026-04-05 19:43:38 [DEBUG   ] [CAPTCHA] Solving via proxy: 45.147.133.69:12323
+2026-04-05 19:43:38 [ERROR   ] [CAPTCHA] 2Captcha error: ERROR_WRONG_USER_KEY
+2026-04-05 19:43:38 [ERROR   ] [CAPTCHA] ❌ Failed to get token
+2026-04-05 19:43:38 [ERROR   ] [SCRAPER] No token for 'aam' - skipping
+2026-04-05 19:43:38 [DEBUG   ] [DB] Keyword 'aam' → failed (0 results)
+2026-04-05 19:43:38 [WARNING ] [WORKER-2] 'aam' failed - requeued
+2026-04-05 19:43:38 [INFO    ] [DB] Stats → Companies: 0 | Keywords done: 0 | pending: 17563 | overflow: 0 | failed: 13
+2026-04-05 19:43:38 [INFO    ] [WORKER-2] Processing keyword: 'aao'
+2026-04-05 19:43:38 [INFO    ] [CAPTCHA] Requesting fresh reCAPTCHA v3 token...
+2026-04-05 19:43:38 [DEBUG   ] [CAPTCHA] Solving via proxy: 45.147.133.69:12323
+2026-04-05 19:43:39 [ERROR   ] [CAPTCHA] 2Captcha error: ERROR_WRONG_USER_KEY
+2026-04-05 19:43:39 [ERROR   ] [CAPTCHA] ❌ Failed to get token
+2026-04-05 19:43:39 [ERROR   ] [SCRAPER] No token for 'aao' - skipping
+2026-04-05 19:43:39 [DEBUG   ] [DB] Keyword 'aao' → failed (0 results)
+2026-04-05 19:43:39 [WARNING ] [WORKER-2] 'aao' failed - requeued
+2026-04-05 19:43:39 [INFO    ] [DB] Stats → Companies: 0 | Keywords done: 0 | pending: 17562 | overflow: 0 | failed: 14
+2026-04-05 19:43:39 [INFO    ] [WORKER-2] Processing keyword: 'aap'
+2026-04-05 19:43:39 [INFO    ] [CAPTCHA] Requesting fresh reCAPTCHA v3 token...
+2026-04-05 19:43:39 [DEBUG   ] [CAPTCHA] Solving via proxy: 45.147.133.69:12323
+2026-04-05 19:43:40 [ERROR   ] [CAPTCHA] 2Captcha error: ERROR_WRONG_USER_KEY
+2026-04-05 19:43:40 [ERROR   ] [CAPTCHA] ❌ Failed to get token
+2026-04-05 19:43:40 [ERROR   ] [SCRAPER] No token for 'aan' - skipping
+2026-04-05 19:43:40 [DEBUG   ] [DB] Keyword 'aan' → failed (0 results)
+2026-04-05 19:43:40 [WARNING ] [WORKER-1] 'aan' failed - requeued
+2026-04-05 19:43:40 [INFO    ] [DB] Stats → Companies: 0 | Keywords done: 0 | pending: 17561 | overflow: 0 | failed: 15
+2026-04-05 19:43:40 [INFO    ] [WORKER-1] Processing keyword: 'aaq'
+2026-04-05 19:43:40 [INFO    ] [CAPTCHA] Requesting fresh reCAPTCHA v3 token...
+2026-04-05 19:43:40 [DEBUG   ] [CAPTCHA] Solving via proxy: 45.147.133.69:12323
+2026-04-05 19:43:40 [ERROR   ] [CAPTCHA] 2Captcha error: ERROR_WRONG_USER_KEY
+2026-04-05 19:43:40 [ERROR   ] [CAPTCHA] ❌ Failed to get token
+2026-04-05 19:43:40 [ERROR   ] [SCRAPER] No token for 'aap' - skipping
+2026-04-05 19:43:40 [DEBUG   ] [DB] Keyword 'aap' → failed (0 results)
+2026-04-05 19:43:40 [WARNING ] [WORKER-2] 'aap' failed - requeued
+2026-04-05 19:43:40 [INFO    ] [DB] Stats → Companies: 0 | Keywords done: 0 | pending: 17560 | overflow: 0 | failed: 16
+2026-04-05 19:43:40 [INFO    ] [WORKER-2] Processing keyword: 'aar'
+2026-04-05 19:43:40 [INFO    ] [CAPTCHA] Requesting fresh reCAPTCHA v3 token...
+2026-04-05 19:43:40 [DEBUG   ] [CAPTCHA] Solving via proxy: 45.147.133.69:12323
+2026-04-05 19:43:40 [ERROR   ] [CAPTCHA] 2Captcha error: ERROR_WRONG_USER_KEY
+2026-04-05 19:43:40 [ERROR   ] [CAPTCHA] ❌ Failed to get token
+2026-04-05 19:43:40 [ERROR   ] [SCRAPER] No token for 'aaq' - skipping
+2026-04-05 19:43:40 [DEBUG   ] [DB] Keyword 'aaq' → failed (0 results)
+2026-04-05 19:43:40 [WARNING ] [WORKER-1] 'aaq' failed - requeued
+2026-04-05 19:43:40 [INFO    ] [DB] Stats → Companies: 0 | Keywords done: 0 | pending: 17559 | overflow: 0 | failed: 17
+2026-04-05 19:43:40 [INFO    ] [WORKER-1] Processing keyword: 'aas'
+2026-04-05 19:43:40 [INFO    ] [CAPTCHA] Requesting fresh reCAPTCHA v3 token...
+2026-04-05 19:43:40 [DEBUG   ] [CAPTCHA] Solving via proxy: 45.147.133.69:12323
+2026-04-05 19:43:41 [ERROR   ] [CAPTCHA] 2Captcha error: ERROR_WRONG_USER_KEY
+2026-04-05 19:43:41 [ERROR   ] [CAPTCHA] ❌ Failed to get token
+2026-04-05 19:43:41 [ERROR   ] [SCRAPER] No token for 'aar' - skipping
+2026-04-05 19:43:41 [DEBUG   ] [DB] Keyword 'aar' → failed (0 results)
+2026-04-05 19:43:41 [WARNING ] [WORKER-2] 'aar' failed - requeued
+2026-04-05 19:43:41 [INFO    ] [DB] Stats → Companies: 0 | Keywords done: 0 | pending: 17558 | overflow: 0 | failed: 18
+2026-04-05 19:43:41 [INFO    ] [WORKER-2] Processing keyword: 'aat'
+2026-04-05 19:43:41 [INFO    ] [CAPTCHA] Requesting fresh reCAPTCHA v3 token...
+2026-04-05 19:43:41 [DEBUG   ] [CAPTCHA] Solving via proxy: 45.147.133.69:12323
+2026-04-05 19:43:41 [ERROR   ] [CAPTCHA] 2Captcha error: ERROR_WRONG_USER_KEY
+2026-04-05 19:43:41 [ERROR   ] [CAPTCHA] ❌ Failed to get token
+2026-04-05 19:43:41 [ERROR   ] [SCRAPER] No token for 'aas' - skipping
+2026-04-05 19:43:41 [DEBUG   ] [DB] Keyword 'aas' → failed (0 results)
+2026-04-05 19:43:41 [WARNING ] [WORKER-1] 'aas' failed - requeued
+2026-04-05 19:43:41 [INFO    ] [DB] Stats → Companies: 0 | Keywords done: 0 | pending: 17557 | overflow: 0 | failed: 19
+2026-04-05 19:43:41 [INFO    ] [WORKER-1] Processing keyword: 'aau'
+2026-04-05 19:43:41 [INFO    ] [CAPTCHA] Requesting fresh reCAPTCHA v3 token...
+2026-04-05 19:43:41 [DEBUG   ] [CAPTCHA] Solving via proxy: 45.147.133.69:12323
+2026-04-05 19:43:41 [ERROR   ] [CAPTCHA] 2Captcha error: ERROR_WRONG_USER_KEY
+2026-04-05 19:43:41 [ERROR   ] [CAPTCHA] ❌ Failed to get token
+2026-04-05 19:43:41 [ERROR   ] [SCRAPER] No token for 'aat' - skipping
+2026-04-05 19:43:41 [DEBUG   ] [DB] Keyword 'aat' → failed (0 results)
+2026-04-05 19:43:41 [WARNING ] [WORKER-2] 'aat' failed - requeued
+2026-04-05 19:43:41 [INFO    ] [DB] Stats → Companies: 0 | Keywords done: 0 | pending: 17556 | overflow: 0 | failed: 20
+2026-04-05 19:43:41 [INFO    ] [WORKER-2] Processing keyword: 'aav'
+2026-04-05 19:43:41 [INFO    ] [CAPTCHA] Requesting fresh reCAPTCHA v3 token...
+2026-04-05 19:43:41 [DEBUG   ] [CAPTCHA] Solving via proxy: 45.147.133.69:12323
+2026-04-05 19:43:42 [ERROR   ] [CAPTCHA] 2Captcha error: ERROR_WRONG_USER_KEY
+2026-04-05 19:43:42 [ERROR   ] [CAPTCHA] ❌ Failed to get token
+2026-04-05 19:43:42 [ERROR   ] [SCRAPER] No token for 'aau' - skipping
+2026-04-05 19:43:42 [DEBUG   ] [DB] Keyword 'aau' → failed (0 results)
+2026-04-05 19:43:42 [WARNING ] [WORKER-1] 'aau' failed - requeued
+2026-04-05 19:43:42 [INFO    ] [DB] Stats → Companies: 0 | Keywords done: 0 | pending: 17555 | overflow: 0 | failed: 21
+2026-04-05 19:43:42 [INFO    ] [WORKER-1] Processing keyword: 'aaw'
+2026-04-05 19:43:42 [INFO    ] [CAPTCHA] Requesting fresh reCAPTCHA v3 token...
+2026-04-05 19:43:42 [DEBUG   ] [CAPTCHA] Solving via proxy: 45.147.133.69:12323
+2026-04-05 19:43:42 [ERROR   ] [CAPTCHA] 2Captcha error: ERROR_WRONG_USER_KEY
+2026-04-05 19:43:42 [ERROR   ] [CAPTCHA] ❌ Failed to get token
+2026-04-05 19:43:42 [ERROR   ] [SCRAPER] No token for 'aav' - skipping
+2026-04-05 19:43:42 [DEBUG   ] [DB] Keyword 'aav' → failed (0 results)
+2026-04-05 19:43:42 [WARNING ] [WORKER-2] 'aav' failed - requeued
+2026-04-05 19:43:42 [INFO    ] [DB] Stats → Companies: 0 | Keywords done: 0 | pending: 17554 | overflow: 0 | failed: 22
+2026-04-05 19:43:42 [INFO    ] [WORKER-2] Processing keyword: 'aax'
+2026-04-05 19:43:42 [INFO    ] [CAPTCHA] Requesting fresh reCAPTCHA v3 token...
+2026-04-05 19:43:42 [DEBUG   ] [CAPTCHA] Solving via proxy: 45.147.133.69:12323
+2026-04-05 19:43:43 [ERROR   ] [CAPTCHA] 2Captcha error: ERROR_WRONG_USER_KEY
+2026-04-05 19:43:43 [ERROR   ] [CAPTCHA] ❌ Failed to get token
+2026-04-05 19:43:43 [ERROR   ] [SCRAPER] No token for 'aaw' - skipping
+2026-04-05 19:43:43 [DEBUG   ] [DB] Keyword 'aaw' → failed (0 results)
+2026-04-05 19:43:43 [WARNING ] [WORKER-1] 'aaw' failed - requeued
+2026-04-05 19:43:43 [INFO    ] [DB] Stats → Companies: 0 | Keywords done: 0 | pending: 17553 | overflow: 0 | failed: 23
+2026-04-05 19:43:43 [INFO    ] [WORKER-1] Processing keyword: 'aay'
+2026-04-05 19:43:43 [INFO    ] [CAPTCHA] Requesting fresh reCAPTCHA v3 token...
+2026-04-05 19:43:43 [DEBUG   ] [CAPTCHA] Solving via proxy: 45.147.133.69:12323
+2026-04-05 19:43:43 [ERROR   ] [CAPTCHA] 2Captcha error: ERROR_WRONG_USER_KEY
+2026-04-05 19:43:43 [ERROR   ] [CAPTCHA] ❌ Failed to get token
+2026-04-05 19:43:43 [ERROR   ] [SCRAPER] No token for 'aax' - skipping
+2026-04-05 19:43:43 [DEBUG   ] [DB] Keyword 'aax' → failed (0 results)
+2026-04-05 19:43:43 [WARNING ] [WORKER-2] 'aax' failed - requeued
+2026-04-05 19:43:43 [INFO    ] [DB] Stats → Companies: 0 | Keywords done: 0 | pending: 17552 | overflow: 0 | failed: 24
+2026-04-05 19:43:43 [INFO    ] [WORKER-2] Processing keyword: 'aaz'
+2026-04-05 19:43:43 [INFO    ] [CAPTCHA] Requesting fresh reCAPTCHA v3 token...
+2026-04-05 19:43:43 [DEBUG   ] [CAPTCHA] Solving via proxy: 45.147.133.69:12323
+2026-04-05 19:43:44 [ERROR   ] [CAPTCHA] 2Captcha error: ERROR_WRONG_USER_KEY
+2026-04-05 19:43:44 [ERROR   ] [CAPTCHA] ❌ Failed to get token
+2026-04-05 19:43:44 [ERROR   ] [SCRAPER] No token for 'aay' - skipping
+2026-04-05 19:43:44 [DEBUG   ] [DB] Keyword 'aay' → failed (0 results)
+2026-04-05 19:43:44 [WARNING ] [WORKER-1] 'aay' failed - requeued
+2026-04-05 19:43:44 [INFO    ] [DB] Stats → Companies: 0 | Keywords done: 0 | pending: 17551 | overflow: 0 | failed: 25
+2026-04-05 19:43:44 [INFO    ] [WORKER-1] Processing keyword: 'aba'
+2026-04-05 19:43:44 [INFO    ] [CAPTCHA] Requesting fresh reCAPTCHA v3 token...
+2026-04-05 19:43:44 [DEBUG   ] [CAPTCHA] Solving via proxy: 45.147.133.69:12323
+2026-04-05 19:43:44 [ERROR   ] [CAPTCHA] 2Captcha error: ERROR_WRONG_USER_KEY
+2026-04-05 19:43:44 [ERROR   ] [CAPTCHA] ❌ Failed to get token
+2026-04-05 19:43:44 [ERROR   ] [SCRAPER] No token for 'aaz' - skipping
+2026-04-05 19:43:44 [DEBUG   ] [DB] Keyword 'aaz' → failed (0 results)
+2026-04-05 19:43:44 [WARNING ] [WORKER-2] 'aaz' failed - requeued
+2026-04-05 19:43:44 [INFO    ] [DB] Stats → Companies: 0 | Keywords done: 0 | pending: 17550 | overflow: 0 | failed: 26
+2026-04-05 19:43:44 [INFO    ] [WORKER-2] Processing keyword: 'abb'
+2026-04-05 19:43:44 [INFO    ] [CAPTCHA] Requesting fresh reCAPTCHA v3 token...
+2026-04-05 19:43:44 [DEBUG   ] [CAPTCHA] Solving via proxy: 45.147.133.69:12323
+2026-04-05 19:43:45 [ERROR   ] [CAPTCHA] 2Captcha error: ERROR_WRONG_USER_KEY
+2026-04-05 19:43:45 [ERROR   ] [CAPTCHA] ❌ Failed to get token
+2026-04-05 19:43:45 [ERROR   ] [SCRAPER] No token for 'aba' - skipping
+2026-04-05 19:43:45 [DEBUG   ] [DB] Keyword 'aba' → failed (0 results)
+2026-04-05 19:43:45 [WARNING ] [WORKER-1] 'aba' failed - requeued
+2026-04-05 19:43:45 [INFO    ] [DB] Stats → Companies: 0 | Keywords done: 0 | pending: 17549 | overflow: 0 | failed: 27
+2026-04-05 19:43:45 [INFO    ] [WORKER-1] Processing keyword: 'abc'
+2026-04-05 19:43:45 [INFO    ] [CAPTCHA] Requesting fresh reCAPTCHA v3 token...
+2026-04-05 19:43:45 [DEBUG   ] [CAPTCHA] Solving via proxy: 45.147.133.69:12323
+2026-04-05 19:43:46 [ERROR   ] [CAPTCHA] 2Captcha error: ERROR_WRONG_USER_KEY
+2026-04-05 19:43:46 [ERROR   ] [CAPTCHA] ❌ Failed to get token
+2026-04-05 19:43:46 [ERROR   ] [SCRAPER] No token for 'abc' - skipping
+2026-04-05 19:43:46 [DEBUG   ] [DB] Keyword 'abc' → failed (0 results)
+2026-04-05 19:43:46 [WARNING ] [WORKER-1] 'abc' failed - requeued
+2026-04-05 19:43:46 [INFO    ] [DB] Stats → Companies: 0 | Keywords done: 0 | pending: 17548 | overflow: 0 | failed: 28
+2026-04-05 19:43:46 [INFO    ] [WORKER-1] Processing keyword: 'abd'
+2026-04-05 19:43:46 [INFO    ] [CAPTCHA] Requesting fresh reCAPTCHA v3 token...
+2026-04-05 19:43:46 [DEBUG   ] [CAPTCHA] Solving via proxy: 45.147.133.69:12323
+2026-04-05 19:43:46 [ERROR   ] [CAPTCHA] 2Captcha error: ERROR_WRONG_USER_KEY
+2026-04-05 19:43:46 [ERROR   ] [CAPTCHA] ❌ Failed to get token
+2026-04-05 19:43:46 [ERROR   ] [SCRAPER] No token for 'abb' - skipping
+2026-04-05 19:43:46 [DEBUG   ] [DB] Keyword 'abb' → failed (0 results)
+2026-04-05 19:43:46 [WARNING ] [WORKER-2] 'abb' failed - requeued
+2026-04-05 19:43:46 [INFO    ] [DB] Stats → Companies: 0 | Keywords done: 0 | pending: 17547 | overflow: 0 | failed: 29
+2026-04-05 19:43:46 [INFO    ] [WORKER-2] Processing keyword: 'abe'
+2026-04-05 19:43:46 [INFO    ] [CAPTCHA] Requesting fresh reCAPTCHA v3 token...
+2026-04-05 19:43:46 [DEBUG   ] [CAPTCHA] Solving via proxy: 45.147.133.69:12323
+2026-04-05 19:43:47 [ERROR   ] [CAPTCHA] 2Captcha error: ERROR_WRONG_USER_KEY
+2026-04-05 19:43:47 [ERROR   ] [CAPTCHA] ❌ Failed to get token
+2026-04-05 19:43:47 [ERROR   ] [SCRAPER] No token for 'abd' - skipping
+2026-04-05 19:43:47 [DEBUG   ] [DB] Keyword 'abd' → failed (0 results)
+2026-04-05 19:43:47 [WARNING ] [WORKER-1] 'abd' failed - requeued
+2026-04-05 19:43:47 [INFO    ] [DB] Stats → Companies: 0 | Keywords done: 0 | pending: 17546 | overflow: 0 | failed: 30
+2026-04-05 19:43:47 [INFO    ] [WORKER-1] Processing keyword: 'abf'
+2026-04-05 19:43:47 [INFO    ] [CAPTCHA] Requesting fresh reCAPTCHA v3 token...
+2026-04-05 19:43:47 [DEBUG   ] [CAPTCHA] Solving via proxy: 45.147.133.69:12323
+2026-04-05 19:43:47 [ERROR   ] [CAPTCHA] 2Captcha error: ERROR_WRONG_USER_KEY
+2026-04-05 19:43:47 [ERROR   ] [CAPTCHA] ❌ Failed to get token
+2026-04-05 19:43:47 [ERROR   ] [SCRAPER] No token for 'abe' - skipping
+2026-04-05 19:43:47 [DEBUG   ] [DB] Keyword 'abe' → failed (0 results)
+2026-04-05 19:43:47 [WARNING ] [WORKER-2] 'abe' failed - requeued
+2026-04-05 19:43:47 [INFO    ] [DB] Stats → Companies: 0 | Keywords done: 0 | pending: 17545 | overflow: 0 | failed: 31
+2026-04-05 19:43:47 [INFO    ] [WORKER-2] Processing keyword: 'abg'
+2026-04-05 19:43:47 [INFO    ] [CAPTCHA] Requesting fresh reCAPTCHA v3 token...
+2026-04-05 19:43:47 [DEBUG   ] [CAPTCHA] Solving via proxy: 45.147.133.69:12323
+2026-04-05 19:43:47 [ERROR   ] [CAPTCHA] 2Captcha error: ERROR_WRONG_USER_KEY
+2026-04-05 19:43:47 [ERROR   ] [CAPTCHA] ❌ Failed to get token
+2026-04-05 19:43:47 [ERROR   ] [SCRAPER] No token for 'abf' - skipping
+2026-04-05 19:43:47 [DEBUG   ] [DB] Keyword 'abf' → failed (0 results)
+2026-04-05 19:43:47 [WARNING ] [WORKER-1] 'abf' failed - requeued
+2026-04-05 19:43:47 [INFO    ] [DB] Stats → Companies: 0 | Keywords done: 0 | pending: 17544 | overflow: 0 | failed: 32
+2026-04-05 19:43:47 [INFO    ] [WORKER-1] Processing keyword: 'abh'
+2026-04-05 19:43:47 [INFO    ] [CAPTCHA] Requesting fresh reCAPTCHA v3 token...
+2026-04-05 19:43:47 [DEBUG   ] [CAPTCHA] Solving via proxy: 45.147.133.69:12323
+2026-04-05 19:43:48 [ERROR   ] [CAPTCHA] 2Captcha error: ERROR_WRONG_USER_KEY
+2026-04-05 19:43:48 [ERROR   ] [CAPTCHA] 2Captcha error: ERROR_WRONG_USER_KEY
+2026-04-05 19:43:48 [ERROR   ] [CAPTCHA] ❌ Failed to get token
+2026-04-05 19:43:48 [ERROR   ] [SCRAPER] No token for 'abg' - skipping
+2026-04-05 19:43:48 [DEBUG   ] [DB] Keyword 'abg' → failed (0 results)
+2026-04-05 19:43:48 [WARNING ] [WORKER-2] 'abg' failed - requeued
+2026-04-05 19:43:48 [INFO    ] [DB] Stats → Companies: 0 | Keywords done: 0 | pending: 17543 | overflow: 0 | failed: 33
+2026-04-05 19:43:48 [INFO    ] [WORKER-2] Processing keyword: 'abi'
+2026-04-05 19:43:48 [INFO    ] [CAPTCHA] Requesting fresh reCAPTCHA v3 token...
+2026-04-05 19:43:48 [DEBUG   ] [CAPTCHA] Solving via proxy: 45.147.133.69:12323
+2026-04-05 19:43:48 [ERROR   ] [CAPTCHA] ❌ Failed to get token
+2026-04-05 19:43:48 [ERROR   ] [SCRAPER] No token for 'abh' - skipping
+2026-04-05 19:43:48 [DEBUG   ] [DB] Keyword 'abh' → failed (0 results)
+2026-04-05 19:43:48 [WARNING ] [WORKER-1] 'abh' failed - requeued
+2026-04-05 19:43:48 [INFO    ] [DB] Stats → Companies: 0 | Keywords done: 0 | pending: 17542 | overflow: 0 | failed: 34
+2026-04-05 19:43:48 [INFO    ] [WORKER-1] Processing keyword: 'abj'
+2026-04-05 19:43:48 [INFO    ] [CAPTCHA] Requesting fresh reCAPTCHA v3 token...
+2026-04-05 19:43:48 [DEBUG   ] [CAPTCHA] Solving via proxy: 45.147.133.69:12323
+2026-04-05 19:43:49 [ERROR   ] [CAPTCHA] 2Captcha error: ERROR_WRONG_USER_KEY
+2026-04-05 19:43:49 [ERROR   ] [CAPTCHA] ❌ Failed to get token
+2026-04-05 19:43:49 [ERROR   ] [CAPTCHA] 2Captcha error: ERROR_WRONG_USER_KEY
+2026-04-05 19:43:49 [ERROR   ] [SCRAPER] No token for 'abj' - skipping
+2026-04-05 19:43:49 [DEBUG   ] [DB] Keyword 'abj' → failed (0 results)
+2026-04-05 19:43:49 [WARNING ] [WORKER-1] 'abj' failed - requeued
+2026-04-05 19:43:49 [INFO    ] [DB] Stats → Companies: 0 | Keywords done: 0 | pending: 17541 | overflow: 0 | failed: 35
+2026-04-05 19:43:49 [INFO    ] [WORKER-1] Processing keyword: 'abk'
+2026-04-05 19:43:49 [INFO    ] [CAPTCHA] Requesting fresh reCAPTCHA v3 token...
+2026-04-05 19:43:49 [ERROR   ] [CAPTCHA] ❌ Failed to get token
+2026-04-05 19:43:49 [DEBUG   ] [CAPTCHA] Solving via proxy: 45.147.133.69:12323
+2026-04-05 19:43:49 [ERROR   ] [SCRAPER] No token for 'abi' - skipping
+2026-04-05 19:43:49 [DEBUG   ] [DB] Keyword 'abi' → failed (0 results)
+2026-04-05 19:43:49 [WARNING ] [WORKER-2] 'abi' failed - requeued
+2026-04-05 19:43:49 [INFO    ] [DB] Stats → Companies: 0 | Keywords done: 0 | pending: 17540 | overflow: 0 | failed: 36
+2026-04-05 19:43:49 [INFO    ] [WORKER-2] Processing keyword: 'abl'
+2026-04-05 19:43:49 [INFO    ] [CAPTCHA] Requesting fresh reCAPTCHA v3 token...
+2026-04-05 19:43:49 [DEBUG   ] [CAPTCHA] Solving via proxy: 45.147.133.69:12323
+2026-04-05 19:43:51 [ERROR   ] [CAPTCHA] 2Captcha error: ERROR_WRONG_USER_KEY
+2026-04-05 19:43:51 [ERROR   ] [CAPTCHA] 2Captcha error: ERROR_WRONG_USER_KEY
+2026-04-05 19:43:51 [ERROR   ] [CAPTCHA] ❌ Failed to get token
+2026-04-05 19:43:51 [ERROR   ] [SCRAPER] No token for 'abk' - skipping
+2026-04-05 19:43:51 [DEBUG   ] [DB] Keyword 'abk' → failed (0 results)
+2026-04-05 19:43:51 [WARNING ] [WORKER-1] 'abk' failed - requeued
+2026-04-05 19:43:51 [INFO    ] [DB] Stats → Companies: 0 | Keywords done: 0 | pending: 17539 | overflow: 0 | failed: 37
+2026-04-05 19:43:51 [INFO    ] [WORKER-1] Processing keyword: 'abm'
+2026-04-05 19:43:51 [INFO    ] [CAPTCHA] Requesting fresh reCAPTCHA v3 token...
+2026-04-05 19:43:51 [ERROR   ] [CAPTCHA] ❌ Failed to get token
+2026-04-05 19:43:51 [ERROR   ] [SCRAPER] No token for 'abl' - skipping
+2026-04-05 19:43:51 [DEBUG   ] [CAPTCHA] Solving via proxy: 45.147.133.69:12323
+2026-04-05 19:43:51 [DEBUG   ] [DB] Keyword 'abl' → failed (0 results)
+2026-04-05 19:43:51 [WARNING ] [WORKER-2] 'abl' failed - requeued
+2026-04-05 19:43:51 [INFO    ] [DB] Stats → Companies: 0 | Keywords done: 0 | pending: 17538 | overflow: 0 | failed: 38
+2026-04-05 19:43:51 [INFO    ] [WORKER-2] Processing keyword: 'abn'
+2026-04-05 19:43:51 [INFO    ] [CAPTCHA] Requesting fresh reCAPTCHA v3 token...
+2026-04-05 19:43:51 [DEBUG   ] [CAPTCHA] Solving via proxy: 45.147.133.69:12323
+2026-04-05 19:43:52 [ERROR   ] [CAPTCHA] 2Captcha error: ERROR_WRONG_USER_KEY
+2026-04-05 19:43:52 [ERROR   ] [CAPTCHA] ❌ Failed to get token
+2026-04-05 19:43:52 [ERROR   ] [SCRAPER] No token for 'abn' - skipping
+2026-04-05 19:43:52 [DEBUG   ] [DB] Keyword 'abn' → failed (0 results)
+2026-04-05 19:43:52 [WARNING ] [WORKER-2] 'abn' failed - requeued
+2026-04-05 19:43:52 [INFO    ] [DB] Stats → Companies: 0 | Keywords done: 0 | pending: 17537 | overflow: 0 | failed: 39
+2026-04-05 19:43:52 [INFO    ] [WORKER-2] Processing keyword: 'abo'
+2026-04-05 19:43:52 [INFO    ] [CAPTCHA] Requesting fresh reCAPTCHA v3 token...
+2026-04-05 19:43:52 [DEBUG   ] [CAPTCHA] Solving via proxy: 45.147.133.69:12323

@@ -7,6 +7,9 @@ from crawlee.fingerprint_suite import (
     HeaderGeneratorOptions,
     ScreenOptions,
 )
+from scraper.logger import get_logger
+
+log = get_logger()
 
 
 # ── Single shared generator ───────────────────────────────────────────────────
@@ -153,7 +156,7 @@ def get_real_chrome_version() -> tuple[str, str]:
             if m:
                 major = m.group(1)
                 full  = m.group(1) + "." + m.group(2)
-                print(f"[INFO] Real Chrome version: {full}")
+                log.info(f"[FG] Real Chrome version: {full}")
                 return major, full
         except Exception:
             continue

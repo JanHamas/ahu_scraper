@@ -48,11 +48,11 @@ async def scrape_keyword(
     # step 2: Load page
     url = (
         f"{setting.BASE_URL}"
-        f"?name={keyword}"
+        f"?nama={keyword}"
         f"&tipe={setting.SEARCH_TYPE}"
         f"&page=1"
         f"&g-recaptcha-response={token}"
-        f"&recpatcha-version=3"
+        f"&recptcha-version=3"
     )
     
     try:
@@ -163,7 +163,7 @@ async def worker(
 
     ip, port, user, pwd = proxy
     timezone = get_timezone_from_ip(ip)
-    proxy_public_ip = get_proxy_public_ip(ip)
+    proxy_public_ip = get_proxy_public_ip(ip, port, user, pwd)
 
     context_options = {
         "no_viewport": True,
@@ -201,7 +201,8 @@ async def worker(
                 log.info(f"[WORKER-{worker_id}] Queue empty - stopping")
                 break
 
-            log.info(f"[WORKER-{worker_id}] Processing keyword: '{keyword}")
+            log.info(f"[WORKER-{worker_id}] Processing keyword: '{keyword}'")
+
 
             status, count = "failed", 0
             for attempt in range(1, setting.MAX_RETRY + 1):
@@ -238,7 +239,7 @@ async def worker(
             elif status == "failed":
                 db.mark_keyword(keyword, "failed", count)
                 # Requeue for another worker to retry later
-                await keyword_queue.put_nowait(keyword)
+                keyword_queue.put_nowait(keyword)
                 log.warning(f"[WORKER-{worker_id}] '{keyword}' failed - requeued")
             
             keyword_queue.task_done()
@@ -279,7 +280,7 @@ async def main() -> None:
         return
     
     # Build keyword queue
-    keyword_queue: asyncio.Queue = asyncio.Queue
+    keyword_queue: asyncio.Queue = asyncio.Queue()
     for kw in pending:
         await keyword_queue.put(kw)
 
