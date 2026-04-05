@@ -1,24 +1,24 @@
 from scraper.logger import get_logger
 from config import setting
 from database.db import DBHandler
-from keyword_generator import KeywordGenerator
+from .keyword_generator import KeywordGenerator
 import asyncio
-from helper import(
+from .helper import(
     load_proxies,
     build_js_script,
     get_timezone_from_ip,
     get_proxy_public_ip,
     webrtc_ip_spoof_script
 )
-from page_parser import(
+from .page_parser import(
     is_empty_result,
     get_result_count,
     extract_companies_from_page,
     get_total_pages
 
 )
-import fg_generator
-from captcha_solver import RecaptchaBypasser
+from . import fg_generator
+from .captcha_solver import RecaptchaBypasser
 from patchright.async_api import async_playwright, Browser, Page
 
 

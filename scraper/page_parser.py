@@ -1,199 +1,206 @@
-# scraper/page_parser.py
-import asyncio
-import unicodedata
 import re
+import unicodedata
 from patchright.async_api import Page
+from scraper.logger import get_logger
+
+log = get_logger()
 
 
-# ── Main extractor ─────────────────────────────────────────────────────────────
-
-async def get_result_count(page: Page) -> int:
-    """Extract total result count from h3"""
-    try:
-        h3 = page.locator("h3").first
-        text = await h3.inner_text(timeout=5000)
-        # "Hasil pencarian 1 - 20 dari 62 nama..."
-        match = re.search(r'dari\s+([\d\.]+)', text)
-        if match:
-            return int(match.group(1).replace(".", "").replace(",", ""))
-    except Exception:
-        pass
-    return 0
-
-
-async def get_total_pages(page: Page, per_page: int = 20) -> int:
-    total = await get_result_count(page)
-    if total == 0:
-        return 0
-    return (total + per_page - 1) // per_page
-
-
+# Page state checks
 async def is_empty_result(page: Page) -> bool:
-    """Check if page shows no results"""
+    """
+    Returns True if the page shows no results.
+    Covers: empty search, token expired, geo-blocked, keyword too short.
+    """
     try:
         content = await page.content()
         return (
             "Pencarian Tidak Ditemukan" in content or
-            "Keywords must be at least 3" in content
+            "Keywords must be at least 3" in content or
+            "tidak ditemukan" in content.lower()
         )
     except Exception:
         return True
 
 
+async def get_result_count(page: Page) -> int:
+    """
+    Extract total result count from h3 heading.
+    Example h3 text: 'Hasil pencarian 1 - 20 dari 62 nama cari profil...'
+    """
+    try:
+        h3 = page.locator("h3").first
+        await h3.wait_for(timeout=8_000)
+        text = await h3.inner_text()
+        # Match 'dari 62' or 'dari 220.109'
+        match = re.search(r'dari\s+([\d\.]+)', text)
+        if match:
+            raw = match.group(1).replace(".", "").replace(",", "")
+            return int(raw)
+    except Exception as e:
+        log.debug(f"[PARSER] get_result_count error: {e}")
+    return 0
+
+async def get_total_pages(page: Page, per_page: int = 20) -> int:
+    """Calculate total pages from result count"""
+    total = await get_result_count(page)
+    if total == 0:
+        return 0
+    return (total + per_page - 1) // per_page
+
+# ── Company Extraction ─────────────────────────────────────────────────────────
+
 async def extract_companies_from_page(page: Page) -> list[dict]:
     """
-    Extract all company cards directly using Playwright locators.
-    Based on exact HTML: div.cl0, div.cl1 containing company data.
+    Extract all company cards from current page using Playwright locators.
+
+    HTML structure (confirmed from live page source):
+    <div class="cl0">
+      <div>
+        <strong data-id="273002" class="judul beli_profile_lengkap">
+          PT <span class="match">Aaa</span> Cipta Persada
+        </strong>
+        <div class="telp">02129043860</div>
+        <div class="alamat">GD. OFFICE 8 LT. 18-A...</div>
+        <div class="kabpro">Jakarta Selatan, DKI Jakarta</div>
+      </div>
+    </div>
     """
     companies = []
 
-    # Wait for results to be present
     try:
-        await page.wait_for_selector("div[class^='cl']", timeout=8000)
+        # Wait for at least one card to appear
+        await page.wait_for_selector("div[class^='cl'] > div", timeout=8_000)
     except Exception:
-        print("  [PARSER] No company cards found on page")
+        log.warning("[PARSER] No company cards found — page may be empty or timed out")
         return companies
 
-    # Select all company card containers (cl0, cl1, cl2...)
+    # All company card wrappers (cl0, cl1, cl2...)
     cards = page.locator("div[class^='cl'] > div")
     count = await cards.count()
+    log.debug(f"[PARSER] Found {count} cards on page")
 
     for i in range(count):
-        card = cards.nth(i)
         try:
-            company = await extract_single_card(card)
+            company = await _extract_card(cards.nth(i))
             if company:
                 companies.append(company)
         except Exception as e:
-            print(f"  [PARSER] Card {i} error: {e}")
-            continue
+            log.debug(f"[PARSER] Card {i} extract error: {e}")
 
     return companies
 
 
-async def extract_single_card(card) -> dict | None:
-    """Extract data from one company card element"""
+async def _extract_card(card) -> dict | None:
+    """Extract all fields from a single company card element"""
     try:
-        # ── Company name + data-id ─────────────────────────────────────────
+        # ── Name + data-id (NBRS ID) ──────────────────────────────────────────
         name_el = card.locator("strong.judul").first
         if not await name_el.count():
             return None
 
-        data_id = await name_el.get_attribute("data-id") or ""
-        name    = await name_el.inner_text()
-        name    = normalize_text(name)
+        data_id = (await name_el.get_attribute("data-id") or "").strip()
+        # inner_text() gives clean text without HTML tags
+        name    = (await name_el.inner_text()).strip()
+        # Collapse any extra whitespace left by <span class="match"> tags
+        name    = re.sub(r'\s+', ' ', name).strip()
 
         if not data_id or not name:
             return None
 
-        # ── Phone ──────────────────────────────────────────────────────────
+        # ── Phone ──────────────────────────────────────────────────────────────
         phone = ""
         phone_el = card.locator("div.telp")
         if await phone_el.count():
-            phone = await phone_el.first.inner_text()
-            phone = normalize_phone(phone)
+            phone = (await phone_el.first.inner_text()).strip()
 
-        # ── Address ────────────────────────────────────────────────────────
+        # ── Address ────────────────────────────────────────────────────────────
         address = ""
         address_el = card.locator("div.alamat")
         if await address_el.count():
-            address = await address_el.first.inner_text()
-            address = normalize_text(address)
+            address = (await address_el.first.inner_text()).strip()
 
-        # ── City + Province ────────────────────────────────────────────────
+        # ── City + Province ────────────────────────────────────────────────────
         city, province = "", ""
         kabpro_el = card.locator("div.kabpro")
         if await kabpro_el.count():
-            kabpro = await kabpro_el.first.inner_text()
+            kabpro   = (await kabpro_el.first.inner_text()).strip()
+            # Format: "Jakarta Selatan, DKI Jakarta"
             city, _, province = kabpro.partition(",")
-            city     = normalize_text(city)
-            province = normalize_text(province)
+            city     = city.strip()
+            province = province.strip()
 
         return {
-            "data_id":      data_id.strip(),
-            "name":         name,
-            "phone":        phone,
-            "address":      address,
-            "city":         city,
-            "province":     province,
+            "data_id":      data_id,
+            "name":         normalize_text(name),
+            "phone":        normalize_phone(phone),
+            "address":      normalize_text(address),
+            "city":         normalize_text(city),
+            "province":     normalize_text(province),
             "company_type": extract_company_type(name),
         }
 
     except Exception as e:
-        print(f"  [PARSER] Single card error: {e}")
+        log.debug(f"[PARSER] _extract_card error: {e}")
         return None
-
-
-# ── Pagination ─────────────────────────────────────────────────────────────────
-
-async def get_pagination_links(page: Page) -> list[str]:
-    """
-    Get all pagination hrefs directly from anchor tags.
-    These already have the captcha token embedded by the site's JS.
-    """
-    links = []
-    try:
-        await page.wait_for_selector("a.search-pagination", timeout=5000)
-        anchors = page.locator("a.search-pagination")
-        count   = await anchors.count()
-
-        for i in range(count):
-            href = await anchors.nth(i).get_attribute("href")
-            if href:
-                # Convert relative to absolute
-                if href.startswith("?"):
-                    href = f"https://ahu.go.id/pencarian/profil-pt/{href}"
-                links.append(href)
-    except Exception:
-        pass
-    return links
-
-
-async def get_active_page_number(page: Page) -> int:
-    """Get currently active page number from pagination"""
-    try:
-        active = page.locator("a.search-pagination.active")
-        if await active.count():
-            text = await active.first.inner_text()
-            return int(text.strip())
-    except Exception:
-        pass
-    return 1
 
 
 # ── Normalization ──────────────────────────────────────────────────────────────
 
 def normalize_text(text: str) -> str:
+    """
+    Full text normalization:
+    - Unicode NFKC (handles Indonesian special chars like é, ñ, etc.)
+    - Strip + collapse whitespace
+    - Remove control characters
+    """
     if not text:
         return ""
     text = unicodedata.normalize("NFKC", text)
     text = text.strip()
-    text = re.sub(r'\s+', ' ', text)        # collapse whitespace
-    text = re.sub(r'[^\w\s\-\.,&()]', '', text)  # remove junk punctuation
+    text = re.sub(r'[\x00-\x1f\x7f]', '', text)   # remove control chars
+    text = re.sub(r'\s+', ' ', text)                # collapse whitespace
     return text
 
 
 def normalize_phone(phone: str) -> str:
+    """
+    Normalize Indonesian phone numbers:
+    - Strip non-digits
+    - Convert 62xxx → 0xxx (international → local format)
+    """
+    if not phone:
+        return ""
     digits = re.sub(r'\D', '', phone)
-    if digits.startswith("62"):
+    if digits.startswith("62") and len(digits) > 5:
         digits = "0" + digits[2:]
     return digits
 
 
 def extract_company_type(name: str) -> str:
+    """
+    Identify Indonesian company type from name prefix.
+    Ordered by specificity (PT TBK before PT, etc.)
+    """
     name_up = name.upper().strip()
-    types = [w
-        ("PT TBK",    "Public Company (Tbk)"),
-        ("PT PERSERO","State-Owned Company"),
-        ("PT",        "Perseroan Terbatas"),
-        ("CV",        "Commanditaire Vennootschap"),
-        ("UD",        "Usaha Dagang"),
-        ("PD",        "Perusahaan Daerah"),
-        ("FIRMA",     "Firma"),
-        ("KOPERASI",  "Koperasi"),
-        ("YAYASAN",   "Yayasan"),
+
+    type_map = [
+        ("PT TBK",      "Public Company (Tbk)"),
+        ("PT PERSERO",  "State-Owned Company (Persero)"),
+        ("PT",          "Perseroan Terbatas"),
+        ("CV",          "Commanditaire Vennootschap"),
+        ("UD",          "Usaha Dagang"),
+        ("PD",          "Perusahaan Daerah"),
+        ("FIRMA",       "Firma"),
+        ("NV",          "Naamloze Vennootschap"),
+        ("KOPERASI",    "Koperasi"),
+        ("YAYASAN",     "Yayasan"),
+        ("PERKUMPULAN", "Perkumpulan"),
     ]
-    for prefix, label in types:
+
+    for prefix, label in type_map:
+        # Match prefix followed by space, or exact match
         if name_up.startswith(prefix + " ") or name_up == prefix:
             return label
+
     return "Unknown"

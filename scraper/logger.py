@@ -15,7 +15,8 @@ def get_logger(name: str = "scraper") -> logging.Logger:
     
     logger.setLevel(logging.DEBUG)
 
-    os.makedirs(LOG_PATH, exist_ok=True)
+    os.makedirs(os.path.dirname(LOG_PATH), exist_ok=True)
+
 
     fmt = logging.Formatter(
         "%(asctime)s [%(levelname)-8s %(message)s]",

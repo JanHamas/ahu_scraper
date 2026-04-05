@@ -6,7 +6,9 @@ def load_proxies(file_path: str):
     with open(file_path, "r") as f:
         lines = f.readlines()
         for line in lines:
-            proxies.append(line.split(":"))
+            parts = line.split(":")
+            if len(parts) == 4:
+              proxies.append(parts)
     print(f"Total {len(proxies)} proxy loaded.")
     return proxies
             
