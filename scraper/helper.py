@@ -2,7 +2,9 @@ import requests, json
 import random
 from config import setting
 from pathlib import Path
+from scraper.logger import get_logger
 
+log = get_logger()
 
 def load_proxies(file_path: str):
     proxies = []
@@ -27,7 +29,7 @@ def load_proxies(file_path: str):
     with open(setting.STATE_FILE, "w") as f:
         json.dump({"proxies_start_number": new_start}, f)
 
-    print(f"Total {len(proxies)} proxy loaded.")
+    log.info(f"[HP]Total {len(proxies)} proxy loaded.")
     return proxies
          
 def get_timezone_from_ip(ip: str | None = None) -> str:
@@ -36,10 +38,10 @@ def get_timezone_from_ip(ip: str | None = None) -> str:
         data = requests.get(url, timeout=5).json()
         if data.get("status") == "success":
             tz = data.get("timezone", "UTC")
-            print(f"[INFO] Timezone: {tz}")
+            log.info(f"[HP] Timezone: {tz}")
             return tz
     except Exception as e:
-        print(f"[WARN] Could not fetch timezone: {e}")
+        log.warning(f"[HP] Could not fetch timezone: {e}")
     return "UTC"
 
 def get_proxy_public_ip(ip: str, port: str, user: str, pwd: str) -> str:
@@ -50,10 +52,10 @@ def get_proxy_public_ip(ip: str, port: str, user: str, pwd: str) -> str:
             timeout=8,
         )
         addr = r.text.strip()
-        print(f"[INFO] Proxy public IP: {addr}")
+        log.info(f"[HP] Proxy public IP: {addr}")
         return addr
     except Exception as e:
-        print(f"[WARN] Could not get proxy public IP: {e}")
+        log.warning(f"[HP] Could not get proxy public IP: {e}")
     return ip
 
 # ── JS injection script ───────────────────────────────────────────────────────

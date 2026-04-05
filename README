@@ -4,6 +4,9 @@ Pretty straightforward layout — main.py is the entry point, everything else is
 
 Fully resumable. To start fresh, just delete the `.db` file.
 
+*Note:* Credentials and proxies are already configured for testing. You can run the scraper straight away without any additional setup.
+
+
 ahu_scraper/
 ├── main.py
 ├── .env
@@ -36,7 +39,7 @@ The 160 threshold exists because reCAPTCHA tokens expire in ~2 minutes, and each
 
 ### Why not just scrape all pages of a big keyword directly?
 
-You might wonder — why not scrape `"ind"` directly even if it has thousands of results, and just refresh the token when it expires?
+why not scrape `"ind"` directly even if it has thousands of results, and just refresh the token when it expires?
 
 The problem is cost. Each token refresh = one 2captcha API call. A keyword with 10,000 results has ~500 pages — that's potentially *500 token refreshes for just one keyword*. Across thousands of keywords, the bill explodes.
 
@@ -58,13 +61,11 @@ Fully normalized SQLite schema. The `data_id` from AHU's HTML is used as the nat
 
 *`.env`*
 
-2CAPTCHA_API_KEY=your_key_here
+2CAPTCHA_API_KEY=key_here
 
 *`proxies.txt`* — one proxy per line. More proxies = faster scraping + lower detection risk. Indonesian datacenter IPs recommended:
 1.2.3.4:8080:user:password
 5.6.7.8:8080:user:password
-
-*Note:* Credentials and proxies are already configured for testing. You can run the scraper straight away without any additional setup.
 
 ## Setup
 
