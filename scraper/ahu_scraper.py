@@ -149,7 +149,6 @@ async def worker(
         db: DBHandler,
         keyword_queue: asyncio.Queue,
         worker_id: int
-        
 ):
     """
     One worker = one browser context = one proxy if multiples available otherwise resue same.
@@ -253,6 +252,7 @@ async def worker(
 
 # Main Entry
 async def main() -> None:
+    log.info("\n \n \n")
     log.info("=" * 60)
     log.info("  AHU Company Scraper - Starting")
     log.info("=" * 60)

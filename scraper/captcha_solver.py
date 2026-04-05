@@ -1,4 +1,3 @@
-# scraper/captcha_bypasser.py
 import asyncio
 import os
 from twocaptcha import TwoCaptcha
@@ -9,7 +8,7 @@ load_dotenv()
 
 log = get_logger()
 
-# Confirmed from AHU page source (grecaptcha.execute call)
+
 SITE_KEY = "6LdvmHwsAAAAAEbQuvif9ubf1cfoHLkTXb859OTp"
 PAGE_URL  = "https://ahu.go.id/pencarian/profil-pt"
 ACTION    = "cari"
@@ -118,8 +117,7 @@ class RecaptchaBypasser:
         """
         solver = TwoCaptcha(self.api_key)
 
-        # Build proxy dict matching 2captcha SDK format
-        # Example from 2captcha docs: {'type': 'HTTPS', 'uri': 'user:pwd@ip:port'}
+        # Build proxy dict
         proxy_dict = self._build_proxy_dict()
 
         try:
@@ -127,7 +125,7 @@ class RecaptchaBypasser:
                 sitekey = SITE_KEY,
                 url     = PAGE_URL,
                 action  = ACTION,
-                version = "V3",    # capital V — matches 2captcha example exactly
+                version = "V3",  
                 score   = 0.7,
             )
 

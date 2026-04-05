@@ -1,19 +1,81 @@
+# Project Structure
+
+Pretty straightforward layout — main.py is the entry point, everything else is split into scraper logic, database, and config folders.
+
+Fully resumable. To start fresh, just delete the `.db` file.
+
 ahu_scraper/
 ├── main.py
 ├── .env
 ├── config/
-│   ├── setting.py
+│   ├── setting.py           # Contains BASE_URL, TIMEOUT, RETRY etc
 │   └── proxies.txt          # ip:port:user:password (one per line)
 ├── scraper/
 │   ├── __init__.py
-│   ├── ahu_scraper.py       # main orchestrator
-│   ├── keyword_generator.py # adaptive 3→4→5 letter keywords
+│   ├── ahu_scraper.py       # Main orchestrator
+│   ├── keyword_generator.py # Adaptive 3→4→5 letter keywords
 │   ├── captcha_bypasser.py  # reCAPTCHA v3 via 2captcha
+│   ├── fg_generator.py      # Browser fingerprint generator
 │   ├── page_parser.py       # Playwright element extraction
-│   └── helper.py            # proxy, fingerprint, timezone utils
-│   └── fg_generator.py      # browser fingerprint generator
+│   └── helper.py            # Proxy, fingerprint, timezone utils
 ├── database/
 │   ├── __init__.py
 │   └── db.py                # SQLite normalized schema + handler
 └── logs/
     └── scraper.log
+
+# How Keyword Generation Works
+
+AHU's search does prefix/contains matching and requires at least 3 characters. So I start by generating all 17,576 three-letter combos (aaa → zzz), then apply a simple rule per keyword:
+
+- *0–1 results* → skip it
+- *2–160 results* → scrape it
+- *160+ results* → expand to 4-letter variants and requeue
+
+The 160 threshold exists because reCAPTCHA tokens expire in ~2 minutes, and each page takes ~12 seconds — so roughly 8 pages per token is the safe limit.
+
+### Why not just scrape all pages of a big keyword directly?
+
+You might wonder — why not scrape `"ind"` directly even if it has thousands of results, and just refresh the token when it expires?
+
+The problem is cost. Each token refresh = one 2captcha API call. A keyword with 10,000 results has ~500 pages — that's potentially *500 token refreshes for just one keyword*. Across thousands of keywords, the bill explodes.
+
+Instead, by expanding `"ind"` into `inda`, `indb`, `indc`... each chunk stays under 160 results, so *one token covers the entire chunk*. All the same data gets scraped, just through smaller targeted keywords — and total token usage drops from thousands to maybe 50–100.
+
+Same data. Much cheaper.
+
+## Database Design
+
+Fully normalized SQLite schema. The `data_id` from AHU's HTML is used as the natural unique key, so re-scraping never creates duplicates. Keywords table makes the whole thing resumable — crash and restart, it picks up where it left off.
+
+## Handling Rate Limits & Geo-Blocking
+
+- *Proxies* — rotating datacenter Indonesian IPs only, loaded from `proxies.txt`
+- *reCAPTCHA* — solved via 2captcha API, same proxy passed to the solver so IPs match
+- *Fingerprinting* — canvas, audio, WebGL all randomized per session
+
+## Configuration
+
+*`.env`*
+
+2CAPTCHA_API_KEY=your_key_here
+
+*`proxies.txt`* — one proxy per line. More proxies = faster scraping + lower detection risk. Indonesian datacenter IPs recommended:
+1.2.3.4:8080:user:password
+5.6.7.8:8080:user:password
+
+*Note:* Credentials and proxies are already configured for testing. You can run the scraper straight away without any additional setup.
+
+## Setup
+
+Requires Python 3.11. Create a virtual environment:
+python3.11 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+
+## Install Chromium Browser
+python -m patchright install chromium --with-deps
+
+## Running It
+source .venv/bin/activate
+python main.py

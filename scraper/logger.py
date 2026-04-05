@@ -1,4 +1,3 @@
-# scraper/logger.py
 import logging
 import os
 from config.setting import LOG_PATH

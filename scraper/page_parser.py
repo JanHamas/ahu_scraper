@@ -158,7 +158,7 @@ def normalize_text(text: str) -> str:
         return ""
     text = unicodedata.normalize("NFKC", text)
     text = text.strip()
-    text = re.sub(r'[\x00-\x1f\x7f]', '', text)   # remove control chars
+    text = re.sub(r'[\x00-\x1f\x7f]', '', text)     # remove control chars
     text = re.sub(r'\s+', ' ', text)                # collapse whitespace
     return text
 
