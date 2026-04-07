@@ -2,7 +2,7 @@ from patchright.async_api import async_playwright, Page
 from aioconsole import ainput
 
 
-BASE_URL         = "https://ahu.go.id/pencarian/profil-pt"
+BASE_URL = "https://ahu.go.id/pencarian/profil-pt"
 
 
 async def main():

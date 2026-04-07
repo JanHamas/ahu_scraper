@@ -2,7 +2,7 @@
 
 Pretty straightforward layout — main.py is the entry point, everything else is split into scraper logic, database, and config folders.
 
-I have collected 100K plus companies if you start scraper again only new will be save.
+I have collected 10k companies if you start scraper again only new will be save.
 Fully resumable. To start fresh, just delete the `.db` file.
 
 *Note:* Credentials and proxies are already configured for testing. You can run the scraper straight away without any additional setup.

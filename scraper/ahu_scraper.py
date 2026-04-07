@@ -25,14 +25,23 @@ def _build_url(keyword: str, page_num: int, token: str) -> str:
     Build AHU search URL — exact parameter order from live browser:
     ?nama=X&tipe=perseroan&page=N&g-recaptcha-response=TOKEN&recaptcha-version=3
     """
+    if page_num == 1:
+        return (
+            f"{setting.BASE_URL}"
+            f"?nama={keyword}"
+            f"&tipe={setting.SEARCH_TYPE}"
+            f"&g-recaptcha-response={token}"
+            f"&recaptcha-version=3"
+        )
+    
     return (
-        f"{setting.BASE_URL}"
-        f"?nama={keyword}"
-        f"&tipe={setting.SEARCH_TYPE}"
-        f"&page={page_num}"
-        f"&g-recaptcha-response={token}"
-        f"&recaptcha-version=3"
-    )
+            f"{setting.BASE_URL}"
+            f"?nama={keyword}"
+            f"&tipe={setting.SEARCH_TYPE}"
+            f"&page={page_num}"
+            f"&g-recaptcha-response={token}"
+            f"&recaptcha-version=3"
+        )
 
 async def scrape_keyword(
     page: Page,
@@ -89,7 +98,7 @@ async def scrape_keyword(
     total_pages = await get_total_pages(page)
     log.debug(f"[SCRAPER] '{keyword}' → {total_pages} pages total")
 
-    for page_num in range(2, total_pages + 1):
+    for page_num in range(1, total_pages + 1):
 
         if db.get_total_companies() >= setting.MAX_COMPANIES:
             log.info(f"[SCRAPER] Target {setting.MAX_COMPANIES} reached — stopping")
@@ -162,7 +171,6 @@ async def worker(
 
             log.info(f"[WORKER-{worker_id}] Processing keyword: '{keyword}'")
 
-
             status, count = "failed", 0
             for attempt in range(1, setting.MAX_RETRY + 1):
                 try:
@@ -194,7 +202,6 @@ async def worker(
     finally:
         await context.close()
         log.info(f"[WORKER-{worker_id}] Context closed")
-
 
 
 # Main Entry

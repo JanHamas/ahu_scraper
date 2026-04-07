@@ -27,3 +27,155 @@
 2026-04-07 20:46:49 [INFO    ] [SCRAPER] 'aaa' page 2/4 → 20 extracted, 20 new | DB total: 40
 2026-04-07 20:47:43 [WARNING ] [PARSER] No company cards found — page may be empty or timed out
 2026-04-07 20:47:43 [INFO    ] [SCRAPER] 'aaa' page 3/4 → 0 extracted, 0 new | DB total: 40
+2026-04-07 22:31:01 [INFO    ] 
+ 
+ 
+
+2026-04-07 22:31:01 [INFO    ] ============================================================
+2026-04-07 22:31:01 [INFO    ]   AHU Company Scraper - Starting
+2026-04-07 22:31:01 [INFO    ] ============================================================
+2026-04-07 22:31:01 [INFO    ] [DB] Connected to /home/hamas/Desktop/ahu_scraper/database/ahu_companies.db
+2026-04-07 22:31:02 [INFO    ] [MAIN] 17576 keywords pending !40 companies in DB
+2026-04-07 22:31:02 [INFO    ] [HP]Total 1 proxy loaded.
+2026-04-07 22:31:03 [INFO    ] [MAIN] Browser launched | workers: 1
+2026-04-07 22:31:03 [INFO    ] [WORKER-1] Starting
+2026-04-07 22:31:03 [INFO    ] [FG] Real Chrome version: 146.0.7680.177
+2026-04-07 22:31:03 [INFO    ] [HP] Timezone: Asia/Jakarta
+2026-04-07 22:31:06 [INFO    ] [HP] Proxy public IP: 45.147.133.69
+2026-04-07 22:31:06 [INFO    ] [WORKER-1] Processing keyword: 'aaa'
+2026-04-07 22:31:06 [INFO    ] [SCRAPER] 'aaa' — getting token...
+2026-04-07 22:31:06 [INFO    ] [CAPTCHA] Requesting fresh reCAPTCHA v3 token...
+2026-04-07 22:31:06 [DEBUG   ] [CAPTCHA] Solving via proxy: 45.147.133.69:12323
+2026-04-07 22:31:57 [INFO    ] [CAPTCHA] ✅ Token received and cached
+2026-04-07 22:32:33 [DEBUG   ] [CAPTCHA] Token injected (age: 36s)
+2026-04-07 22:32:33 [INFO    ] [SCRAPER] 'aaa' → 62 results
+2026-04-07 22:32:34 [DEBUG   ] [PARSER] Found 20 cards on page
+2026-04-07 22:32:47 [INFO    ] [SCRAPER] 'aaa' page 1 → 20 extracted, 20 new
+2026-04-07 22:32:47 [DEBUG   ] [SCRAPER] 'aaa' → 4 pages total
+2026-04-07 22:33:18 [DEBUG   ] [PARSER] Found 20 cards on page
+2026-04-07 22:33:29 [INFO    ] [SCRAPER] 'aaa' page 2/4 → 20 extracted, 20 new | DB total: 40
+2026-04-07 22:33:45 [DEBUG   ] [PARSER] Found 1 cards on page
+2026-04-07 22:33:45 [INFO    ] [SCRAPER] 'aaa' page 3/4 → 1 extracted, 1 new | DB total: 41
+2026-04-07 22:34:04 [WARNING ] [CAPTCHA] Token expired — invalidating cache
+2026-04-07 22:34:04 [WARNING ] [CAPTCHA] Token manually invalidated
+2026-04-07 22:34:04 [WARNING ] [SCRAPER] 'aaa' token expired at page 4
+2026-04-07 22:34:05 [DEBUG   ] [DB] Keyword 'aaa' → done (62 results)
+2026-04-07 22:34:05 [INFO    ] [DB] Stats → Companies: 41 | Keywords done: 1 | pending: 17575 | overflow: 0 | failed: 0
+2026-04-07 22:34:05 [INFO    ] [WORKER-1] Processing keyword: 'aab'
+2026-04-07 22:34:05 [INFO    ] [SCRAPER] 'aab' — getting token...
+2026-04-07 22:34:05 [INFO    ] [CAPTCHA] Requesting fresh reCAPTCHA v3 token...
+2026-04-07 22:34:05 [DEBUG   ] [CAPTCHA] Solving via proxy: 45.147.133.69:12323
+2026-04-07 22:34:29 [INFO    ] [CAPTCHA] ✅ Token received and cached
+2026-04-07 22:34:38 [DEBUG   ] [CAPTCHA] Token injected (age: 9s)
+2026-04-07 22:34:38 [INFO    ] [SCRAPER] 'aab' → 14 results
+2026-04-07 22:34:38 [DEBUG   ] [PARSER] Found 1 cards on page
+2026-04-07 22:34:38 [INFO    ] [SCRAPER] 'aab' page 1 → 1 extracted, 1 new
+2026-04-07 22:34:38 [DEBUG   ] [SCRAPER] 'aab' → 1 pages total
+2026-04-07 22:34:38 [DEBUG   ] [DB] Keyword 'aab' → done (14 results)
+2026-04-07 22:34:38 [INFO    ] [DB] Stats → Companies: 42 | Keywords done: 2 | pending: 17574 | overflow: 0 | failed: 0
+2026-04-07 22:34:38 [INFO    ] [WORKER-1] Processing keyword: 'aac'
+2026-04-07 22:34:38 [INFO    ] [SCRAPER] 'aac' — getting token...
+2026-04-07 22:34:38 [INFO    ] [CAPTCHA] ♻️  Reusing token (age: 9s / 110s)
+2026-04-07 22:34:49 [DEBUG   ] [CAPTCHA] Token injected (age: 20s)
+2026-04-07 22:34:49 [INFO    ] [SCRAPER] 'aac' → 5 results
+2026-04-07 22:34:49 [DEBUG   ] [PARSER] Found 2 cards on page
+2026-04-07 22:34:50 [INFO    ] [SCRAPER] 'aac' page 1 → 2 extracted, 2 new
+2026-04-07 22:34:50 [DEBUG   ] [SCRAPER] 'aac' → 1 pages total
+2026-04-07 22:34:50 [DEBUG   ] [DB] Keyword 'aac' → done (5 results)
+2026-04-07 22:34:50 [INFO    ] [DB] Stats → Companies: 44 | Keywords done: 3 | pending: 17573 | overflow: 0 | failed: 0
+2026-04-07 22:34:50 [INFO    ] [WORKER-1] Processing keyword: 'aad'
+2026-04-07 22:34:50 [INFO    ] [SCRAPER] 'aad' — getting token...
+2026-04-07 22:34:50 [INFO    ] [CAPTCHA] ♻️  Reusing token (age: 21s / 110s)
+2026-04-07 22:35:02 [DEBUG   ] [CAPTCHA] Token injected (age: 32s)
+2026-04-07 22:35:02 [INFO    ] [SCRAPER] 'aad' → empty
+2026-04-07 22:35:02 [DEBUG   ] [HELPER] Screenshot saved: /home/hamas/Desktop/ahu_scraper/db_screenshots/empty_result_2026-04-07_10-35-02PM.png
+2026-04-07 22:35:02 [DEBUG   ] [DB] Keyword 'aad' → empty (0 results)
+2026-04-07 22:35:02 [INFO    ] [DB] Stats → Companies: 44 | Keywords done: 3 | pending: 17572 | overflow: 0 | failed: 0
+2026-04-07 22:35:02 [INFO    ] [WORKER-1] Processing keyword: 'aae'
+2026-04-07 22:35:02 [INFO    ] [SCRAPER] 'aae' — getting token...
+2026-04-07 22:35:02 [INFO    ] [CAPTCHA] ♻️  Reusing token (age: 33s / 110s)
+2026-04-07 22:35:19 [DEBUG   ] [CAPTCHA] Token injected (age: 49s)
+2026-04-07 22:35:19 [INFO    ] [SCRAPER] 'aae' → 2 results
+2026-04-07 22:35:19 [DEBUG   ] [PARSER] Found 2 cards on page
+2026-04-07 22:35:19 [INFO    ] [SCRAPER] 'aae' page 1 → 2 extracted, 2 new
+2026-04-07 22:35:19 [DEBUG   ] [SCRAPER] 'aae' → 1 pages total
+2026-04-07 22:35:19 [DEBUG   ] [DB] Keyword 'aae' → done (2 results)
+2026-04-07 22:35:19 [INFO    ] [DB] Stats → Companies: 46 | Keywords done: 4 | pending: 17571 | overflow: 0 | failed: 0
+2026-04-07 22:35:19 [INFO    ] [WORKER-1] Processing keyword: 'aaf'
+2026-04-07 22:35:19 [INFO    ] [SCRAPER] 'aaf' — getting token...
+2026-04-07 22:35:19 [INFO    ] [CAPTCHA] ♻️  Reusing token (age: 50s / 110s)
+2026-04-07 22:47:21 [INFO    ] 
+ 
+ 
+
+2026-04-07 22:47:21 [INFO    ] ============================================================
+2026-04-07 22:47:21 [INFO    ]   AHU Company Scraper - Starting
+2026-04-07 22:47:21 [INFO    ] ============================================================
+2026-04-07 22:47:21 [INFO    ] [DB] Connected to /home/hamas/Desktop/ahu_scraper/database/ahu_companies.db
+2026-04-07 22:47:21 [INFO    ] [MAIN] 17571 keywords pending !46 companies in DB
+2026-04-07 22:47:21 [INFO    ] [HP]Total 1 proxy loaded.
+2026-04-07 22:47:22 [INFO    ] [MAIN] Browser launched | workers: 1
+2026-04-07 22:47:22 [INFO    ] [WORKER-1] Starting
+2026-04-07 22:47:23 [INFO    ] [FG] Real Chrome version: 146.0.7680.177
+2026-04-07 22:47:23 [INFO    ] [HP] Timezone: Asia/Jakarta
+2026-04-07 22:47:25 [INFO    ] [HP] Proxy public IP: 45.147.133.69
+2026-04-07 22:47:26 [INFO    ] [WORKER-1] Processing keyword: 'aaf'
+2026-04-07 22:47:26 [INFO    ] [SCRAPER] 'aaf' — getting token...
+2026-04-07 22:47:26 [INFO    ] [CAPTCHA] Requesting fresh reCAPTCHA v3 token...
+2026-04-07 22:47:26 [DEBUG   ] [CAPTCHA] Solving via proxy: 45.147.133.69:12323
+2026-04-07 22:47:50 [INFO    ] [CAPTCHA] ✅ Token received and cached
+2026-04-07 22:48:10 [DEBUG   ] [CAPTCHA] Token injected (age: 19s)
+2026-04-07 22:48:11 [INFO    ] [SCRAPER] 'aaf' → 16 results
+2026-04-07 22:48:11 [DEBUG   ] [PARSER] Found 4 cards on page
+2026-04-07 22:48:12 [INFO    ] [SCRAPER] 'aaf' page 1 → 4 extracted, 4 new
+2026-04-07 22:48:12 [DEBUG   ] [SCRAPER] 'aaf' → 1 pages total
+2026-04-07 22:48:21 [DEBUG   ] [PARSER] Found 4 cards on page
+2026-04-07 22:48:22 [ERROR   ] [DB] upsert_company error for data_id=1138492: FOREIGN KEY constraint failed
+2026-04-07 22:48:22 [ERROR   ] [DB] upsert_company error for data_id=1951869: FOREIGN KEY constraint failed
+2026-04-07 22:48:22 [ERROR   ] [DB] upsert_company error for data_id=2626529: FOREIGN KEY constraint failed
+2026-04-07 22:48:22 [ERROR   ] [DB] upsert_company error for data_id=844125: FOREIGN KEY constraint failed
+2026-04-07 22:48:22 [INFO    ] [SCRAPER] 'aaf' page 1/1 → 4 extracted, 0 new | DB total: 50
+2026-04-07 22:48:22 [DEBUG   ] [DB] Keyword 'aaf' → done (16 results)
+2026-04-07 22:48:22 [INFO    ] [DB] Stats → Companies: 50 | Keywords done: 5 | pending: 17570 | overflow: 0 | failed: 0
+2026-04-07 22:48:22 [INFO    ] [WORKER-1] Processing keyword: 'aag'
+2026-04-07 22:48:22 [INFO    ] [SCRAPER] 'aag' — getting token...
+2026-04-07 22:48:22 [INFO    ] [CAPTCHA] ♻️  Reusing token (age: 31s / 110s)
+2026-04-07 22:48:37 [DEBUG   ] [CAPTCHA] Token injected (age: 46s)
+2026-04-07 22:48:37 [INFO    ] [SCRAPER] 'aag' → empty
+2026-04-07 22:48:37 [DEBUG   ] [HELPER] Screenshot saved: /home/hamas/Desktop/ahu_scraper/db_screenshots/empty_result_2026-04-07_10-48-37PM.png
+2026-04-07 22:48:37 [DEBUG   ] [DB] Keyword 'aag' → empty (0 results)
+2026-04-07 22:48:37 [INFO    ] [DB] Stats → Companies: 50 | Keywords done: 5 | pending: 17569 | overflow: 0 | failed: 0
+2026-04-07 22:48:37 [INFO    ] [WORKER-1] Processing keyword: 'aah'
+2026-04-07 22:48:37 [INFO    ] [SCRAPER] 'aah' — getting token...
+2026-04-07 22:48:37 [INFO    ] [CAPTCHA] ♻️  Reusing token (age: 46s / 110s)
+2026-04-07 22:48:52 [DEBUG   ] [CAPTCHA] Token injected (age: 61s)
+2026-04-07 22:48:52 [INFO    ] [SCRAPER] 'aah' → 5 results
+2026-04-07 22:48:52 [DEBUG   ] [PARSER] Found 1 cards on page
+2026-04-07 22:48:52 [INFO    ] [SCRAPER] 'aah' page 1 → 1 extracted, 1 new
+2026-04-07 22:48:52 [DEBUG   ] [SCRAPER] 'aah' → 1 pages total
+2026-04-07 22:49:10 [DEBUG   ] [PARSER] Found 1 cards on page
+2026-04-07 22:49:11 [ERROR   ] [DB] upsert_company error for data_id=696511: FOREIGN KEY constraint failed
+2026-04-07 22:49:11 [INFO    ] [SCRAPER] 'aah' page 1/1 → 1 extracted, 0 new | DB total: 51
+2026-04-07 22:49:11 [DEBUG   ] [DB] Keyword 'aah' → done (5 results)
+2026-04-07 22:49:11 [INFO    ] [DB] Stats → Companies: 51 | Keywords done: 6 | pending: 17568 | overflow: 0 | failed: 0
+2026-04-07 22:49:11 [INFO    ] [WORKER-1] Processing keyword: 'aai'
+2026-04-07 22:49:11 [INFO    ] [SCRAPER] 'aai' — getting token...
+2026-04-07 22:49:11 [INFO    ] [CAPTCHA] ♻️  Reusing token (age: 80s / 110s)
+2026-04-07 22:49:26 [DEBUG   ] [CAPTCHA] Token injected (age: 95s)
+2026-04-07 22:49:26 [INFO    ] [SCRAPER] 'aai' → 13 results
+2026-04-07 22:49:27 [DEBUG   ] [PARSER] Found 3 cards on page
+2026-04-07 22:49:27 [INFO    ] [SCRAPER] 'aai' page 1 → 3 extracted, 3 new
+2026-04-07 22:49:27 [DEBUG   ] [SCRAPER] 'aai' → 1 pages total
+2026-04-07 22:49:40 [DEBUG   ] [PARSER] Found 3 cards on page
+2026-04-07 22:49:41 [ERROR   ] [DB] upsert_company error for data_id=2095832: FOREIGN KEY constraint failed
+2026-04-07 22:49:41 [ERROR   ] [DB] upsert_company error for data_id=1602277: FOREIGN KEY constraint failed
+2026-04-07 22:49:41 [ERROR   ] [DB] upsert_company error for data_id=2395485: FOREIGN KEY constraint failed
+2026-04-07 22:49:41 [INFO    ] [SCRAPER] 'aai' page 1/1 → 3 extracted, 0 new | DB total: 54
+2026-04-07 22:49:41 [DEBUG   ] [DB] Keyword 'aai' → done (13 results)
+2026-04-07 22:49:41 [INFO    ] [DB] Stats → Companies: 54 | Keywords done: 7 | pending: 17567 | overflow: 0 | failed: 0
+2026-04-07 22:49:41 [INFO    ] [WORKER-1] Processing keyword: 'aaj'
+2026-04-07 22:49:41 [INFO    ] [SCRAPER] 'aaj' — getting token...
+2026-04-07 22:49:41 [INFO    ] [CAPTCHA] Requesting fresh reCAPTCHA v3 token...
+2026-04-07 22:49:41 [DEBUG   ] [CAPTCHA] Solving via proxy: 45.147.133.69:12323
+2026-04-07 22:50:03 [INFO    ] [CAPTCHA] ✅ Token received and cached
+2026-04-07 22:50:09 [INFO    ] [WORKER-1] Context closed

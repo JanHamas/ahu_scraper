@@ -17,10 +17,10 @@ MAX_COMPANIES    = 10_000
 # ── Browser ────────────────────────────────────────────────────────────────────
 HEADLESS     = True
 PAGE_TIMEOUT = 60_000
-CONCURRENCY  = 1
+CONCURRENCY  = 3
 
 # ── Delays in milliseconds (callable — fresh random value each call) ───────────
-def DELAY_BETWEEN_PAGES()    -> int: return random.randint(3_000, 7_000)
+def DELAY_BETWEEN_PAGES()    -> int: return random.randint(1_000, 3_000)
 def DELAY_BETWEEN_KEYWORDS() -> int: return random.randint(1_000, 3_000)
 def DELAY_ON_RETRY()         -> int: return random.randint(10_000, 20_000)
 
