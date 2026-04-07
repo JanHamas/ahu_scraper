@@ -28,7 +28,7 @@ class RecaptchaBypasser:
 
     def __init__(self, page, proxy: list[str] | None = None):
         self.page      = page
-        self.api_key   = os.getenv("2CAPTCHA_API_KEY")
+        self.api_key   = "7f227fe9673137b94982f01307991f8d"
         self.proxy     = proxy
 
         # Token pool — shared across keywords
