@@ -15,7 +15,7 @@ SEARCH_TYPE      = "perseroan"
 MAX_COMPANIES    = 10_000
 
 # ── Browser ────────────────────────────────────────────────────────────────────
-HEADLESS     = False
+HEADLESS     = True
 PAGE_TIMEOUT = 60_000
 CONCURRENCY  = 1
 
