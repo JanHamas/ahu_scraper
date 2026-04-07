@@ -1,93 +1,29 @@
- 
 
-2026-04-05 23:34:10 [INFO    ] ============================================================
-2026-04-05 23:34:10 [INFO    ]   AHU Company Scraper - Starting
-2026-04-05 23:34:10 [INFO    ] ============================================================
-2026-04-05 23:34:10 [INFO    ] [DB] Connected to /home/hamas/Desktop/ahu_scraper/database/ahu_companies.db
-2026-04-05 23:34:10 [INFO    ] [MAIN] 17537 keywords pending !0 companies in DB
-2026-04-05 23:34:22 [INFO    ] [MAIN] Browser launched | workers: 1
-2026-04-05 23:34:22 [INFO    ] [WORKER-1] Starting
-2026-04-05 23:34:22 [INFO    ] [FG] Real Chrome version: 146.0.7680.177
-2026-04-05 23:34:31 [INFO    ] [WORKER-1] Processing keyword: 'abm'
-2026-04-05 23:34:31 [INFO    ] [CAPTCHA] Requesting fresh reCAPTCHA v3 token...
-2026-04-05 23:34:31 [DEBUG   ] [CAPTCHA] Solving via proxy: 45.147.133.69:12323
-2026-04-05 23:34:56 [INFO    ] [CAPTCHA] ✅ Token received
-2026-04-05 23:35:02 [DEBUG   ] [CAPTCHA] Token injected into page DOM and pagination links
-2026-04-05 23:35:10 [DEBUG   ] [PARSER] get_result_count error: Locator.wait_for: Timeout 8000ms exceeded.
-Call log:
-  - waiting for locator("h3").first to be visible
-  - waiting for locator("h3").first
-
-2026-04-05 23:35:10 [INFO    ] [SCRAPER] 'abm' -> 0 results
-2026-04-05 23:35:10 [DEBUG   ] [DB] Keyword 'abm' → empty (0 results)
-2026-04-05 23:35:10 [INFO    ] [DB] Stats → Companies: 0 | Keywords done: 0 | pending: 17536 | overflow: 0 | failed: 39
-2026-04-05 23:35:10 [INFO    ] [WORKER-1] Processing keyword: 'abo'
-2026-04-05 23:35:10 [INFO    ] [CAPTCHA] Requesting fresh reCAPTCHA v3 token...
-2026-04-05 23:35:10 [DEBUG   ] [CAPTCHA] Solving via proxy: 45.147.133.69:12323
-2026-04-05 23:35:35 [INFO    ] [CAPTCHA] ✅ Token received
-2026-04-05 23:35:38 [DEBUG   ] [CAPTCHA] Token injected into page DOM and pagination links
-2026-04-05 23:35:46 [DEBUG   ] [PARSER] get_result_count error: Locator.wait_for: Timeout 8000ms exceeded.
-Call log:
-  - waiting for locator("h3").first to be visible
-  - waiting for locator("h3").first
-
-2026-04-05 23:35:46 [INFO    ] [SCRAPER] 'abo' -> 0 results
-2026-04-05 23:35:46 [DEBUG   ] [DB] Keyword 'abo' → empty (0 results)
-2026-04-05 23:35:46 [INFO    ] [DB] Stats → Companies: 0 | Keywords done: 0 | pending: 17535 | overflow: 0 | failed: 39
-2026-04-05 23:35:46 [INFO    ] [WORKER-1] Processing keyword: 'abp'
-2026-04-05 23:35:46 [INFO    ] [CAPTCHA] Requesting fresh reCAPTCHA v3 token...
-2026-04-05 23:35:46 [DEBUG   ] [CAPTCHA] Solving via proxy: 45.147.133.69:12323
-2026-04-06 00:29:35 [INFO    ] 
- 
- 
-
-2026-04-06 00:29:35 [INFO    ] ============================================================
-2026-04-06 00:29:35 [INFO    ]   AHU Company Scraper - Starting
-2026-04-06 00:29:35 [INFO    ] ============================================================
-2026-04-06 00:29:35 [INFO    ] [DB] Connected to /home/hamas/Desktop/ahu_scraper/database/ahu_companies.db
-2026-04-06 00:29:35 [INFO    ] [MAIN] 17535 keywords pending !0 companies in DB
-2026-04-06 00:29:37 [INFO    ] [MAIN] Browser launched | workers: 1
-2026-04-06 00:29:37 [INFO    ] [WORKER-1] Starting
-2026-04-06 00:29:37 [INFO    ] [FG] Real Chrome version: 146.0.7680.177
-2026-04-06 00:29:39 [INFO    ] [WORKER-1] Processing keyword: 'abp'
-2026-04-06 00:29:39 [INFO    ] [CAPTCHA] Requesting fresh reCAPTCHA v3 token...
-2026-04-06 00:29:39 [DEBUG   ] [CAPTCHA] Solving via proxy: 45.147.133.69:12323
-2026-04-06 00:30:04 [INFO    ] [CAPTCHA] ✅ Token received
-2026-04-06 00:30:06 [DEBUG   ] [CAPTCHA] Token injected into page DOM and pagination links
-2026-04-06 00:30:14 [DEBUG   ] [PARSER] get_result_count error: Locator.wait_for: Timeout 8000ms exceeded.
-Call log:
-  - waiting for locator("h3").first to be visible
-  - waiting for locator("h3").first
-
-2026-04-06 00:30:14 [INFO    ] [SCRAPER] 'abp' -> 0 results
-2026-04-06 00:30:14 [DEBUG   ] [DB] Keyword 'abp' → empty (0 results)
-2026-04-06 00:30:14 [INFO    ] [DB] Stats → Companies: 0 | Keywords done: 0 | pending: 17534 | overflow: 0 | failed: 39
-2026-04-06 00:30:14 [INFO    ] [WORKER-1] Processing keyword: 'abq'
-2026-04-06 00:30:14 [INFO    ] [CAPTCHA] Requesting fresh reCAPTCHA v3 token...
-2026-04-06 00:30:14 [DEBUG   ] [CAPTCHA] Solving via proxy: 45.147.133.69:12323
-2026-04-06 01:09:46 [INFO    ] 
- 
- 
-
-2026-04-06 01:09:46 [INFO    ] ============================================================
-2026-04-06 01:09:46 [INFO    ]   AHU Company Scraper - Starting
-2026-04-06 01:09:46 [INFO    ] ============================================================
-2026-04-06 01:09:46 [INFO    ] [DB] Connected to /home/hamas/Desktop/ahu_scraper/database/ahu_companies.db
-2026-04-06 01:09:46 [INFO    ] [MAIN] 17534 keywords pending !0 companies in DB
-2026-04-06 01:09:48 [INFO    ] [MAIN] Browser launched | workers: 1
-2026-04-06 01:09:48 [INFO    ] [WORKER-1] Starting
-2026-04-06 01:09:48 [INFO    ] [FG] Real Chrome version: 146.0.7680.177
-2026-04-06 01:09:50 [INFO    ] [WORKER-1] Processing keyword: 'abq'
-2026-04-06 01:09:50 [INFO    ] [CAPTCHA] Requesting fresh reCAPTCHA v3 token...
-2026-04-06 01:09:50 [DEBUG   ] [CAPTCHA] Solving via proxy: 45.147.133.69:12323
-2026-04-06 01:10:48 [INFO    ] [CAPTCHA] ✅ Token received
-2026-04-06 01:10:51 [DEBUG   ] [CAPTCHA] Token injected into page DOM and pagination links
-2026-04-06 01:47:24 [INFO    ] 
- 
- 
-
-2026-04-06 01:47:24 [INFO    ] ============================================================
-2026-04-06 01:47:24 [INFO    ]   AHU Company Scraper - Starting
-2026-04-06 01:47:24 [INFO    ] ============================================================
-2026-04-06 01:47:24 [INFO    ] [DB] Connected to /home/hamas/Desktop/ahu_scraper/database/ahu_companies.db
-2026-04-06 01:47:24 [INFO    ] [MAIN] 17534 keywords pending !0 companies in DB
+2026-04-07 20:43:48 [INFO    ] ============================================================
+2026-04-07 20:43:48 [INFO    ]   AHU Company Scraper - Starting
+2026-04-07 20:43:48 [INFO    ] ============================================================
+2026-04-07 20:43:48 [INFO    ] [DB] Connected to /home/hamas/Desktop/ahu_scraper/database/ahu_companies.db
+2026-04-07 20:43:48 [INFO    ] [MAIN] First run - seeding 3-letter keywords...
+2026-04-07 20:43:48 [INFO    ] [KEYWORDS] Generated 17576 three-letter keywords
+2026-04-07 20:43:48 [INFO    ] [DB] Seeded 17576 new keywords (17576 total)
+2026-04-07 20:43:48 [INFO    ] [MAIN] 17576 keywords pending !0 companies in DB
+2026-04-07 20:43:48 [INFO    ] [HP]Total 1 proxy loaded.
+2026-04-07 20:43:52 [INFO    ] [MAIN] Browser launched | workers: 1
+2026-04-07 20:43:52 [INFO    ] [WORKER-1] Starting
+2026-04-07 20:43:52 [INFO    ] [FG] Real Chrome version: 146.0.7680.177
+2026-04-07 20:43:55 [INFO    ] [HP] Timezone: Asia/Jakarta
+2026-04-07 20:43:59 [INFO    ] [HP] Proxy public IP: 45.147.133.69
+2026-04-07 20:43:59 [INFO    ] [WORKER-1] Processing keyword: 'aaa'
+2026-04-07 20:43:59 [INFO    ] [SCRAPER] 'aaa' — getting token...
+2026-04-07 20:43:59 [INFO    ] [CAPTCHA] Requesting fresh reCAPTCHA v3 token...
+2026-04-07 20:43:59 [DEBUG   ] [CAPTCHA] Solving via proxy: 45.147.133.69:12323
+2026-04-07 20:44:18 [INFO    ] [CAPTCHA] ✅ Token received and cached
+2026-04-07 20:45:16 [DEBUG   ] [CAPTCHA] Token injected (age: 57s)
+2026-04-07 20:45:16 [INFO    ] [SCRAPER] 'aaa' → 62 results
+2026-04-07 20:45:16 [DEBUG   ] [PARSER] Found 20 cards on page
+2026-04-07 20:45:42 [INFO    ] [SCRAPER] 'aaa' page 1 → 20 extracted, 20 new
+2026-04-07 20:45:42 [DEBUG   ] [SCRAPER] 'aaa' → 4 pages total
+2026-04-07 20:46:17 [DEBUG   ] [PARSER] Found 20 cards on page
+2026-04-07 20:46:49 [INFO    ] [SCRAPER] 'aaa' page 2/4 → 20 extracted, 20 new | DB total: 40
+2026-04-07 20:47:43 [WARNING ] [PARSER] No company cards found — page may be empty or timed out
+2026-04-07 20:47:43 [INFO    ] [SCRAPER] 'aaa' page 3/4 → 0 extracted, 0 new | DB total: 40

@@ -4,11 +4,9 @@ from database.db import DBHandler
 from .keyword_generator import KeywordGenerator
 import asyncio
 from .helper import(
+    create_context,
     load_proxies,
-    build_js_script,
-    get_timezone_from_ip,
-    get_proxy_public_ip,
-    webrtc_ip_spoof_script
+    take_screenshot
 )
 from .page_parser import(
     is_empty_result,
@@ -17,109 +15,96 @@ from .page_parser import(
     get_total_pages
 
 )
-from . import fg_generator
 from .captcha_solver import RecaptchaBypasser
 from patchright.async_api import async_playwright, Browser, Page
 
 
 log = get_logger()
+def _build_url(keyword: str, page_num: int, token: str) -> str:
+    """
+    Build AHU search URL — exact parameter order from live browser:
+    ?nama=X&tipe=perseroan&page=N&g-recaptcha-response=TOKEN&recaptcha-version=3
+    """
+    return (
+        f"{setting.BASE_URL}"
+        f"?nama={keyword}"
+        f"&tipe={setting.SEARCH_TYPE}"
+        f"&page={page_num}"
+        f"&g-recaptcha-response={token}"
+        f"&recaptcha-version=3"
+    )
 
-# Scrape keyword
 async def scrape_keyword(
     page: Page,
     keyword: str,
     bypasser: RecaptchaBypasser,
-    db: DBHandler
+    db: DBHandler,
 ) -> tuple[str, int]:
-    """
-    Scrape all result pages for one keyword using a single captcha token.
 
-    Returns:
-        (status, result_count)
-        status: 'done', 'overflow', 'singleton', 'empty', 'failed'
-    """
-
-    # step 1: Get fresh captcha token
-    token = await bypasser.get_fresh_token()
+    # ── Step 1: Get token (reused if still fresh, new if expired) ─────────────
+    log.info(f"[SCRAPER] '{keyword}' — getting token...")
+    token = await bypasser.get_token()
     if not token:
-        log.error(f"[SCRAPER] No token for '{keyword}' - skipping")
+        log.error(f"[SCRAPER] No token for '{keyword}' — skipping")
         return "failed", 0
-    
-    # step 2: Load page
-    url = (
-        f"{setting.BASE_URL}"
-        f"?nama={keyword}"
-        f"&tipe={setting.SEARCH_TYPE}"
-        f"&page=1"
-        f"&g-recaptcha-response={token}"
-        f"&recptcha-version=3"
-    )
-    
+
+    # ── Step 2: Navigate directly to page 1 with token ────────────────────────
     try:
-        await page.goto(url, wait_until="load", timeout=setting.PAGE_TIMEOUT)
+        await page.goto(
+            _build_url(keyword, 1, token),
+            wait_until="load",
+            timeout=setting.PAGE_TIMEOUT,
+        )
     except Exception as e:
         log.error(f"[SCRAPER] Page load failed for '{keyword}': {e}")
         return "failed", 0
-    
-    # Step 3: Inject token into live page DOM
+
+    # ── Step 3: Inject token into DOM ─────────────────────────────────────────
     await bypasser.inject_token(token)
 
-    # Step 4: Check page state
+    # ── Step 4: Check page state ──────────────────────────────────────────────
     if await is_empty_result(page):
-        log.info(f"[SCRAPER] '{keyword}' -> empty")
+        log.info(f"[SCRAPER] '{keyword}' → empty")
+        await take_screenshot(page, setting.DB_SCREENSHOTS_PATH, "empty_result")
         return "empty", 0
-    
-    total = await get_result_count(page)
-    log.info(f"[SCRAPER] '{keyword}' -> {total} results")
 
-    if total == 0:
-        return "empty", 0
-    
+    total = await get_result_count(page)
+    log.info(f"[SCRAPER] '{keyword}' → {total} results")
+
+    if total == 0:    return "empty", 0
     if total == 1:
-        log.info(f"[SCRAPER] '{keyword}' -> singleton (discarding)")
+        log.info(f"[SCRAPER] '{keyword}' → singleton (discarding)")
+        await take_screenshot(page, setting.DB_SCREENSHOTS_PATH, "singleton_result")
         return "singleton", 1
-    
-    if total > setting.OVERFLOW_LIMIT:
-        log.info(f"[SCRAPER] '{keyword}' -> overflow ({total}) > {setting.OVERFLOW_LIMIT}")
-        return "overflow", total
-    
-    # Step 5: Scrape page 1
+
+    # ── Step 5: Scrape page 1 ─────────────────────────────────────────────────
     companies = await extract_companies_from_page(page)
     saved = 0
     for co in companies:
-        result = db.upsert_company(co, keyword=keyword)
-        if result:
+        if db.upsert_company(co, keyword=keyword):
             saved += 1
+    log.info(f"[SCRAPER] '{keyword}' page 1 → {len(companies)} extracted, {saved} new")
 
-    log.info(f"[SCRAPER] '{keyword}' page 1 -> {len(companies)} extracted, {saved} new")
-
-    # Step 6: paginate
+    # ── Step 6: Paginate ──────────────────────────────────────────────────────
     total_pages = await get_total_pages(page)
-    log.debug(f"[SCRAPER] '{keyword}' -> {total_pages} pages total")
+    log.debug(f"[SCRAPER] '{keyword}' → {total_pages} pages total")
 
     for page_num in range(2, total_pages + 1):
-        
-        # Check target reached
+
         if db.get_total_companies() >= setting.MAX_COMPANIES:
-            log.info(f"[SCRAPER] Target {setting.MAX_COMPANIES} reached - stopping pagination")
+            log.info(f"[SCRAPER] Target {setting.MAX_COMPANIES} reached — stopping")
             break
 
-        next_url = (
-            f"{setting.BASE_URL}"
-            f"?nama={keyword}"
-            f"&tipe={setting.SEARCH_TYPE}"
-            f"&page={page_num}"
-            f"&g-recaptcha-response={token}"
-            f"&recaptcha-version=3"
-        )
-
         try:
-            await page.goto(next_url, wait_until="load", timeout=setting.PAGE_TIMEOUT)
+            await page.goto(
+                _build_url(keyword, page_num, token),
+                wait_until="load",
+                timeout=setting.PAGE_TIMEOUT,
+            )
         except Exception as e:
             log.warning(f"[SCRAPER] '{keyword}' page {page_num} load error: {e}")
             break
 
-        # Token expiry check
         if not await bypasser.verify_token_alive():
             log.warning(f"[SCRAPER] '{keyword}' token expired at page {page_num}")
             break
@@ -127,20 +112,21 @@ async def scrape_keyword(
         companies = await extract_companies_from_page(page)
         page_saved = 0
         for co in companies:
-            result = db.upsert_company(co, keyword=keyword)
-            if result:
+            if db.upsert_company(co, keyword=keyword):
                 page_saved += 1
-        
+
         log.info(
-            f"[SCRAPER] '{keyword}' page {page_num}/{total_pages}"
-            f"-> {len(companies)} extracted, {page_saved} new"
+            f"[SCRAPER] '{keyword}' page {page_num}/{total_pages} "
+            f"→ {len(companies)} extracted, {page_saved} new "
             f"| DB total: {db.get_total_companies()}"
         )
-
-        await page.wait_for_timeout(setting.DELAY_BETWEEN_PAGES)
+        # await page.wait_for_timeout(setting.DELAY_BETWEEN_PAGES())
+        content = await page.content()
+        if "Pencarian Tidak Ditemukan" in content:
+            await take_screenshot(page, setting.DB_SCREENSHOTS_PATH, "last_page")
+            break
 
     return "done", total
-
 
 # Worker
 async def worker(
@@ -151,41 +137,15 @@ async def worker(
         worker_id: int
 ):
     """
-    One worker = one browser context = one proxy if multiples available otherwise resue same.
+    One worker = one browser context = one proxy if multiples available otherwise reuee same.
     Pulls keywrods from shared queue until empty to target reached.
     """
     log.info(f"[WORKER-{worker_id}] Starting")
 
-    # Build browser context
-    fingerprint = fg_generator.generate()
-    script = build_js_script(fingerprint)
-
-    ip, port, user, pwd = proxy
-    timezone = get_timezone_from_ip(ip)
-    proxy_public_ip = get_proxy_public_ip(ip, port, user, pwd)
-
-    context_options = {
-        "no_viewport": True,
-        "user_agent": fingerprint["user_agent"],
-        "timezone_id": timezone,
-        "proxy":  {
-            "server":   f"http://{ip}:{port}",
-            "username": user,
-            "password": pwd,
-        },
-        "extra_http_headers": {
-            "Accept-Language": fingerprint["headers"]["Accept-Language"]
-        }
-    }
-
-    context = await browser.new_context(**context_options)
-    await context.add_init_script(script)
-    await context.add_init_script(webrtc_ip_spoof_script(proxy_public_ip))
-
+    context = await create_context(browser, proxy)
     page = await context.new_page()
     bypasser = RecaptchaBypasser(page=page, proxy=proxy)
-    kg = KeywordGenerator()
-    
+
     # Process keyword queue
     try:
         while True:
@@ -216,20 +176,7 @@ async def worker(
                         await page.wait_for_timeout(setting.DELAY_ON_RETRY)
             
             # handle result status
-            if status == "overflow":
-                # Expand to next letter depth
-                expanded = kg.expand(keyword)
-                added = db.add_expanded_keywords(expanded)
-                # Push new keywords int live queue
-                for kw in expanded:
-                    await keyword_queue.put(kw)
-                db.mark_keyword(keyword, "overflow", count)
-                log.info(
-                    f"[WORKER-{worker_id} '{keyword}' overflow ->]"
-                    f"expanded {len(expanded)} keywrods ({added}) new"
-                )
-            
-            elif status == 'done':
+            if status == 'done':
                 db.mark_keyword(keyword, "done", count)
             
             elif status in ("empty", "singleton"):

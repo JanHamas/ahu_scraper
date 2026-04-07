@@ -1,8 +1,13 @@
 import requests, json
-import random
+import random, os
 from config import setting
 from pathlib import Path
 from scraper.logger import get_logger
+from patchright.async_api import Page, Browser
+from .fg_generator import generate
+from datetime import datetime
+
+
 
 log = get_logger()
 
@@ -403,3 +408,43 @@ def webrtc_ip_spoof_script(proxy_public_ip: str) -> str:
   Object.defineProperty(window.RTCPeerConnection, 'name', {{ value: 'RTCPeerConnection' }});
 }})();
 """
+
+# Create browser context
+async def create_context(browser: Browser, proxy: list[str]):
+    
+    # Build browser context
+    fingerprint = generate()
+    script = build_js_script(fingerprint)
+
+    ip, port, user, pwd = proxy
+    timezone = get_timezone_from_ip(ip)
+    proxy_public_ip = get_proxy_public_ip(ip, port, user, pwd)
+
+    context_options = {
+        "no_viewport": True,
+        "user_agent": fingerprint["user_agent"],
+        "timezone_id": timezone,
+        "proxy":  {
+            "server":   f"http://{ip}:{port}",
+            "username": user,
+            "password": pwd,
+        },
+        "extra_http_headers": {
+            "Accept-Language": fingerprint["headers"]["Accept-Language"]
+        }
+    }
+    context = await browser.new_context(**context_options)
+    await context.add_init_script(script)
+    await context.add_init_script(webrtc_ip_spoof_script(proxy_public_ip))
+
+    return context
+
+async def take_screenshot(page: Page, folder_path, screenshot_name: str) -> None:
+    try:
+        timestamp = datetime.now().strftime("%Y-%m-%d_%I-%M-%S%p")
+        os.makedirs(folder_path, exist_ok=True)
+        path = os.path.join(str(folder_path), f"{screenshot_name}_{timestamp}.png")
+        await page.screenshot(path=path, full_page=True, timeout=0)
+        log.debug(f"[HELPER] Screenshot saved: {path}")
+    except Exception as e:
+        log.warning(f"[HELPER] Screenshot failed: {e}")

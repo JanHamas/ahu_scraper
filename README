@@ -2,9 +2,13 @@
 
 Pretty straightforward layout — main.py is the entry point, everything else is split into scraper logic, database, and config folders.
 
+I have collected 100K plus companies if you start scraper again only new will be save.
 Fully resumable. To start fresh, just delete the `.db` file.
 
 *Note:* Credentials and proxies are already configured for testing. You can run the scraper straight away without any additional setup.
+
+## Scalable Design
+Scraper can collect all companies available on AHU website without duplicate.
 
 
 ahu_scraper/
@@ -21,7 +25,7 @@ ahu_scraper/
 │   ├── fg_generator.py      # Browser fingerprint generator
 │   ├── page_parser.py       # Playwright element extraction
 │   └── helper.py            # Proxy, fingerprint, timezone utils
-├── database/
+├── database/3→4→5 letter keyword
 │   ├── __init__.py
 │   └── db.py                # SQLite normalized schema + handler
 └── logs/
@@ -29,7 +33,7 @@ ahu_scraper/
 
 # How Keyword Generation Works
 
-AHU's search does prefix/contains matching and requires at least 3 characters. So I start by generating all 17,576 three-letter combos (aaa → zzz), then apply a simple rule per keyword:
+AHU's search does prefix/contains matching and requires at least 3 characters. So scraper generating all 17,576 three-letter combos (aaa → zzz) on first run which cover all companies available not generate keyword from scraped companies as you told me i think we will miss lot companies. then apply a simple rule per keyword:
 
 - *0–1 results* → skip it
 - *2–160 results* → scrape it

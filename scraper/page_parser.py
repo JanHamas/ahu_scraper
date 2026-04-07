@@ -16,11 +16,11 @@ async def is_empty_result(page: Page) -> bool:
         content = await page.content()
         return (
             "Pencarian Tidak Ditemukan" in content or
-            "Keywords must be at least 3" in content or
             "tidak ditemukan" in content.lower()
         )
     except Exception:
         return True
+
 
 
 async def get_result_count(page: Page) -> int:
