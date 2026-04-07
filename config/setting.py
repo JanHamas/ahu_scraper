@@ -9,6 +9,7 @@ DB_PATH              = BASE_DIR / "database" / "ahu_companies.db"
 LOG_PATH             = BASE_DIR / "logs" / "scraper.log"
 DB_SCREENSHOTS_PATH  = BASE_DIR / "db_screenshots"
 
+# perseroan
 # ── Target ─────────────────────────────────────────────────────────────────────
 BASE_URL         = "https://ahu.go.id/pencarian/profil-pt"
 SEARCH_TYPE      = "perseroan"
