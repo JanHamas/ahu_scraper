@@ -946,4 +946,44 @@
 2026-04-08 04:41:52 [DEBUG   ] [CAPTCHA] Solving via proxy: 45.147.133.69:12323
 2026-04-08 04:42:25 [INFO    ] [CAPTCHA] ✅ Token received and cached
 2026-04-08 05:55:41 [INFO    ] 
+ 2026-04-08 06:05:32 [INFO    ] 
  
+ 
+
+2026-04-08 06:05:32 [INFO    ] ============================================================
+2026-04-08 06:05:32 [INFO    ]   AHU Company Scraper - Starting
+2026-04-08 06:05:32 [INFO    ] ============================================================
+2026-04-08 06:05:32 [INFO    ] [HP] Loaded 650 existing NBRs IDs from CSV
+2026-04-08 06:05:32 [INFO    ] [MAIN] Loaded 650 existing NBRs IDs from CSV
+2026-04-08 06:05:32 [INFO    ] [KEYWORDS] Found last processed keyword in CSV: 'aci'
+2026-04-08 06:05:32 [INFO    ] [KEYWORDS] Completed keywords: 60
+2026-04-08 06:05:32 [DEBUG   ] [KEYWORDS] Completed: aat, abh, abt, aap, aaz, abo, aax, ach, aal, aca...
+2026-04-08 06:05:32 [ERROR   ] [KEYWORDS] Keywords file not found: /home/hamas/Desktop/ahu_scraper/database/keywords.csv
+2026-04-08 06:05:32 [WARNING ] [MAIN] No keywords to process. Exiting.
+2026-04-08 06:06:12 [INFO    ] 
+ 
+ 
+
+2026-04-08 06:06:12 [INFO    ] ============================================================
+2026-04-08 06:06:12 [INFO    ]   AHU Company Scraper - Starting
+2026-04-08 06:06:12 [INFO    ] ============================================================
+2026-04-08 06:06:12 [INFO    ] [HP] Loaded 650 existing NBRs IDs from CSV
+2026-04-08 06:06:12 [INFO    ] [MAIN] Loaded 650 existing NBRs IDs from CSV
+2026-04-08 06:06:12 [INFO    ] [KEYWORDS] Found last processed keyword in CSV: 'aci'
+2026-04-08 06:06:12 [INFO    ] [KEYWORDS] Completed keywords: 60
+2026-04-08 06:06:12 [DEBUG   ] [KEYWORDS] Completed: aci, aaw, aaq, abb, abh, aaj, aas, aab, aac, aca...
+2026-04-08 06:06:12 [INFO    ] [KEYWORDS] Loaded 0 keywords into queue
+2026-04-08 06:06:12 [INFO    ] [KEYWORDS] Skipped 60 already completed keywords
+2026-04-08 06:06:12 [WARNING ] [KEYWORDS] Resume keyword 'aci' not found. Starting from beginning.
+2026-04-08 06:06:12 [INFO    ] [KEYWORDS] Reloaded 17516 keywords from start
+2026-04-08 06:06:12 [INFO    ] [HP] Total 1 proxies loaded.
+2026-04-08 06:06:12 [INFO    ] [MAIN] Starting with 1 workers
+2026-04-08 06:06:13 [INFO    ] [MAIN] Browser launched
+2026-04-08 06:06:13 [INFO    ] [WORKER-1] Starting
+2026-04-08 06:06:13 [INFO    ] [FG] Real Chrome version: 146.0.7680.177
+2026-04-08 06:06:14 [INFO    ] [HP] Timezone: Asia/Jakarta
+2026-04-08 06:06:15 [INFO    ] [HP] Proxy public IP: 45.147.133.69
+2026-04-08 06:06:15 [INFO    ] [WORKER-1] Processing keyword: 'abi'
+2026-04-08 06:06:15 [INFO    ] [CAPTCHA] Requesting fresh reCAPTCHA v3 token...
+2026-04-08 06:06:15 [DEBUG   ] [CAPTCHA] Solving via proxy: 45.147.133.69:12323
+2026-04-08 06:06:38 [INFO    ] [CAPTCHA] ✅ Token received and cached

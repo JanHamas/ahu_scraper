@@ -1,5 +1,4 @@
 2captcha-python==1.5.1
-aioconsole==0.8.2
 annotated-types==0.7.0
 apify_fingerprint_datapoints==0.12.0
 async-timeout==5.0.1

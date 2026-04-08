@@ -29,7 +29,6 @@ def load_existing_nbrs_ids() -> set:
             for row in reader:
                 if row.get("nbrs_id"):
                     nbrs_ids.add(row["nbrs_id"])
-        log.info(f"[HP] Loaded {len(nbrs_ids)} existing NBRs IDs from CSV")
     except Exception as e:
         log.error(f"[HP] Error loading existing NBRs IDs: {e}")
     
@@ -454,8 +453,6 @@ async def take_screenshot(page: Page, folder_path: str, screenshot_name: str) ->
         log.debug(f"[HELPER] Screenshot saved: {path}")
     except Exception as e:
         log.warning(f"[HELPER] Screenshot failed: {e}")
-
-# scraper/helper.py - Fixed resume functions
 
 def get_completed_keywords() -> set:
     """Get set of keywords that have been fully processed (all pages scraped)"""

@@ -8,7 +8,6 @@ from .helper import(
     load_proxies,
     company_writer,
     load_existing_nbrs_ids,
-    take_screenshot,
     mark_keyword_complete
 )
 from .page_parser import extract_page_details
