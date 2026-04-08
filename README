@@ -58,7 +58,7 @@ The scraper generates all 17,576 three-letter combinations (aaa → zzz).
 AHU requires a minimum of 3 characters, so this approach helps cover a wide range of company names.
 
 Features:
-
+Ready for deloyment.
 Resumable: The scraper can stop anytime and continue from where it left off.
 Restart: Delete companies.csv to start from scratch.
 No duplicates: Company NBR IDs are tracked across all workers.
