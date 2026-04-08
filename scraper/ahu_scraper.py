@@ -1,153 +1,35 @@
+# scraper/worker.py - Complete corrected version
 from scraper.logger import get_logger
 from config import setting
-from database.db import DBHandler
-from .keyword_generator import KeywordGenerator
 import asyncio
 from .helper import(
     create_context,
+    load_keywords,
     load_proxies,
-    take_screenshot
+    company_writer,
+    load_existing_nbrs_ids,
+    take_screenshot,
+    mark_keyword_complete
 )
-from .page_parser import(
-    is_empty_result,
-    get_result_count,
-    extract_companies_from_page,
-    get_total_pages
-
-)
+from .page_parser import extract_page_details
 from .captcha_solver import RecaptchaBypasser
-from patchright.async_api import async_playwright, Browser, Page
-# 
+from patchright.async_api import async_playwright, Browser
+
 
 log = get_logger()
-def _build_url(keyword: str, page_num: int, token: str) -> str:
-    """
-    Build AHU search URL — exact parameter order from live browser:
-    ?nama=X&tipe=perseroan&page=N&g-recaptcha-response=TOKEN&recaptcha-version=3
-    """
-    if page_num == 1:
-        return (
-            f"{setting.BASE_URL}"
-            f"?nama={keyword}"
-            f"&tipe={setting.SEARCH_TYPE}"
-            f"&g-recaptcha-response={token}"
-            f"&recaptcha-version=3"
-        )
-    
-    return (
-            f"{setting.BASE_URL}"
-            f"?nama={keyword}"
-            f"&tipe={setting.SEARCH_TYPE}"
-            f"&page={page_num}"
-            f"&g-recaptcha-response={token}"
-            f"&recaptcha-version=3"
-        )
-
-async def scrape_keyword(
-    page: Page,
-    keyword: str,
-    bypasser: RecaptchaBypasser,
-    db: DBHandler,
-) -> tuple[str, int]:
-
-    # ── Step 1: Get token (reused if still fresh, new if expired) ─────────────
-    log.info(f"[SCRAPER] '{keyword}' — getting token...")
-    token = await bypasser.get_token()
-    if not token:
-        log.error(f"[SCRAPER] No token for '{keyword}' — skipping")
-        return "failed", 0
-
-    # ── Step 2: Navigate directly to page 1 with token ────────────────────────
-    try:
-        await page.goto(
-            _build_url(keyword, 1, token),
-            wait_until="load",
-            timeout=setting.PAGE_TIMEOUT,
-        )
-    except Exception as e:
-        log.error(f"[SCRAPER] Page load failed for '{keyword}': {e}")
-        return "failed", 0
-
-    # ── Step 3: Inject token into DOM ─────────────────────────────────────────
-    await bypasser.inject_token(token)
-
-    # ── Step 4: Check page state ──────────────────────────────────────────────
-    if await is_empty_result(page):
-        log.info(f"[SCRAPER] '{keyword}' → empty")
-        await take_screenshot(page, setting.DB_SCREENSHOTS_PATH, "empty_result")
-        return "empty", 0
-
-    total = await get_result_count(page)
-    log.info(f"[SCRAPER] '{keyword}' → {total} results")
-
-    if total == 0:    return "empty", 0
-    if total == 1:
-        log.info(f"[SCRAPER] '{keyword}' → singleton (discarding)")
-        await take_screenshot(page, setting.DB_SCREENSHOTS_PATH, "singleton_result")
-        return "singleton", 1
-
-    # ── Step 5: Scrape page 1 ─────────────────────────────────────────────────
-    companies = await extract_companies_from_page(page)
-    saved = 0
-    for co in companies:
-        if db.upsert_company(co, keyword=keyword):
-            saved += 1
-    log.info(f"[SCRAPER] '{keyword}' page 1 → {len(companies)} extracted, {saved} new")
-
-    # ── Step 6: Paginate ──────────────────────────────────────────────────────
-    total_pages = await get_total_pages(page)
-    log.debug(f"[SCRAPER] '{keyword}' → {total_pages} pages total")
-
-    for page_num in range(1, total_pages + 1):
-
-        if db.get_total_companies() >= setting.MAX_COMPANIES:
-            log.info(f"[SCRAPER] Target {setting.MAX_COMPANIES} reached — stopping")
-            break
-
-        try:
-            await page.goto(
-                _build_url(keyword, page_num, token),
-                wait_until="load",
-                timeout=setting.PAGE_TIMEOUT,
-            )
-        except Exception as e:
-            log.warning(f"[SCRAPER] '{keyword}' page {page_num} load error: {e}")
-            break
-
-        if not await bypasser.verify_token_alive():
-            log.warning(f"[SCRAPER] '{keyword}' token expired at page {page_num}")
-            break
-
-        companies = await extract_companies_from_page(page)
-        page_saved = 0
-        for co in companies:
-            if db.upsert_company(co, keyword=keyword):
-                page_saved += 1
-
-        log.info(
-            f"[SCRAPER] '{keyword}' page {page_num}/{total_pages} "
-            f"→ {len(companies)} extracted, {page_saved} new "
-            f"| DB total: {db.get_total_companies()}"
-        )
-        # await page.wait_for_timeout(setting.DELAY_BETWEEN_PAGES())
-        content = await page.content()
-        if "Pencarian Tidak Ditemukan" in content:
-            await take_screenshot(page, setting.DB_SCREENSHOTS_PATH, "last_page")
-            break
-
-    return "done", total
 
 # Worker
 async def worker(
         browser: Browser,
         proxy: list[str],
-        db: DBHandler,
         keyword_queue: asyncio.Queue,
+        company_queue: asyncio.Queue,
+        collected_nbrs_ids: set,
         worker_id: int
 ):
     """
-    One worker = one browser context = one proxy if multiples available otherwise reuee same.
-    Pulls keywrods from shared queue until empty to target reached.
+    One worker = one browser context = one proxy if multiple available otherwise reuse same.
+    Pulls keywords from shared queue until empty or target reached.
     """
     log.info(f"[WORKER-{worker_id}] Starting")
 
@@ -155,53 +37,99 @@ async def worker(
     page = await context.new_page()
     bypasser = RecaptchaBypasser(page=page, proxy=proxy)
 
-    # Process keyword queue
-    try:
-        while True:
+    # Pagination loop
+    while True:
+        # ── Step 1: Get keyword from queue ─────────────
+        try:
+            keyword = keyword_queue.get_nowait()
+            keyword_queue.task_done()
+        except asyncio.QueueEmpty:
+            log.info(f"[WORKER-{worker_id}] keyword queue is empty, stopping.")
+            log.info(f"[WORKER-{worker_id}] Context closed")
+            await context.close()
+            return
 
-            if db.get_total_companies() >= setting.MAX_COMPANIES:
-                log.info(f"[WORKER-{worker_id}] Target reached - stopping")
-                break
+        log.info(f"[WORKER-{worker_id}] Processing keyword: '{keyword}'")
+        
+        # ── Step 2: Get token ─────────────────────────
+        token = await bypasser.get_token()
+        if not token:
+            log.error(f"[WORKER-{worker_id}] No token for '{keyword}' — skipping")
+            continue
+
+        # ── Step 3: Navigate to page 1 with token ─────
+        try:
+            url = (
+                f"{setting.BASE_URL}"
+                f"?nama={keyword}"
+                f"&tipe={setting.SEARCH_TYPE}"
+                f"&g-recaptcha-response={token}"
+                f"&recaptcha-version=3"
+            )
+            await page.goto(url, wait_until="load", timeout=setting.PAGE_TIMEOUT)
+
+            # Inject token into DOM
+            await bypasser.inject_token(token)
+            
+            # Extract all companies from page 1
+            await extract_page_details(page, company_queue, keyword, collected_nbrs_ids)
+            
+        except Exception as e:
+            log.error(f"[WORKER-{worker_id}] Page 1 load failed for '{keyword}': {e}")
+            continue
+
+        # ── Step 4: Pagination through remaining pages ──
+        page_num = 2
+        max_pages = getattr(setting, 'MAX_PAGES', 50)
+        found_no_results = False
+        
+        while page_num <= max_pages:
+            # Check if token is still valid, refresh if needed
+            if not await bypasser.verify_token_alive():
+                log.warning(f"[WORKER-{worker_id}] Token expired for '{keyword}' at page {page_num}")
+                token = await bypasser.get_token()
+                if not token:
+                    log.error(f"[WORKER-{worker_id}] Failed to refresh token for '{keyword}'")
+                    break
 
             try:
-                keyword = keyword_queue.get_nowait()
-            except asyncio.QueueEmpty:
-                log.info(f"[WORKER-{worker_id}] Queue empty - stopping")
+                url = (
+                    f"{setting.BASE_URL}"
+                    f"?nama={keyword}"
+                    f"&tipe={setting.SEARCH_TYPE}"
+                    f"&page={page_num}"
+                    f"&g-recaptcha-response={token}"
+                    f"&recaptcha-version=3"
+                )
+                await page.goto(url, wait_until="load", timeout=setting.PAGE_TIMEOUT)
+                
+                # Inject fresh token
+                await bypasser.inject_token(token)
+                
+                # Check if no results found
+                content = await page.content()
+                if "Pencarian Tidak Ditemukan" in content:
+                    log.info(f"[WORKER-{worker_id}] No more results for '{keyword}' at page {page_num}")
+                    found_no_results = True
+                    break
+                
+                # Extract companies from current page
+                await extract_page_details(page, company_queue, keyword, collected_nbrs_ids)
+                
+                page_num += 1
+                
+            except Exception as e:
+                log.warning(f"[WORKER-{worker_id}] Page {page_num} load error for '{keyword}': {e}")
                 break
+        
+        # Mark keyword as complete if we found the end
+        if found_no_results:
+            mark_keyword_complete(keyword)
+            log.info(f"[WORKER-{worker_id}] Keyword '{keyword}' marked as complete")
+        
+        log.info(f"[WORKER-{worker_id}] Finished processing keyword: '{keyword}' (Total unique: {len(collected_nbrs_ids)})")
 
-            log.info(f"[WORKER-{worker_id}] Processing keyword: '{keyword}'")
-
-            status, count = "failed", 0
-            for attempt in range(1, setting.MAX_RETRY + 1):
-                try:
-                    status, count = await scrape_keyword(page, keyword, bypasser, db)
-                    break # success - exit retry loop
-                except Exception as e:
-                    log.warning(
-                        f"[WORKER-{worker_id}] '{keyword}' '{attempt}' error: {e}"
-                    )
-                    if attempt < setting.MAX_RETRY:
-                        await page.wait_for_timeout(setting.DELAY_ON_RETRY)
-            
-            # handle result status
-            if status == 'done':
-                db.mark_keyword(keyword, "done", count)
-            
-            elif status in ("empty", "singleton"):
-                db.mark_keyword(keyword, status, count)
-
-            elif status == "failed":
-                db.mark_keyword(keyword, "failed", count)
-                # Requeue for another worker to retry later
-                keyword_queue.put_nowait(keyword)
-                log.warning(f"[WORKER-{worker_id}] '{keyword}' failed - requeued")
-            
-            keyword_queue.task_done()
-            db.print_stats()
-
-    finally:
-        await context.close()
-        log.info(f"[WORKER-{worker_id}] Context closed")
+    log.info(f"[WORKER-{worker_id}] Shutting down")
 
 
 # Main Entry
@@ -211,61 +139,62 @@ async def main() -> None:
     log.info("  AHU Company Scraper - Starting")
     log.info("=" * 60)
 
-    # Init DB
-    db = DBHandler(setting.DB_PATH)
+    # Load existing NBRs IDs to avoid duplicates
+    collected_nbrs_ids = load_existing_nbrs_ids()
+    log.info(f"[MAIN] Loaded {len(collected_nbrs_ids)} existing NBRs IDs from CSV")
 
-    # Seed keywords (only of first run)
-    pending = db.get_pending_keywords()
-    if not pending:
-        log.info("[MAIN] First run - seeding 3-letter keywords...")
-        kg = KeywordGenerator()
-        all_kws = kg.generate_3letter()
-        db.seed_keywords(all_kws)
-        pending = db.get_pending_keywords()
-
-    log.info(
-        f"[MAIN] {len(pending)} keywords pending !"
-        f"{db.get_total_companies()} companies in DB"
-    )
-
-    if db.get_total_companies() >= setting.MAX_COMPANIES:
-        log.info(f"[MAIN] Traget {setting.MAX_COMPANIES} already reached - nothing to do")
-        db.close()
-        return
-    
-    # Build keyword queue
+    # Build keyword queue & companies queue
     keyword_queue: asyncio.Queue = asyncio.Queue()
-    for kw in pending:
-        await keyword_queue.put(kw)
+    company_queue: asyncio.Queue = asyncio.Queue()
+    
+    # Start company writer task
+    writer_task = asyncio.create_task(company_writer(company_queue))
+    
+    # Load all keywords that are not processed
+    await load_keywords(keyword_queue, collected_nbrs_ids)
+    
+    if keyword_queue.empty():
+        log.warning("[MAIN] No keywords to process. Exiting.")
+        writer_task.cancel()
+        return
 
     # Load proxies
     proxies = load_proxies(setting.PROXIES_PATH)
     if not proxies:
-        log.error(f"[MAIN] No proxies found - without proxies scraper not working.")
+        log.error("[MAIN] No proxies found - scraper cannot work without proxies.")
+        writer_task.cancel()
         return
     
     n_workers = setting.CONCURRENCY
+    log.info(f"[MAIN] Starting with {n_workers} workers")
 
-    # Launch browser + worker
+    # Launch browser + workers
     async with async_playwright() as pw:
         browser = await pw.chromium.launch(headless=setting.HEADLESS)
-        log.info(f"[MAIN] Browser launched | workers: {n_workers}")
+        log.info("[MAIN] Browser launched")
 
         tasks = [
             worker(
                 browser,
                 proxies[i % len(proxies)],
-                db,
                 keyword_queue,
-                worker_id = i + 1,
+                company_queue,
+                collected_nbrs_ids,
+                worker_id=i + 1,
             )
             for i in range(n_workers)
         ]
 
         await asyncio.gather(*tasks)
-
         await browser.close()
-    
-    db.print_stats()
-    log.info(f"[MAIN] Done - {db.get_total_companies()} unique companies scraped")
-    db.close()
+        
+        # Signal writer to stop and flush remaining data
+        await company_queue.put(None)
+        await writer_task
+        
+        log.info(f"[MAIN] Scraping completed. Total unique companies collected: {len(collected_nbrs_ids)}")
+        log.info("=" * 60)
+
+
+if __name__ == "__main__":
+    asyncio.run(main())

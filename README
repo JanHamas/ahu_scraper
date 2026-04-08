@@ -1,86 +1,102 @@
-# Project Structure
+AHU Company Scraper
 
-Pretty straightforward layout — main.py is the entry point, everything else is split into scraper logic, database, and config folders.
+A scraper that collects company data from the AHU website (Indonesian business registry). It handles reCAPTCHA v3, rotates proxies, and includes detection-avoidance techniques.
 
-I have collected 10k companies if you start scraper again only new will be save.
-Fully resumable. To start fresh, just delete the `.db` file.
+In the test task, you mentioned two things that I did not implement.
 
-*Note:* Credentials and proxies are already configured for testing. You can run the scraper straight away without any additional setup.
+The first was generating new keywords from the scraped company names to expand coverage. That part would be relatively easy to add.
 
-## Scalable Design
-Scraper can collect all companies available on AHU website without duplicate.
+However, there are two issues with the keyword search approach:
+
+Example: searching "ind" shows ~200k results, but when navigating pages, around page 9 or 10 it starts showing "not found".
+If the goal is to collect all companies from the AHU website, the keyword approach alone may not guarantee full coverage.
+
+Current Status
+Collected so far: 650+ companies
+Keywords searched: 62
+Keyword set generated: All 3-letter combinations (aaa → zzz, total 17,576)
+
+This keyword set should theoretically cover ~170k unique companies.
+
+The scraper can run much faster if we:
+
+Use 100 proxies
+Increase concurrency to 30 workers
+
+With that setup, it should be possible to collect ~10k unique companies in about 10 minutes.
+
+Why didn’t I reach 10k?
+
+I ran out of 2Captcha credits. With sufficient credits, collecting 10k companies in ~20 minutes should be achievable.
+
+Main Problems
+✅ Problem 1: Geo-blocking & reCAPTCHA (Solved)
+
+The AHU website blocks foreign IPs and triggers reCAPTCHA.
+
+Solution implemented:
+
+Use Indonesian proxy IPs
+Solve reCAPTCHA using 2Captcha
+
+❌ Problem 2: Pagination (Not solved yet)
+
+Example issue:
+
+Search "ind" → shows ~200k results
+But when navigating pages, around page 9–10 the site returns "not found"
+
+If this pagination issue can be solved, it should be possible to scrape all 2+ million companies on AHU.
+
+The main question is:
+Why does AHU stop returning results early even though more results exist?
+
+Keyword Generation
+
+The scraper generates all 17,576 three-letter combinations (aaa → zzz).
+
+AHU requires a minimum of 3 characters, so this approach helps cover a wide range of company names.
+
+Features:
+
+Resumable: The scraper can stop anytime and continue from where it left off.
+Restart: Delete companies.csv to start from scratch.
+No duplicates: Company NBR IDs are tracked across all workers.
 
 
+Project Structure (Simple)
 ahu_scraper/
-├── main.py
-├── .env
+├── main.py                 # Run this
 ├── config/
-│   ├── setting.py           # Contains BASE_URL, TIMEOUT, RETRY etc
-│   └── proxies.txt          # ip:port:user:password (one per line)
+│   ├── setting.py          # All settings
+│   ├── proxies.txt         # Indonesian proxies
+│   └── completed_keywords.json  # Tracks completed keywords
 ├── scraper/
-│   ├── __init__.py
-│   ├── ahu_scraper.py       # Main orchestrator
-│   ├── keyword_generator.py # Adaptive 3→4→5 letter keywords
-│   ├── captcha_bypasser.py  # reCAPTCHA v3 via 2captcha
-│   ├── fg_generator.py      # Browser fingerprint generator
-│   ├── page_parser.py       # Playwright element extraction
-│   └── helper.py            # Proxy, fingerprint, timezone utils
-├── database/3→4→5 letter keyword
-│   ├── __init__.py
-│   └── db.py                # SQLite normalized schema + handler
+│   ├── worker.py           # Main scraping logic
+│   ├── helper.py           # Proxy & CSV utilities
+│   ├── page_parser.py      # Extracts company data
+│   └── captcha_solver.py   # 2Captcha integration
+├── database/
+│   ├── companies.csv       # Scraped companies
+│   └── keywords.csv        # All 17,576 keywords
 └── logs/
-    └── scraper.log
+    └── scraper.log         # Logs
 
-# How Keyword Generation Works
 
-AHU's search does prefix/contains matching and requires at least 3 characters. So scraper generating all 17,576 three-letter combos (aaa → zzz) on first run which cover all companies available not generate keyword from scraped companies as you told me i think we will miss lot companies. then apply a simple rule per keyword:
-
-- *0–1 results* → skip it
-- *2–160 results* → scrape it
-- *160+ results* → expand to 4-letter variants and requeue
-
-The 160 threshold exists because reCAPTCHA tokens expire in ~2 minutes, and each page takes ~12 seconds — so roughly 8 pages per token is the safe limit.
-
-### Why not just scrape all pages of a big keyword directly?
-
-why not scrape `"ind"` directly even if it has thousands of results, and just refresh the token when it expires?
-
-The problem is cost. Each token refresh = one 2captcha API call. A keyword with 10,000 results has ~500 pages — that's potentially *500 token refreshes for just one keyword*. Across thousands of keywords, the bill explodes.
-
-Instead, by expanding `"ind"` into `inda`, `indb`, `indc`... each chunk stays under 160 results, so *one token covers the entire chunk*. All the same data gets scraped, just through smaller targeted keywords — and total token usage drops from thousands to maybe 50–100.
-
-Same data. Much cheaper.
-
-## Database Design
-
-Fully normalized SQLite schema. The `data_id` from AHU's HTML is used as the natural unique key, so re-scraping never creates duplicates. Keywords table makes the whole thing resumable — crash and restart, it picks up where it left off.
-
-## Handling Rate Limits & Geo-Blocking
-
-- *Proxies* — rotating datacenter Indonesian IPs only, loaded from `proxies.txt`
-- *reCAPTCHA* — solved via 2captcha API, same proxy passed to the solver so IPs match
-- *Fingerprinting* — canvas, audio, WebGL all randomized per session
-
-## Configuration
-
-*`.env`*
-
-2CAPTCHA_API_KEY=key_here
-
-*`proxies.txt`* — one proxy per line. More proxies = faster scraping + lower detection risk. Indonesian datacenter IPs recommended:
-1.2.3.4:8080:user:password
-5.6.7.8:8080:user:password
-
-## Setup
-
-Requires Python 3.11. Create a virtual environment:
+Setup
 python3.11 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
-
-## Install Chromium Browser
 python -m patchright install chromium --with-deps
 
-## Running It
-source .venv/bin/activate
+
+Set your 2Captcha API key in .env:
+
+echo "2CAPTCHA_API_KEY=your_key" > .env
+
+Run
 python main.py
+
+
+Note:
+Proxies and configuration are already set up for direct testing.

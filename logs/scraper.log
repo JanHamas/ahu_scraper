@@ -1,181 +1,996 @@
 
-2026-04-07 20:43:48 [INFO    ] ============================================================
-2026-04-07 20:43:48 [INFO    ]   AHU Company Scraper - Starting
-2026-04-07 20:43:48 [INFO    ] ============================================================
-2026-04-07 20:43:48 [INFO    ] [DB] Connected to /home/hamas/Desktop/ahu_scraper/database/ahu_companies.db
-2026-04-07 20:43:48 [INFO    ] [MAIN] First run - seeding 3-letter keywords...
-2026-04-07 20:43:48 [INFO    ] [KEYWORDS] Generated 17576 three-letter keywords
-2026-04-07 20:43:48 [INFO    ] [DB] Seeded 17576 new keywords (17576 total)
-2026-04-07 20:43:48 [INFO    ] [MAIN] 17576 keywords pending !0 companies in DB
-2026-04-07 20:43:48 [INFO    ] [HP]Total 1 proxy loaded.
-2026-04-07 20:43:52 [INFO    ] [MAIN] Browser launched | workers: 1
-2026-04-07 20:43:52 [INFO    ] [WORKER-1] Starting
-2026-04-07 20:43:52 [INFO    ] [FG] Real Chrome version: 146.0.7680.177
-2026-04-07 20:43:55 [INFO    ] [HP] Timezone: Asia/Jakarta
-2026-04-07 20:43:59 [INFO    ] [HP] Proxy public IP: 45.147.133.69
-2026-04-07 20:43:59 [INFO    ] [WORKER-1] Processing keyword: 'aaa'
-2026-04-07 20:43:59 [INFO    ] [SCRAPER] 'aaa' — getting token...
-2026-04-07 20:43:59 [INFO    ] [CAPTCHA] Requesting fresh reCAPTCHA v3 token...
-2026-04-07 20:43:59 [DEBUG   ] [CAPTCHA] Solving via proxy: 45.147.133.69:12323
-2026-04-07 20:44:18 [INFO    ] [CAPTCHA] ✅ Token received and cached
-2026-04-07 20:45:16 [DEBUG   ] [CAPTCHA] Token injected (age: 57s)
-2026-04-07 20:45:16 [INFO    ] [SCRAPER] 'aaa' → 62 results
-2026-04-07 20:45:16 [DEBUG   ] [PARSER] Found 20 cards on page
-2026-04-07 20:45:42 [INFO    ] [SCRAPER] 'aaa' page 1 → 20 extracted, 20 new
-2026-04-07 20:45:42 [DEBUG   ] [SCRAPER] 'aaa' → 4 pages total
-2026-04-07 20:46:17 [DEBUG   ] [PARSER] Found 20 cards on page
-2026-04-07 20:46:49 [INFO    ] [SCRAPER] 'aaa' page 2/4 → 20 extracted, 20 new | DB total: 40
-2026-04-07 20:47:43 [WARNING ] [PARSER] No company cards found — page may be empty or timed out
-2026-04-07 20:47:43 [INFO    ] [SCRAPER] 'aaa' page 3/4 → 0 extracted, 0 new | DB total: 40
-2026-04-07 22:31:01 [INFO    ] 
+
+2026-04-08 04:10:38 [INFO    ] ============================================================
+2026-04-08 04:10:38 [INFO    ]   AHU Company Scraper - Starting
+2026-04-08 04:10:38 [INFO    ] ============================================================
+2026-04-08 04:10:38 [INFO    ] [HP] Loaded 0 existing NBRs IDs from CSV
+2026-04-08 04:10:38 [INFO    ] [MAIN] Loaded 0 existing NBRs IDs from CSV
+2026-04-08 04:10:38 [INFO    ] [KEYWORDS] Last processed keyword: None
+2026-04-08 04:10:38 [INFO    ] [KEYWORDS] Loaded 17576 keywords into queue starting after 'None'
+2026-04-08 04:10:38 [INFO    ] [HP] Total 1 proxies loaded.
+2026-04-08 04:10:38 [INFO    ] [MAIN] Starting with 1 workers
+2026-04-08 04:10:39 [INFO    ] [MAIN] Browser launched
+2026-04-08 04:10:39 [INFO    ] [WORKER-1] Starting
+2026-04-08 04:10:39 [INFO    ] [FG] Real Chrome version: 146.0.7680.177
+2026-04-08 04:10:40 [INFO    ] [HP] Timezone: Asia/Jakarta
+2026-04-08 04:10:41 [INFO    ] [HP] Proxy public IP: 45.147.133.69
+2026-04-08 04:10:41 [INFO    ] [CAPTCHA] Requesting fresh reCAPTCHA v3 token...
+2026-04-08 04:10:41 [DEBUG   ] [CAPTCHA] Solving via proxy: 45.147.133.69:12323
+2026-04-08 04:11:14 [INFO    ] [CAPTCHA] ✅ Token received and cached
+2026-04-08 04:11:24 [DEBUG   ] [CAPTCHA] Token injected (age: 10s)
+2026-04-08 04:11:33 [DEBUG   ] [PARSER] Extracted 20 new companies for keyword 'aaa'
+2026-04-08 04:11:39 [DEBUG   ] [CAPTCHA] Token injected (age: 25s)
+2026-04-08 04:11:48 [DEBUG   ] [PARSER] Extracted 20 new companies for keyword 'aaa'
+2026-04-08 04:11:58 [DEBUG   ] [CAPTCHA] Token injected (age: 44s)
+2026-04-08 04:11:58 [DEBUG   ] [PARSER] Extracted 1 new companies for keyword 'aaa'
+2026-04-08 04:12:04 [DEBUG   ] [CAPTCHA] Token injected (age: 50s)
+2026-04-08 04:12:04 [INFO    ] [WORKER-1] Finished processing keyword: 'aaa'
+2026-04-08 04:12:04 [INFO    ] [CAPTCHA] ♻️  Reusing token (age: 50s / 110s)
+2026-04-08 04:12:10 [DEBUG   ] [CAPTCHA] Token injected (age: 56s)
+2026-04-08 04:12:10 [DEBUG   ] [PARSER] Extracted 1 new companies for keyword 'aab'
+2026-04-08 04:24:16 [INFO    ] 
  
  
 
-2026-04-07 22:31:01 [INFO    ] ============================================================
-2026-04-07 22:31:01 [INFO    ]   AHU Company Scraper - Starting
-2026-04-07 22:31:01 [INFO    ] ============================================================
-2026-04-07 22:31:01 [INFO    ] [DB] Connected to /home/hamas/Desktop/ahu_scraper/database/ahu_companies.db
-2026-04-07 22:31:02 [INFO    ] [MAIN] 17576 keywords pending !40 companies in DB
-2026-04-07 22:31:02 [INFO    ] [HP]Total 1 proxy loaded.
-2026-04-07 22:31:03 [INFO    ] [MAIN] Browser launched | workers: 1
-2026-04-07 22:31:03 [INFO    ] [WORKER-1] Starting
-2026-04-07 22:31:03 [INFO    ] [FG] Real Chrome version: 146.0.7680.177
-2026-04-07 22:31:03 [INFO    ] [HP] Timezone: Asia/Jakarta
-2026-04-07 22:31:06 [INFO    ] [HP] Proxy public IP: 45.147.133.69
-2026-04-07 22:31:06 [INFO    ] [WORKER-1] Processing keyword: 'aaa'
-2026-04-07 22:31:06 [INFO    ] [SCRAPER] 'aaa' — getting token...
-2026-04-07 22:31:06 [INFO    ] [CAPTCHA] Requesting fresh reCAPTCHA v3 token...
-2026-04-07 22:31:06 [DEBUG   ] [CAPTCHA] Solving via proxy: 45.147.133.69:12323
-2026-04-07 22:31:57 [INFO    ] [CAPTCHA] ✅ Token received and cached
-2026-04-07 22:32:33 [DEBUG   ] [CAPTCHA] Token injected (age: 36s)
-2026-04-07 22:32:33 [INFO    ] [SCRAPER] 'aaa' → 62 results
-2026-04-07 22:32:34 [DEBUG   ] [PARSER] Found 20 cards on page
-2026-04-07 22:32:47 [INFO    ] [SCRAPER] 'aaa' page 1 → 20 extracted, 20 new
-2026-04-07 22:32:47 [DEBUG   ] [SCRAPER] 'aaa' → 4 pages total
-2026-04-07 22:33:18 [DEBUG   ] [PARSER] Found 20 cards on page
-2026-04-07 22:33:29 [INFO    ] [SCRAPER] 'aaa' page 2/4 → 20 extracted, 20 new | DB total: 40
-2026-04-07 22:33:45 [DEBUG   ] [PARSER] Found 1 cards on page
-2026-04-07 22:33:45 [INFO    ] [SCRAPER] 'aaa' page 3/4 → 1 extracted, 1 new | DB total: 41
-2026-04-07 22:34:04 [WARNING ] [CAPTCHA] Token expired — invalidating cache
-2026-04-07 22:34:04 [WARNING ] [CAPTCHA] Token manually invalidated
-2026-04-07 22:34:04 [WARNING ] [SCRAPER] 'aaa' token expired at page 4
-2026-04-07 22:34:05 [DEBUG   ] [DB] Keyword 'aaa' → done (62 results)
-2026-04-07 22:34:05 [INFO    ] [DB] Stats → Companies: 41 | Keywords done: 1 | pending: 17575 | overflow: 0 | failed: 0
-2026-04-07 22:34:05 [INFO    ] [WORKER-1] Processing keyword: 'aab'
-2026-04-07 22:34:05 [INFO    ] [SCRAPER] 'aab' — getting token...
-2026-04-07 22:34:05 [INFO    ] [CAPTCHA] Requesting fresh reCAPTCHA v3 token...
-2026-04-07 22:34:05 [DEBUG   ] [CAPTCHA] Solving via proxy: 45.147.133.69:12323
-2026-04-07 22:34:29 [INFO    ] [CAPTCHA] ✅ Token received and cached
-2026-04-07 22:34:38 [DEBUG   ] [CAPTCHA] Token injected (age: 9s)
-2026-04-07 22:34:38 [INFO    ] [SCRAPER] 'aab' → 14 results
-2026-04-07 22:34:38 [DEBUG   ] [PARSER] Found 1 cards on page
-2026-04-07 22:34:38 [INFO    ] [SCRAPER] 'aab' page 1 → 1 extracted, 1 new
-2026-04-07 22:34:38 [DEBUG   ] [SCRAPER] 'aab' → 1 pages total
-2026-04-07 22:34:38 [DEBUG   ] [DB] Keyword 'aab' → done (14 results)
-2026-04-07 22:34:38 [INFO    ] [DB] Stats → Companies: 42 | Keywords done: 2 | pending: 17574 | overflow: 0 | failed: 0
-2026-04-07 22:34:38 [INFO    ] [WORKER-1] Processing keyword: 'aac'
-2026-04-07 22:34:38 [INFO    ] [SCRAPER] 'aac' — getting token...
-2026-04-07 22:34:38 [INFO    ] [CAPTCHA] ♻️  Reusing token (age: 9s / 110s)
-2026-04-07 22:34:49 [DEBUG   ] [CAPTCHA] Token injected (age: 20s)
-2026-04-07 22:34:49 [INFO    ] [SCRAPER] 'aac' → 5 results
-2026-04-07 22:34:49 [DEBUG   ] [PARSER] Found 2 cards on page
-2026-04-07 22:34:50 [INFO    ] [SCRAPER] 'aac' page 1 → 2 extracted, 2 new
-2026-04-07 22:34:50 [DEBUG   ] [SCRAPER] 'aac' → 1 pages total
-2026-04-07 22:34:50 [DEBUG   ] [DB] Keyword 'aac' → done (5 results)
-2026-04-07 22:34:50 [INFO    ] [DB] Stats → Companies: 44 | Keywords done: 3 | pending: 17573 | overflow: 0 | failed: 0
-2026-04-07 22:34:50 [INFO    ] [WORKER-1] Processing keyword: 'aad'
-2026-04-07 22:34:50 [INFO    ] [SCRAPER] 'aad' — getting token...
-2026-04-07 22:34:50 [INFO    ] [CAPTCHA] ♻️  Reusing token (age: 21s / 110s)
-2026-04-07 22:35:02 [DEBUG   ] [CAPTCHA] Token injected (age: 32s)
-2026-04-07 22:35:02 [INFO    ] [SCRAPER] 'aad' → empty
-2026-04-07 22:35:02 [DEBUG   ] [HELPER] Screenshot saved: /home/hamas/Desktop/ahu_scraper/db_screenshots/empty_result_2026-04-07_10-35-02PM.png
-2026-04-07 22:35:02 [DEBUG   ] [DB] Keyword 'aad' → empty (0 results)
-2026-04-07 22:35:02 [INFO    ] [DB] Stats → Companies: 44 | Keywords done: 3 | pending: 17572 | overflow: 0 | failed: 0
-2026-04-07 22:35:02 [INFO    ] [WORKER-1] Processing keyword: 'aae'
-2026-04-07 22:35:02 [INFO    ] [SCRAPER] 'aae' — getting token...
-2026-04-07 22:35:02 [INFO    ] [CAPTCHA] ♻️  Reusing token (age: 33s / 110s)
-2026-04-07 22:35:19 [DEBUG   ] [CAPTCHA] Token injected (age: 49s)
-2026-04-07 22:35:19 [INFO    ] [SCRAPER] 'aae' → 2 results
-2026-04-07 22:35:19 [DEBUG   ] [PARSER] Found 2 cards on page
-2026-04-07 22:35:19 [INFO    ] [SCRAPER] 'aae' page 1 → 2 extracted, 2 new
-2026-04-07 22:35:19 [DEBUG   ] [SCRAPER] 'aae' → 1 pages total
-2026-04-07 22:35:19 [DEBUG   ] [DB] Keyword 'aae' → done (2 results)
-2026-04-07 22:35:19 [INFO    ] [DB] Stats → Companies: 46 | Keywords done: 4 | pending: 17571 | overflow: 0 | failed: 0
-2026-04-07 22:35:19 [INFO    ] [WORKER-1] Processing keyword: 'aaf'
-2026-04-07 22:35:19 [INFO    ] [SCRAPER] 'aaf' — getting token...
-2026-04-07 22:35:19 [INFO    ] [CAPTCHA] ♻️  Reusing token (age: 50s / 110s)
-2026-04-07 22:47:21 [INFO    ] 
+2026-04-08 04:24:16 [INFO    ] ============================================================
+2026-04-08 04:24:16 [INFO    ]   AHU Company Scraper - Starting
+2026-04-08 04:24:16 [INFO    ] ============================================================
+2026-04-08 04:24:16 [INFO    ] [HP] Loaded 0 existing NBRs IDs from CSV
+2026-04-08 04:24:16 [INFO    ] [MAIN] Loaded 0 existing NBRs IDs from CSV
+2026-04-08 04:24:16 [INFO    ] [KEYWORDS] Found last processed keyword in CSV: 'None'
+2026-04-08 04:24:16 [INFO    ] [KEYWORDS] Completed keywords: 0
+2026-04-08 04:24:16 [INFO    ] [KEYWORDS] Loaded 17576 keywords into queue
+2026-04-08 04:24:16 [INFO    ] [KEYWORDS] Skipped 0 already completed keywords
+2026-04-08 04:24:16 [INFO    ] [HP] Total 1 proxies loaded.
+2026-04-08 04:24:16 [INFO    ] [MAIN] Starting with 1 workers
+2026-04-08 04:24:17 [INFO    ] [MAIN] Browser launched
+2026-04-08 04:24:17 [INFO    ] [WORKER-1] Starting
+2026-04-08 04:24:17 [INFO    ] [FG] Real Chrome version: 146.0.7680.177
+2026-04-08 04:24:17 [INFO    ] [HP] Timezone: Asia/Jakarta
+2026-04-08 04:24:19 [INFO    ] [HP] Proxy public IP: 45.147.133.69
+2026-04-08 04:24:19 [INFO    ] [WORKER-1] Processing keyword: 'aaa'
+2026-04-08 04:24:19 [INFO    ] [CAPTCHA] Requesting fresh reCAPTCHA v3 token...
+2026-04-08 04:24:19 [DEBUG   ] [CAPTCHA] Solving via proxy: 45.147.133.69:12323
+2026-04-08 04:25:09 [INFO    ] 
  
  
 
-2026-04-07 22:47:21 [INFO    ] ============================================================
-2026-04-07 22:47:21 [INFO    ]   AHU Company Scraper - Starting
-2026-04-07 22:47:21 [INFO    ] ============================================================
-2026-04-07 22:47:21 [INFO    ] [DB] Connected to /home/hamas/Desktop/ahu_scraper/database/ahu_companies.db
-2026-04-07 22:47:21 [INFO    ] [MAIN] 17571 keywords pending !46 companies in DB
-2026-04-07 22:47:21 [INFO    ] [HP]Total 1 proxy loaded.
-2026-04-07 22:47:22 [INFO    ] [MAIN] Browser launched | workers: 1
-2026-04-07 22:47:22 [INFO    ] [WORKER-1] Starting
-2026-04-07 22:47:23 [INFO    ] [FG] Real Chrome version: 146.0.7680.177
-2026-04-07 22:47:23 [INFO    ] [HP] Timezone: Asia/Jakarta
-2026-04-07 22:47:25 [INFO    ] [HP] Proxy public IP: 45.147.133.69
-2026-04-07 22:47:26 [INFO    ] [WORKER-1] Processing keyword: 'aaf'
-2026-04-07 22:47:26 [INFO    ] [SCRAPER] 'aaf' — getting token...
-2026-04-07 22:47:26 [INFO    ] [CAPTCHA] Requesting fresh reCAPTCHA v3 token...
-2026-04-07 22:47:26 [DEBUG   ] [CAPTCHA] Solving via proxy: 45.147.133.69:12323
-2026-04-07 22:47:50 [INFO    ] [CAPTCHA] ✅ Token received and cached
-2026-04-07 22:48:10 [DEBUG   ] [CAPTCHA] Token injected (age: 19s)
-2026-04-07 22:48:11 [INFO    ] [SCRAPER] 'aaf' → 16 results
-2026-04-07 22:48:11 [DEBUG   ] [PARSER] Found 4 cards on page
-2026-04-07 22:48:12 [INFO    ] [SCRAPER] 'aaf' page 1 → 4 extracted, 4 new
-2026-04-07 22:48:12 [DEBUG   ] [SCRAPER] 'aaf' → 1 pages total
-2026-04-07 22:48:21 [DEBUG   ] [PARSER] Found 4 cards on page
-2026-04-07 22:48:22 [ERROR   ] [DB] upsert_company error for data_id=1138492: FOREIGN KEY constraint failed
-2026-04-07 22:48:22 [ERROR   ] [DB] upsert_company error for data_id=1951869: FOREIGN KEY constraint failed
-2026-04-07 22:48:22 [ERROR   ] [DB] upsert_company error for data_id=2626529: FOREIGN KEY constraint failed
-2026-04-07 22:48:22 [ERROR   ] [DB] upsert_company error for data_id=844125: FOREIGN KEY constraint failed
-2026-04-07 22:48:22 [INFO    ] [SCRAPER] 'aaf' page 1/1 → 4 extracted, 0 new | DB total: 50
-2026-04-07 22:48:22 [DEBUG   ] [DB] Keyword 'aaf' → done (16 results)
-2026-04-07 22:48:22 [INFO    ] [DB] Stats → Companies: 50 | Keywords done: 5 | pending: 17570 | overflow: 0 | failed: 0
-2026-04-07 22:48:22 [INFO    ] [WORKER-1] Processing keyword: 'aag'
-2026-04-07 22:48:22 [INFO    ] [SCRAPER] 'aag' — getting token...
-2026-04-07 22:48:22 [INFO    ] [CAPTCHA] ♻️  Reusing token (age: 31s / 110s)
-2026-04-07 22:48:37 [DEBUG   ] [CAPTCHA] Token injected (age: 46s)
-2026-04-07 22:48:37 [INFO    ] [SCRAPER] 'aag' → empty
-2026-04-07 22:48:37 [DEBUG   ] [HELPER] Screenshot saved: /home/hamas/Desktop/ahu_scraper/db_screenshots/empty_result_2026-04-07_10-48-37PM.png
-2026-04-07 22:48:37 [DEBUG   ] [DB] Keyword 'aag' → empty (0 results)
-2026-04-07 22:48:37 [INFO    ] [DB] Stats → Companies: 50 | Keywords done: 5 | pending: 17569 | overflow: 0 | failed: 0
-2026-04-07 22:48:37 [INFO    ] [WORKER-1] Processing keyword: 'aah'
-2026-04-07 22:48:37 [INFO    ] [SCRAPER] 'aah' — getting token...
-2026-04-07 22:48:37 [INFO    ] [CAPTCHA] ♻️  Reusing token (age: 46s / 110s)
-2026-04-07 22:48:52 [DEBUG   ] [CAPTCHA] Token injected (age: 61s)
-2026-04-07 22:48:52 [INFO    ] [SCRAPER] 'aah' → 5 results
-2026-04-07 22:48:52 [DEBUG   ] [PARSER] Found 1 cards on page
-2026-04-07 22:48:52 [INFO    ] [SCRAPER] 'aah' page 1 → 1 extracted, 1 new
-2026-04-07 22:48:52 [DEBUG   ] [SCRAPER] 'aah' → 1 pages total
-2026-04-07 22:49:10 [DEBUG   ] [PARSER] Found 1 cards on page
-2026-04-07 22:49:11 [ERROR   ] [DB] upsert_company error for data_id=696511: FOREIGN KEY constraint failed
-2026-04-07 22:49:11 [INFO    ] [SCRAPER] 'aah' page 1/1 → 1 extracted, 0 new | DB total: 51
-2026-04-07 22:49:11 [DEBUG   ] [DB] Keyword 'aah' → done (5 results)
-2026-04-07 22:49:11 [INFO    ] [DB] Stats → Companies: 51 | Keywords done: 6 | pending: 17568 | overflow: 0 | failed: 0
-2026-04-07 22:49:11 [INFO    ] [WORKER-1] Processing keyword: 'aai'
-2026-04-07 22:49:11 [INFO    ] [SCRAPER] 'aai' — getting token...
-2026-04-07 22:49:11 [INFO    ] [CAPTCHA] ♻️  Reusing token (age: 80s / 110s)
-2026-04-07 22:49:26 [DEBUG   ] [CAPTCHA] Token injected (age: 95s)
-2026-04-07 22:49:26 [INFO    ] [SCRAPER] 'aai' → 13 results
-2026-04-07 22:49:27 [DEBUG   ] [PARSER] Found 3 cards on page
-2026-04-07 22:49:27 [INFO    ] [SCRAPER] 'aai' page 1 → 3 extracted, 3 new
-2026-04-07 22:49:27 [DEBUG   ] [SCRAPER] 'aai' → 1 pages total
-2026-04-07 22:49:40 [DEBUG   ] [PARSER] Found 3 cards on page
-2026-04-07 22:49:41 [ERROR   ] [DB] upsert_company error for data_id=2095832: FOREIGN KEY constraint failed
-2026-04-07 22:49:41 [ERROR   ] [DB] upsert_company error for data_id=1602277: FOREIGN KEY constraint failed
-2026-04-07 22:49:41 [ERROR   ] [DB] upsert_company error for data_id=2395485: FOREIGN KEY constraint failed
-2026-04-07 22:49:41 [INFO    ] [SCRAPER] 'aai' page 1/1 → 3 extracted, 0 new | DB total: 54
-2026-04-07 22:49:41 [DEBUG   ] [DB] Keyword 'aai' → done (13 results)
-2026-04-07 22:49:41 [INFO    ] [DB] Stats → Companies: 54 | Keywords done: 7 | pending: 17567 | overflow: 0 | failed: 0
-2026-04-07 22:49:41 [INFO    ] [WORKER-1] Processing keyword: 'aaj'
-2026-04-07 22:49:41 [INFO    ] [SCRAPER] 'aaj' — getting token...
-2026-04-07 22:49:41 [INFO    ] [CAPTCHA] Requesting fresh reCAPTCHA v3 token...
-2026-04-07 22:49:41 [DEBUG   ] [CAPTCHA] Solving via proxy: 45.147.133.69:12323
-2026-04-07 22:50:03 [INFO    ] [CAPTCHA] ✅ Token received and cached
-2026-04-07 22:50:09 [INFO    ] [WORKER-1] Context closed
+2026-04-08 04:25:09 [INFO    ] ============================================================
+2026-04-08 04:25:09 [INFO    ]   AHU Company Scraper - Starting
+2026-04-08 04:25:09 [INFO    ] ============================================================
+2026-04-08 04:25:09 [INFO    ] [HP] No existing companies CSV found. Starting fresh.
+2026-04-08 04:25:09 [INFO    ] [MAIN] Loaded 0 existing NBRs IDs from CSV
+2026-04-08 04:25:09 [INFO    ] [KEYWORDS] No existing companies CSV found. Starting from beginning.
+2026-04-08 04:25:09 [INFO    ] [KEYWORDS] Completed keywords: 0
+2026-04-08 04:25:09 [INFO    ] [KEYWORDS] Loaded 17576 keywords into queue
+2026-04-08 04:25:09 [INFO    ] [KEYWORDS] Skipped 0 already completed keywords
+2026-04-08 04:25:09 [INFO    ] [HP] Total 5 proxies loaded.
+2026-04-08 04:25:09 [INFO    ] [MAIN] Starting with 5 workers
+2026-04-08 04:25:10 [INFO    ] [MAIN] Browser launched
+2026-04-08 04:25:10 [INFO    ] [WORKER-1] Starting
+2026-04-08 04:25:10 [INFO    ] [FG] Real Chrome version: 146.0.7680.177
+2026-04-08 04:25:11 [INFO    ] [HP] Timezone: Asia/Jakarta
+2026-04-08 04:25:12 [INFO    ] [HP] Proxy public IP: 45.147.133.69
+2026-04-08 04:25:12 [INFO    ] [WORKER-2] Starting
+2026-04-08 04:25:12 [INFO    ] [FG] Real Chrome version: 146.0.7680.177
+2026-04-08 04:25:12 [INFO    ] [HP] Timezone: Asia/Jakarta
+2026-04-08 04:25:14 [INFO    ] [HP] Proxy public IP: 45.147.133.69
+2026-04-08 04:25:14 [INFO    ] [WORKER-3] Starting
+2026-04-08 04:25:14 [INFO    ] [FG] Real Chrome version: 146.0.7680.177
+2026-04-08 04:25:14 [INFO    ] [HP] Timezone: Asia/Jakarta
+2026-04-08 04:25:16 [INFO    ] [HP] Proxy public IP: 45.147.133.69
+2026-04-08 04:25:16 [INFO    ] [WORKER-4] Starting
+2026-04-08 04:25:16 [INFO    ] [FG] Real Chrome version: 146.0.7680.177
+2026-04-08 04:25:16 [INFO    ] [HP] Timezone: Asia/Jakarta
+2026-04-08 04:25:18 [INFO    ] [HP] Proxy public IP: 45.147.133.69
+2026-04-08 04:25:18 [INFO    ] [WORKER-5] Starting
+2026-04-08 04:25:18 [INFO    ] [FG] Real Chrome version: 146.0.7680.177
+2026-04-08 04:25:18 [INFO    ] [HP] Timezone: Asia/Jakarta
+2026-04-08 04:25:20 [INFO    ] [HP] Proxy public IP: 45.147.133.69
+2026-04-08 04:25:20 [INFO    ] [WORKER-3] Processing keyword: 'aaa'
+2026-04-08 04:25:20 [INFO    ] [CAPTCHA] Requesting fresh reCAPTCHA v3 token...
+2026-04-08 04:25:20 [DEBUG   ] [CAPTCHA] Solving via proxy: 45.147.133.69:12323
+2026-04-08 04:25:20 [INFO    ] [WORKER-4] Processing keyword: 'aab'
+2026-04-08 04:25:20 [INFO    ] [CAPTCHA] Requesting fresh reCAPTCHA v3 token...
+2026-04-08 04:25:20 [DEBUG   ] [CAPTCHA] Solving via proxy: 45.147.133.69:12323
+2026-04-08 04:25:20 [INFO    ] [WORKER-2] Processing keyword: 'aac'
+2026-04-08 04:25:20 [INFO    ] [CAPTCHA] Requesting fresh reCAPTCHA v3 token...
+2026-04-08 04:25:20 [DEBUG   ] [CAPTCHA] Solving via proxy: 45.147.133.69:12323
+2026-04-08 04:25:20 [INFO    ] [WORKER-5] Processing keyword: 'aad'
+2026-04-08 04:25:20 [INFO    ] [CAPTCHA] Requesting fresh reCAPTCHA v3 token...
+2026-04-08 04:25:20 [DEBUG   ] [CAPTCHA] Solving via proxy: 45.147.133.69:12323
+2026-04-08 04:25:20 [INFO    ] [WORKER-1] Processing keyword: 'aae'
+2026-04-08 04:25:20 [INFO    ] [CAPTCHA] Requesting fresh reCAPTCHA v3 token...
+2026-04-08 04:25:20 [DEBUG   ] [CAPTCHA] Solving via proxy: 45.147.133.69:12323
+2026-04-08 04:25:31 [INFO    ] [CAPTCHA] ✅ Token received and cached
+2026-04-08 04:25:31 [INFO    ] [CAPTCHA] ✅ Token received and cached
+2026-04-08 04:25:32 [INFO    ] [CAPTCHA] ✅ Token received and cached
+2026-04-08 04:25:42 [INFO    ] [CAPTCHA] ✅ Token received and cached
+2026-04-08 04:25:42 [INFO    ] [CAPTCHA] ✅ Token received and cached
+2026-04-08 04:25:42 [DEBUG   ] [CAPTCHA] Token injected (age: 10s)
+2026-04-08 04:25:42 [DEBUG   ] [CAPTCHA] Token injected (age: 11s)
+2026-04-08 04:25:42 [DEBUG   ] [CAPTCHA] Token injected (age: 11s)
+2026-04-08 04:25:44 [DEBUG   ] [PARSER] Extracted 1 new companies for keyword 'aab'
+2026-04-08 04:25:44 [DEBUG   ] [PARSER] Extracted 2 new companies for keyword 'aae'
+2026-04-08 04:25:51 [DEBUG   ] [CAPTCHA] Token injected (age: 20s)
+2026-04-08 04:25:52 [DEBUG   ] [HELPER] Screenshot saved: /home/hamas/Desktop/ahu_scraper/db_screenshots/last_page_aab_2026-04-08_04-25-51AM.png
+2026-04-08 04:25:52 [INFO    ] [WORKER-4] No more results for 'aab' at page 2
+2026-04-08 04:25:52 [DEBUG   ] [HP] Marked 'aab' as complete
+2026-04-08 04:25:52 [INFO    ] [WORKER-4] Keyword 'aab' marked as complete
+2026-04-08 04:25:52 [INFO    ] [WORKER-4] Finished processing keyword: 'aab' (Total unique: 17)
+2026-04-08 04:25:52 [INFO    ] [WORKER-4] Processing keyword: 'aaf'
+2026-04-08 04:25:52 [INFO    ] [CAPTCHA] ♻️  Reusing token (age: 20s / 110s)
+2026-04-08 04:25:53 [DEBUG   ] [CAPTCHA] Token injected (age: 21s)
+2026-04-08 04:25:53 [DEBUG   ] [HELPER] Screenshot saved: /home/hamas/Desktop/ahu_scraper/db_screenshots/last_page_aae_2026-04-08_04-25-53AM.png
+2026-04-08 04:25:53 [INFO    ] [WORKER-1] No more results for 'aae' at page 2
+2026-04-08 04:25:53 [DEBUG   ] [HP] Marked 'aae' as complete
+2026-04-08 04:25:53 [INFO    ] [WORKER-1] Keyword 'aae' marked as complete
+2026-04-08 04:25:53 [INFO    ] [WORKER-1] Finished processing keyword: 'aae' (Total unique: 19)
+2026-04-08 04:25:53 [INFO    ] [WORKER-1] Processing keyword: 'aag'
+2026-04-08 04:25:53 [INFO    ] [CAPTCHA] ♻️  Reusing token (age: 22s / 110s)
+2026-04-08 04:25:53 [DEBUG   ] [CAPTCHA] Token injected (age: 11s)
+2026-04-08 04:25:54 [DEBUG   ] [CAPTCHA] Token injected (age: 12s)
+2026-04-08 04:25:55 [WARNING ] [CAPTCHA] Token expired — invalidating cache
+2026-04-08 04:25:55 [WARNING ] [CAPTCHA] Token manually invalidated
+2026-04-08 04:25:55 [WARNING ] [WORKER-5] Token expired for 'aad' at page 2
+2026-04-08 04:25:55 [INFO    ] [CAPTCHA] Requesting fresh reCAPTCHA v3 token...
+2026-04-08 04:25:55 [DEBUG   ] [CAPTCHA] Solving via proxy: 45.147.133.69:12323
+2026-04-08 04:25:55 [DEBUG   ] [PARSER] Extracted 2 new companies for keyword 'aac'
+2026-04-08 04:25:56 [DEBUG   ] [PARSER] Extracted 20 new companies for keyword 'aaa'
+2026-04-08 04:25:58 [DEBUG   ] [CAPTCHA] Token injected (age: 26s)
+2026-04-08 04:26:00 [DEBUG   ] [PARSER] Extracted 4 new companies for keyword 'aaf'
+2026-04-08 04:26:00 [DEBUG   ] [CAPTCHA] Token injected (age: 28s)
+2026-04-08 04:26:00 [WARNING ] [CAPTCHA] Token expired — invalidating cache
+2026-04-08 04:26:00 [WARNING ] [CAPTCHA] Token manually invalidated
+2026-04-08 04:26:00 [WARNING ] [WORKER-1] Token expired for 'aag' at page 2
+2026-04-08 04:26:00 [INFO    ] [CAPTCHA] Requesting fresh reCAPTCHA v3 token...
+2026-04-08 04:26:00 [DEBUG   ] [CAPTCHA] Solving via proxy: 45.147.133.69:12323
+2026-04-08 04:26:03 [DEBUG   ] [CAPTCHA] Token injected (age: 31s)
+2026-04-08 04:26:03 [DEBUG   ] [CAPTCHA] Token injected (age: 21s)
+2026-04-08 04:26:04 [DEBUG   ] [HELPER] Screenshot saved: /home/hamas/Desktop/ahu_scraper/db_screenshots/last_page_aac_2026-04-08_04-26-03AM.png
+2026-04-08 04:26:04 [INFO    ] [WORKER-2] No more results for 'aac' at page 2
+2026-04-08 04:26:04 [DEBUG   ] [HP] Marked 'aac' as complete
+2026-04-08 04:26:04 [INFO    ] [WORKER-2] Keyword 'aac' marked as complete
+2026-04-08 04:26:04 [INFO    ] [WORKER-2] Finished processing keyword: 'aac' (Total unique: 29)
+2026-04-08 04:26:04 [INFO    ] [WORKER-2] Processing keyword: 'aah'
+2026-04-08 04:26:04 [INFO    ] [CAPTCHA] ♻️  Reusing token (age: 21s / 110s)
+2026-04-08 04:26:09 [DEBUG   ] [CAPTCHA] Token injected (age: 37s)
+2026-04-08 04:26:10 [DEBUG   ] [HELPER] Screenshot saved: /home/hamas/Desktop/ahu_scraper/db_screenshots/last_page_aaf_2026-04-08_04-26-09AM.png
+2026-04-08 04:26:10 [INFO    ] [WORKER-4] No more results for 'aaf' at page 2
+2026-04-08 04:26:10 [DEBUG   ] [HP] Marked 'aaf' as complete
+2026-04-08 04:26:10 [INFO    ] [WORKER-4] Keyword 'aaf' marked as complete
+2026-04-08 04:26:10 [INFO    ] [WORKER-4] Finished processing keyword: 'aaf' (Total unique: 37)
+2026-04-08 04:26:10 [INFO    ] [WORKER-4] Processing keyword: 'aai'
+2026-04-08 04:26:10 [INFO    ] [CAPTCHA] ♻️  Reusing token (age: 38s / 110s)
+2026-04-08 04:26:12 [DEBUG   ] [CAPTCHA] Token injected (age: 29s)
+2026-04-08 04:26:13 [DEBUG   ] [PARSER] Extracted 1 new companies for keyword 'aah'
+2026-04-08 04:26:15 [DEBUG   ] [CAPTCHA] Token injected (age: 43s)
+2026-04-08 04:26:17 [INFO    ] [CAPTCHA] ✅ Token received and cached
+2026-04-08 04:26:17 [DEBUG   ] [PARSER] Extracted 3 new companies for keyword 'aai'
+2026-04-08 04:26:19 [DEBUG   ] [CAPTCHA] Token injected (age: 36s)
+2026-04-08 04:26:19 [DEBUG   ] [HELPER] Screenshot saved: /home/hamas/Desktop/ahu_scraper/db_screenshots/last_page_aah_2026-04-08_04-26-19AM.png
+2026-04-08 04:26:19 [INFO    ] [WORKER-2] No more results for 'aah' at page 2
+2026-04-08 04:26:19 [DEBUG   ] [HP] Marked 'aah' as complete
+2026-04-08 04:26:19 [INFO    ] [WORKER-2] Keyword 'aah' marked as complete
+2026-04-08 04:26:19 [INFO    ] [WORKER-2] Finished processing keyword: 'aah' (Total unique: 49)
+2026-04-08 04:26:19 [INFO    ] [WORKER-2] Processing keyword: 'aaj'
+2026-04-08 04:26:19 [INFO    ] [CAPTCHA] ♻️  Reusing token (age: 36s / 110s)
+2026-04-08 04:26:19 [DEBUG   ] [WRITER] Flushed 50 companies to CSV
+2026-04-08 04:26:21 [DEBUG   ] [PARSER] Extracted 20 new companies for keyword 'aaa'
+2026-04-08 04:26:23 [INFO    ] [CAPTCHA] ✅ Token received and cached
+2026-04-08 04:26:24 [DEBUG   ] [CAPTCHA] Token injected (age: 7s)
+2026-04-08 04:26:24 [DEBUG   ] [HELPER] Screenshot saved: /home/hamas/Desktop/ahu_scraper/db_screenshots/last_page_aad_2026-04-08_04-26-24AM.png
+2026-04-08 04:26:24 [INFO    ] [WORKER-5] No more results for 'aad' at page 2
+2026-04-08 04:26:24 [DEBUG   ] [HP] Marked 'aad' as complete
+2026-04-08 04:26:24 [INFO    ] [WORKER-5] Keyword 'aad' marked as complete
+2026-04-08 04:26:24 [INFO    ] [WORKER-5] Finished processing keyword: 'aad' (Total unique: 53)
+2026-04-08 04:26:24 [INFO    ] [WORKER-5] Processing keyword: 'aak'
+2026-04-08 04:26:24 [INFO    ] [CAPTCHA] ♻️  Reusing token (age: 7s / 110s)
+2026-04-08 04:26:26 [DEBUG   ] [CAPTCHA] Token injected (age: 54s)
+2026-04-08 04:26:26 [DEBUG   ] [HELPER] Screenshot saved: /home/hamas/Desktop/ahu_scraper/db_screenshots/last_page_aai_2026-04-08_04-26-26AM.png
+2026-04-08 04:26:26 [INFO    ] [WORKER-4] No more results for 'aai' at page 2
+2026-04-08 04:26:26 [DEBUG   ] [HP] Marked 'aai' as complete
+2026-04-08 04:26:26 [INFO    ] [WORKER-4] Keyword 'aai' marked as complete
+2026-04-08 04:26:26 [INFO    ] [WORKER-4] Finished processing keyword: 'aai' (Total unique: 53)
+2026-04-08 04:26:26 [INFO    ] [WORKER-4] Processing keyword: 'aal'
+2026-04-08 04:26:26 [INFO    ] [CAPTCHA] ♻️  Reusing token (age: 54s / 110s)
+2026-04-08 04:26:29 [DEBUG   ] [CAPTCHA] Token injected (age: 56s)
+2026-04-08 04:26:29 [DEBUG   ] [PARSER] Extracted 1 new companies for keyword 'aaa'
+2026-04-08 04:26:29 [DEBUG   ] [CAPTCHA] Token injected (age: 47s)
+2026-04-08 04:26:31 [DEBUG   ] [PARSER] Extracted 4 new companies for keyword 'aaj'
+2026-04-08 04:26:32 [DEBUG   ] [CAPTCHA] Token injected (age: 8s)
+2026-04-08 04:26:32 [DEBUG   ] [HELPER] Screenshot saved: /home/hamas/Desktop/ahu_scraper/db_screenshots/last_page_aag_2026-04-08_04-26-32AM.png
+2026-04-08 04:26:32 [INFO    ] [WORKER-1] No more results for 'aag' at page 2
+2026-04-08 04:26:32 [DEBUG   ] [HP] Marked 'aag' as complete
+2026-04-08 04:26:32 [INFO    ] [WORKER-1] Keyword 'aag' marked as complete
+2026-04-08 04:26:32 [INFO    ] [WORKER-1] Finished processing keyword: 'aag' (Total unique: 58)
+2026-04-08 04:26:32 [INFO    ] [WORKER-1] Processing keyword: 'aam'
+2026-04-08 04:26:32 [INFO    ] [CAPTCHA] ♻️  Reusing token (age: 9s / 110s)
+2026-04-08 04:26:33 [DEBUG   ] [CAPTCHA] Token injected (age: 16s)
+2026-04-08 04:26:34 [DEBUG   ] [PARSER] Extracted 3 new companies for keyword 'aak'
+2026-04-08 04:26:40 [DEBUG   ] [CAPTCHA] Token injected (age: 68s)
+2026-04-08 04:26:41 [DEBUG   ] [HELPER] Screenshot saved: /home/hamas/Desktop/ahu_scraper/db_screenshots/last_page_aaa_2026-04-08_04-26-40AM.png
+2026-04-08 04:26:41 [INFO    ] [WORKER-3] No more results for 'aaa' at page 4
+2026-04-08 04:26:41 [DEBUG   ] [HP] Marked 'aaa' as complete
+2026-04-08 04:26:41 [INFO    ] [WORKER-3] Keyword 'aaa' marked as complete
+2026-04-08 04:26:41 [INFO    ] [WORKER-3] Finished processing keyword: 'aaa' (Total unique: 61)
+2026-04-08 04:26:41 [INFO    ] [WORKER-3] Processing keyword: 'aan'
+2026-04-08 04:26:41 [INFO    ] [CAPTCHA] ♻️  Reusing token (age: 68s / 110s)
+2026-04-08 04:26:41 [DEBUG   ] [CAPTCHA] Token injected (age: 69s)
+2026-04-08 04:26:42 [DEBUG   ] [CAPTCHA] Token injected (age: 59s)
+2026-04-08 04:26:42 [DEBUG   ] [HELPER] Screenshot saved: /home/hamas/Desktop/ahu_scraper/db_screenshots/last_page_aaj_2026-04-08_04-26-42AM.png
+2026-04-08 04:26:42 [INFO    ] [WORKER-2] No more results for 'aaj' at page 2
+2026-04-08 04:26:42 [DEBUG   ] [HP] Marked 'aaj' as complete
+2026-04-08 04:26:42 [INFO    ] [WORKER-2] Keyword 'aaj' marked as complete
+2026-04-08 04:26:42 [INFO    ] [WORKER-2] Finished processing keyword: 'aaj' (Total unique: 64)
+2026-04-08 04:26:42 [INFO    ] [WORKER-2] Processing keyword: 'aao'
+2026-04-08 04:26:42 [INFO    ] [CAPTCHA] ♻️  Reusing token (age: 59s / 110s)
+2026-04-08 04:26:44 [DEBUG   ] [CAPTCHA] Token injected (age: 26s)
+2026-04-08 04:26:44 [DEBUG   ] [HELPER] Screenshot saved: /home/hamas/Desktop/ahu_scraper/db_screenshots/last_page_aak_2026-04-08_04-26-44AM.png
+2026-04-08 04:26:44 [INFO    ] [WORKER-5] No more results for 'aak' at page 2
+2026-04-08 04:26:44 [DEBUG   ] [HP] Marked 'aak' as complete
+2026-04-08 04:26:44 [INFO    ] [WORKER-5] Keyword 'aak' marked as complete
+2026-04-08 04:26:44 [INFO    ] [WORKER-5] Finished processing keyword: 'aak' (Total unique: 67)
+2026-04-08 04:26:44 [INFO    ] [WORKER-5] Processing keyword: 'aap'
+2026-04-08 04:26:44 [INFO    ] [CAPTCHA] ♻️  Reusing token (age: 27s / 110s)
+2026-04-08 04:26:45 [DEBUG   ] [PARSER] Extracted 9 new companies for keyword 'aal'
+2026-04-08 04:26:46 [DEBUG   ] [CAPTCHA] Token injected (age: 22s)
+2026-04-08 04:26:50 [DEBUG   ] [PARSER] Extracted 11 new companies for keyword 'aam'
+2026-04-08 04:26:51 [DEBUG   ] [CAPTCHA] Token injected (age: 69s)
+2026-04-08 04:26:51 [WARNING ] [CAPTCHA] Token expired — invalidating cache
+2026-04-08 04:26:51 [WARNING ] [CAPTCHA] Token manually invalidated
+2026-04-08 04:26:51 [WARNING ] [WORKER-2] Token expired for 'aao' at page 2
+2026-04-08 04:26:51 [INFO    ] [CAPTCHA] Requesting fresh reCAPTCHA v3 token...
+2026-04-08 04:26:51 [DEBUG   ] [CAPTCHA] Solving via proxy: 45.147.133.69:12323
+2026-04-08 04:26:53 [DEBUG   ] [CAPTCHA] Token injected (age: 80s)
+2026-04-08 04:26:54 [DEBUG   ] [CAPTCHA] Token injected (age: 36s)
+2026-04-08 04:26:56 [DEBUG   ] [CAPTCHA] Token injected (age: 84s)
+2026-04-08 04:26:56 [DEBUG   ] [HELPER] Screenshot saved: /home/hamas/Desktop/ahu_scraper/db_screenshots/last_page_aal_2026-04-08_04-26-56AM.png
+2026-04-08 04:26:56 [INFO    ] [WORKER-4] No more results for 'aal' at page 2
+2026-04-08 04:26:56 [DEBUG   ] [HP] Marked 'aal' as complete
+2026-04-08 04:26:56 [INFO    ] [WORKER-4] Keyword 'aal' marked as complete
+2026-04-08 04:26:56 [INFO    ] [WORKER-4] Finished processing keyword: 'aal' (Total unique: 89)
+2026-04-08 04:26:56 [INFO    ] [WORKER-4] Processing keyword: 'aaq'
+2026-04-08 04:26:56 [INFO    ] [CAPTCHA] ♻️  Reusing token (age: 84s / 110s)
+2026-04-08 04:26:58 [DEBUG   ] [PARSER] Extracted 8 new companies for keyword 'aan'
+2026-04-08 04:26:58 [DEBUG   ] [PARSER] Extracted 7 new companies for keyword 'aap'
+2026-04-08 04:26:58 [DEBUG   ] [CAPTCHA] Token injected (age: 35s)
+2026-04-08 04:26:58 [DEBUG   ] [HELPER] Screenshot saved: /home/hamas/Desktop/ahu_scraper/db_screenshots/last_page_aam_2026-04-08_04-26-58AM.png
+2026-04-08 04:26:58 [INFO    ] [WORKER-1] No more results for 'aam' at page 2
+2026-04-08 04:26:58 [DEBUG   ] [HP] Marked 'aam' as complete
+2026-04-08 04:26:58 [INFO    ] [WORKER-1] Keyword 'aam' marked as complete
+2026-04-08 04:26:58 [INFO    ] [WORKER-1] Finished processing keyword: 'aam' (Total unique: 96)
+2026-04-08 04:26:58 [INFO    ] [WORKER-1] Processing keyword: 'aar'
+2026-04-08 04:26:58 [INFO    ] [CAPTCHA] ♻️  Reusing token (age: 35s / 110s)
+2026-04-08 04:27:04 [DEBUG   ] [CAPTCHA] Token injected (age: 92s)
+2026-04-08 04:27:04 [WARNING ] [CAPTCHA] Token expired — invalidating cache
+2026-04-08 04:27:04 [WARNING ] [CAPTCHA] Token manually invalidated
+2026-04-08 04:27:04 [WARNING ] [WORKER-4] Token expired for 'aaq' at page 2
+2026-04-08 04:27:04 [INFO    ] [CAPTCHA] Requesting fresh reCAPTCHA v3 token...
+2026-04-08 04:27:04 [DEBUG   ] [CAPTCHA] Solving via proxy: 45.147.133.69:12323
+2026-04-08 04:27:06 [DEBUG   ] [CAPTCHA] Token injected (age: 49s)
+2026-04-08 04:27:06 [DEBUG   ] [HELPER] Screenshot saved: /home/hamas/Desktop/ahu_scraper/db_screenshots/last_page_aap_2026-04-08_04-27-06AM.png
+2026-04-08 04:27:06 [INFO    ] [WORKER-5] No more results for 'aap' at page 2
+2026-04-08 04:27:06 [DEBUG   ] [HP] Marked 'aap' as complete
+2026-04-08 04:27:06 [INFO    ] [WORKER-5] Keyword 'aap' marked as complete
+2026-04-08 04:27:06 [INFO    ] [WORKER-5] Finished processing keyword: 'aap' (Total unique: 96)
+2026-04-08 04:27:06 [INFO    ] [WORKER-5] Processing keyword: 'aas'
+2026-04-08 04:27:06 [INFO    ] [CAPTCHA] ♻️  Reusing token (age: 49s / 110s)
+2026-04-08 04:27:07 [DEBUG   ] [CAPTCHA] Token injected (age: 43s)
+2026-04-08 04:27:08 [DEBUG   ] [PARSER] Extracted 2 new companies for keyword 'aar'
+2026-04-08 04:27:08 [DEBUG   ] [CAPTCHA] Token injected (age: 96s)
+2026-04-08 04:27:08 [DEBUG   ] [HELPER] Screenshot saved: /home/hamas/Desktop/ahu_scraper/db_screenshots/last_page_aan_2026-04-08_04-27-08AM.png
+2026-04-08 04:27:08 [INFO    ] [WORKER-3] No more results for 'aan' at page 2
+2026-04-08 04:27:08 [DEBUG   ] [HP] Marked 'aan' as complete
+2026-04-08 04:27:08 [INFO    ] [WORKER-3] Keyword 'aan' marked as complete
+2026-04-08 04:27:08 [INFO    ] [WORKER-3] Finished processing keyword: 'aan' (Total unique: 98)
+2026-04-08 04:27:08 [INFO    ] [WORKER-3] Processing keyword: 'aat'
+2026-04-08 04:27:08 [INFO    ] [CAPTCHA] ♻️  Reusing token (age: 96s / 110s)
+2026-04-08 04:27:13 [DEBUG   ] [CAPTCHA] Token injected (age: 56s)
+2026-04-08 04:27:14 [DEBUG   ] [CAPTCHA] Token injected (age: 50s)
+2026-04-08 04:27:14 [DEBUG   ] [HELPER] Screenshot saved: /home/hamas/Desktop/ahu_scraper/db_screenshots/last_page_aar_2026-04-08_04-27-14AM.png
+2026-04-08 04:27:14 [INFO    ] [WORKER-1] No more results for 'aar' at page 2
+2026-04-08 04:27:14 [DEBUG   ] [HP] Marked 'aar' as complete
+2026-04-08 04:27:14 [INFO    ] [WORKER-1] Keyword 'aar' marked as complete
+2026-04-08 04:27:14 [INFO    ] [WORKER-1] Finished processing keyword: 'aar' (Total unique: 98)
+2026-04-08 04:27:14 [INFO    ] [WORKER-1] Processing keyword: 'aau'
+2026-04-08 04:27:14 [INFO    ] [CAPTCHA] ♻️  Reusing token (age: 50s / 110s)
+2026-04-08 04:27:15 [DEBUG   ] [WRITER] Flushed 50 companies to CSV
+2026-04-08 04:27:16 [INFO    ] [CAPTCHA] ✅ Token received and cached
+2026-04-08 04:27:17 [DEBUG   ] [CAPTCHA] Token injected (age: 105s)
+2026-04-08 04:27:18 [DEBUG   ] [PARSER] Extracted 2 new companies for keyword 'aat'
+2026-04-08 04:27:22 [DEBUG   ] [CAPTCHA] Token injected (age: 58s)
+2026-04-08 04:27:22 [WARNING ] [CAPTCHA] Token expired — invalidating cache
+2026-04-08 04:27:22 [WARNING ] [CAPTCHA] Token manually invalidated
+2026-04-08 04:27:22 [WARNING ] [WORKER-1] Token expired for 'aau' at page 2
+2026-04-08 04:27:22 [INFO    ] [CAPTCHA] Requesting fresh reCAPTCHA v3 token...
+2026-04-08 04:27:22 [DEBUG   ] [CAPTCHA] Solving via proxy: 45.147.133.69:12323
+2026-04-08 04:27:22 [DEBUG   ] [PARSER] Extracted 16 new companies for keyword 'aas'
+2026-04-08 04:27:23 [DEBUG   ] [CAPTCHA] Token injected (age: 7s)
+2026-04-08 04:27:24 [DEBUG   ] [HELPER] Screenshot saved: /home/hamas/Desktop/ahu_scraper/db_screenshots/last_page_aaq_2026-04-08_04-27-23AM.png
+2026-04-08 04:27:24 [INFO    ] [WORKER-4] No more results for 'aaq' at page 2
+2026-04-08 04:27:24 [DEBUG   ] [HP] Marked 'aaq' as complete
+2026-04-08 04:27:24 [INFO    ] [WORKER-4] Keyword 'aaq' marked as complete
+2026-04-08 04:27:24 [INFO    ] [WORKER-4] Finished processing keyword: 'aaq' (Total unique: 116)
+2026-04-08 04:27:24 [INFO    ] [WORKER-4] Processing keyword: 'aav'
+2026-04-08 04:27:24 [INFO    ] [CAPTCHA] ♻️  Reusing token (age: 8s / 110s)
+2026-04-08 04:27:24 [DEBUG   ] [CAPTCHA] Token injected (age: 112s)
+2026-04-08 04:27:25 [DEBUG   ] [HELPER] Screenshot saved: /home/hamas/Desktop/ahu_scraper/db_screenshots/last_page_aat_2026-04-08_04-27-24AM.png
+2026-04-08 04:27:25 [INFO    ] [WORKER-3] No more results for 'aat' at page 2
+2026-04-08 04:27:25 [DEBUG   ] [HP] Marked 'aat' as complete
+2026-04-08 04:27:25 [INFO    ] [WORKER-3] Keyword 'aat' marked as complete
+2026-04-08 04:27:25 [INFO    ] [WORKER-3] Finished processing keyword: 'aat' (Total unique: 116)
+2026-04-08 04:27:25 [INFO    ] [WORKER-3] Processing keyword: 'aaw'
+2026-04-08 04:27:25 [INFO    ] [CAPTCHA] Requesting fresh reCAPTCHA v3 token...
+2026-04-08 04:27:25 [DEBUG   ] [CAPTCHA] Solving via proxy: 45.147.133.69:12323
+2026-04-08 04:27:29 [DEBUG   ] [CAPTCHA] Token injected (age: 71s)
+2026-04-08 04:27:29 [DEBUG   ] [HELPER] Screenshot saved: /home/hamas/Desktop/ahu_scraper/db_screenshots/last_page_aas_2026-04-08_04-27-29AM.png
+2026-04-08 04:27:29 [INFO    ] [WORKER-5] No more results for 'aas' at page 2
+2026-04-08 04:27:29 [DEBUG   ] [HP] Marked 'aas' as complete
+2026-04-08 04:27:29 [INFO    ] [WORKER-5] Keyword 'aas' marked as complete
+2026-04-08 04:27:29 [INFO    ] [WORKER-5] Finished processing keyword: 'aas' (Total unique: 116)
+2026-04-08 04:27:29 [INFO    ] [WORKER-5] Processing keyword: 'aax'
+2026-04-08 04:27:29 [INFO    ] [CAPTCHA] ♻️  Reusing token (age: 72s / 110s)
+2026-04-08 04:27:31 [DEBUG   ] [CAPTCHA] Token injected (age: 14s)
+2026-04-08 04:27:31 [WARNING ] [CAPTCHA] Token expired — invalidating cache
+2026-04-08 04:27:31 [WARNING ] [CAPTCHA] Token manually invalidated
+2026-04-08 04:27:31 [WARNING ] [WORKER-4] Token expired for 'aav' at page 2
+2026-04-08 04:27:31 [INFO    ] [CAPTCHA] Requesting fresh reCAPTCHA v3 token...
+2026-04-08 04:27:31 [DEBUG   ] [CAPTCHA] Solving via proxy: 45.147.133.69:12323
+2026-04-08 04:27:35 [INFO    ] [CAPTCHA] ✅ Token received and cached
+2026-04-08 04:27:35 [DEBUG   ] [CAPTCHA] Token injected (age: 78s)
+2026-04-08 04:27:35 [WARNING ] [CAPTCHA] Token expired — invalidating cache
+2026-04-08 04:27:35 [WARNING ] [CAPTCHA] Token manually invalidated
+2026-04-08 04:27:35 [WARNING ] [WORKER-5] Token expired for 'aax' at page 2
+2026-04-08 04:27:35 [INFO    ] [CAPTCHA] Requesting fresh reCAPTCHA v3 token...
+2026-04-08 04:27:35 [DEBUG   ] [CAPTCHA] Solving via proxy: 45.147.133.69:12323
+2026-04-08 04:27:40 [DEBUG   ] [CAPTCHA] Token injected (age: 5s)
+2026-04-08 04:27:41 [DEBUG   ] [HELPER] Screenshot saved: /home/hamas/Desktop/ahu_scraper/db_screenshots/last_page_aao_2026-04-08_04-27-40AM.png
+2026-04-08 04:27:41 [INFO    ] [WORKER-2] No more results for 'aao' at page 2
+2026-04-08 04:27:41 [DEBUG   ] [HP] Marked 'aao' as complete
+2026-04-08 04:27:41 [INFO    ] [WORKER-2] Keyword 'aao' marked as complete
+2026-04-08 04:27:41 [INFO    ] [WORKER-2] Finished processing keyword: 'aao' (Total unique: 116)
+2026-04-08 04:27:41 [INFO    ] [WORKER-2] Processing keyword: 'aay'
+2026-04-08 04:27:41 [INFO    ] [CAPTCHA] ♻️  Reusing token (age: 6s / 110s)
+2026-04-08 04:27:44 [INFO    ] [CAPTCHA] ✅ Token received and cached
+2026-04-08 04:27:48 [DEBUG   ] [CAPTCHA] Token injected (age: 12s)
+2026-04-08 04:27:48 [DEBUG   ] [PARSER] Extracted 1 new companies for keyword 'aay'
+2026-04-08 04:27:50 [DEBUG   ] [CAPTCHA] Token injected (age: 5s)
+2026-04-08 04:27:50 [DEBUG   ] [HELPER] Screenshot saved: /home/hamas/Desktop/ahu_scraper/db_screenshots/last_page_aau_2026-04-08_04-27-50AM.png
+2026-04-08 04:27:50 [INFO    ] [WORKER-1] No more results for 'aau' at page 2
+2026-04-08 04:27:50 [DEBUG   ] [HP] Marked 'aau' as complete
+2026-04-08 04:27:50 [INFO    ] [WORKER-1] Keyword 'aau' marked as complete
+2026-04-08 04:27:50 [INFO    ] [WORKER-1] Finished processing keyword: 'aau' (Total unique: 117)
+2026-04-08 04:27:50 [INFO    ] [WORKER-1] Processing keyword: 'aaz'
+2026-04-08 04:27:50 [INFO    ] [CAPTCHA] ♻️  Reusing token (age: 6s / 110s)
+2026-04-08 04:27:53 [INFO    ] [CAPTCHA] ✅ Token received and cached
+2026-04-08 04:27:55 [DEBUG   ] [CAPTCHA] Token injected (age: 20s)
+2026-04-08 04:27:55 [DEBUG   ] [HELPER] Screenshot saved: /home/hamas/Desktop/ahu_scraper/db_screenshots/last_page_aay_2026-04-08_04-27-55AM.png
+2026-04-08 04:27:55 [INFO    ] [WORKER-2] No more results for 'aay' at page 2
+2026-04-08 04:27:56 [DEBUG   ] [HP] Marked 'aay' as complete
+2026-04-08 04:27:56 [INFO    ] [WORKER-2] Keyword 'aay' marked as complete
+2026-04-08 04:27:56 [INFO    ] [WORKER-2] Finished processing keyword: 'aay' (Total unique: 117)
+2026-04-08 04:27:56 [INFO    ] [WORKER-2] Processing keyword: 'aba'
+2026-04-08 04:27:56 [INFO    ] [CAPTCHA] ♻️  Reusing token (age: 20s / 110s)
+2026-04-08 04:27:56 [DEBUG   ] [CAPTCHA] Token injected (age: 12s)
+2026-04-08 04:27:57 [INFO    ] [CAPTCHA] ✅ Token received and cached
+2026-04-08 04:27:57 [INFO    ] [CAPTCHA] ✅ Token received and cached
+2026-04-08 04:27:58 [DEBUG   ] [PARSER] Extracted 4 new companies for keyword 'aaz'
+2026-04-08 04:27:59 [DEBUG   ] [CAPTCHA] Token injected (age: 6s)
+2026-04-08 04:28:00 [DEBUG   ] [HELPER] Screenshot saved: /home/hamas/Desktop/ahu_scraper/db_screenshots/last_page_aav_2026-04-08_04-27-59AM.png
+2026-04-08 04:28:00 [INFO    ] [WORKER-4] No more results for 'aav' at page 2
+2026-04-08 04:28:00 [DEBUG   ] [HP] Marked 'aav' as complete
+2026-04-08 04:28:00 [INFO    ] [WORKER-4] Keyword 'aav' marked as complete
+2026-04-08 04:28:00 [INFO    ] [WORKER-4] Finished processing keyword: 'aav' (Total unique: 121)
+2026-04-08 04:28:00 [INFO    ] [WORKER-4] Processing keyword: 'abb'
+2026-04-08 04:28:00 [INFO    ] [CAPTCHA] ♻️  Reusing token (age: 7s / 110s)
+2026-04-08 04:28:07 [DEBUG   ] [CAPTCHA] Token injected (age: 32s)
+2026-04-08 04:28:08 [DEBUG   ] [CAPTCHA] Token injected (age: 10s)
+2026-04-08 04:28:08 [DEBUG   ] [CAPTCHA] Token injected (age: 24s)
+2026-04-08 04:28:08 [DEBUG   ] [HELPER] Screenshot saved: /home/hamas/Desktop/ahu_scraper/db_screenshots/last_page_aaz_2026-04-08_04-28-08AM.png
+2026-04-08 04:28:08 [INFO    ] [WORKER-1] No more results for 'aaz' at page 2
+2026-04-08 04:28:08 [DEBUG   ] [HP] Marked 'aaz' as complete
+2026-04-08 04:28:08 [INFO    ] [WORKER-1] Keyword 'aaz' marked as complete
+2026-04-08 04:28:08 [INFO    ] [WORKER-1] Finished processing keyword: 'aaz' (Total unique: 122)
+2026-04-08 04:28:08 [INFO    ] [WORKER-1] Processing keyword: 'abc'
+2026-04-08 04:28:08 [INFO    ] [CAPTCHA] ♻️  Reusing token (age: 24s / 110s)
+2026-04-08 04:28:09 [DEBUG   ] [PARSER] Extracted 2 new companies for keyword 'aaw'
+2026-04-08 04:28:09 [DEBUG   ] [CAPTCHA] Token injected (age: 12s)
+2026-04-08 04:28:10 [DEBUG   ] [HELPER] Screenshot saved: /home/hamas/Desktop/ahu_scraper/db_screenshots/last_page_aax_2026-04-08_04-28-09AM.png
+2026-04-08 04:28:10 [INFO    ] [WORKER-5] No more results for 'aax' at page 2
+2026-04-08 04:28:10 [DEBUG   ] [HP] Marked 'aax' as complete
+2026-04-08 04:28:10 [INFO    ] [WORKER-5] Keyword 'aax' marked as complete
+2026-04-08 04:28:10 [INFO    ] [WORKER-5] Finished processing keyword: 'aax' (Total unique: 124)
+2026-04-08 04:28:10 [INFO    ] [WORKER-5] Processing keyword: 'abd'
+2026-04-08 04:28:10 [INFO    ] [CAPTCHA] ♻️  Reusing token (age: 12s / 110s)
+2026-04-08 04:28:11 [DEBUG   ] [CAPTCHA] Token injected (age: 18s)
+2026-04-08 04:28:15 [DEBUG   ] [CAPTCHA] Token injected (age: 31s)
+2026-04-08 04:28:16 [DEBUG   ] [CAPTCHA] Token injected (age: 19s)
+2026-04-08 04:28:17 [DEBUG   ] [HELPER] Screenshot saved: /home/hamas/Desktop/ahu_scraper/db_screenshots/last_page_aaw_2026-04-08_04-28-16AM.png
+2026-04-08 04:28:17 [INFO    ] [WORKER-3] No more results for 'aaw' at page 2
+2026-04-08 04:28:17 [DEBUG   ] [HP] Marked 'aaw' as complete
+2026-04-08 04:28:17 [INFO    ] [WORKER-3] Keyword 'aaw' marked as complete
+2026-04-08 04:28:17 [INFO    ] [WORKER-3] Finished processing keyword: 'aaw' (Total unique: 144)
+2026-04-08 04:28:17 [INFO    ] [WORKER-3] Processing keyword: 'abe'
+2026-04-08 04:28:17 [INFO    ] [CAPTCHA] ♻️  Reusing token (age: 19s / 110s)
+2026-04-08 04:28:18 [DEBUG   ] [PARSER] Extracted 12 new companies for keyword 'abb'
+2026-04-08 04:28:18 [DEBUG   ] [CAPTCHA] Token injected (age: 21s)
+2026-04-08 04:28:19 [DEBUG   ] [WRITER] Flushed 50 companies to CSV
+2026-04-08 04:28:23 [DEBUG   ] [CAPTCHA] Token injected (age: 25s)
+2026-04-08 04:28:23 [DEBUG   ] [PARSER] Extracted 8 new companies for keyword 'abd'
+2026-04-08 04:28:25 [DEBUG   ] [CAPTCHA] Token injected (age: 31s)
+2026-04-08 04:28:25 [DEBUG   ] [HELPER] Screenshot saved: /home/hamas/Desktop/ahu_scraper/db_screenshots/last_page_abb_2026-04-08_04-28-25AM.png
+2026-04-08 04:28:25 [INFO    ] [WORKER-4] No more results for 'abb' at page 2
+2026-04-08 04:28:25 [DEBUG   ] [HP] Marked 'abb' as complete
+2026-04-08 04:28:25 [INFO    ] [WORKER-4] Keyword 'abb' marked as complete
+2026-04-08 04:28:25 [INFO    ] [WORKER-4] Finished processing keyword: 'abb' (Total unique: 171)
+2026-04-08 04:28:25 [INFO    ] [WORKER-4] Processing keyword: 'abf'
+2026-04-08 04:28:25 [INFO    ] [CAPTCHA] ♻️  Reusing token (age: 32s / 110s)
+2026-04-08 04:28:27 [DEBUG   ] [PARSER] Extracted 20 new companies for keyword 'aba'
+2026-04-08 04:28:30 [DEBUG   ] [CAPTCHA] Token injected (age: 32s)
+2026-04-08 04:28:30 [DEBUG   ] [HELPER] Screenshot saved: /home/hamas/Desktop/ahu_scraper/db_screenshots/last_page_abd_2026-04-08_04-28-30AM.png
+2026-04-08 04:28:30 [INFO    ] [WORKER-5] No more results for 'abd' at page 2
+2026-04-08 04:28:30 [DEBUG   ] [HP] Marked 'abd' as complete
+2026-04-08 04:28:30 [INFO    ] [WORKER-5] Keyword 'abd' marked as complete
+2026-04-08 04:28:30 [INFO    ] [WORKER-5] Finished processing keyword: 'abd' (Total unique: 185)
+2026-04-08 04:28:30 [INFO    ] [WORKER-5] Processing keyword: 'abg'
+2026-04-08 04:28:30 [INFO    ] [CAPTCHA] ♻️  Reusing token (age: 32s / 110s)
+2026-04-08 04:28:31 [DEBUG   ] [CAPTCHA] Token injected (age: 38s)
+2026-04-08 04:28:31 [DEBUG   ] [PARSER] Extracted 1 new companies for keyword 'abf'
+2026-04-08 04:28:34 [DEBUG   ] [PARSER] Extracted 20 new companies for keyword 'abc'
+2026-04-08 04:28:35 [DEBUG   ] [WRITER] Flushed 50 companies to CSV
+2026-04-08 04:28:37 [DEBUG   ] [CAPTCHA] Token injected (age: 39s)
+2026-04-08 04:28:38 [DEBUG   ] [CAPTCHA] Token injected (age: 45s)
+2026-04-08 04:28:39 [DEBUG   ] [HELPER] Screenshot saved: /home/hamas/Desktop/ahu_scraper/db_screenshots/last_page_abf_2026-04-08_04-28-38AM.png
+2026-04-08 04:28:39 [INFO    ] [WORKER-4] No more results for 'abf' at page 2
+2026-04-08 04:28:39 [DEBUG   ] [HP] Marked 'abf' as complete
+2026-04-08 04:28:39 [INFO    ] [WORKER-4] Keyword 'abf' marked as complete
+2026-04-08 04:28:39 [INFO    ] [WORKER-4] Finished processing keyword: 'abf' (Total unique: 205)
+2026-04-08 04:28:39 [INFO    ] [WORKER-4] Processing keyword: 'abh'
+2026-04-08 04:28:39 [INFO    ] [CAPTCHA] ♻️  Reusing token (age: 45s / 110s)
+2026-04-08 04:28:39 [DEBUG   ] [CAPTCHA] Token injected (age: 63s)
+2026-04-08 04:28:39 [DEBUG   ] [PARSER] Extracted 20 new companies for keyword 'abe'
+2026-04-08 04:28:39 [DEBUG   ] [PARSER] Extracted 4 new companies for keyword 'abg'
+2026-04-08 04:28:41 [DEBUG   ] [CAPTCHA] Token injected (age: 57s)
+2026-04-08 04:28:46 [DEBUG   ] [CAPTCHA] Token injected (age: 53s)
+2026-04-08 04:28:47 [DEBUG   ] [PARSER] Extracted 1 new companies for keyword 'abh'
+2026-04-08 04:28:47 [DEBUG   ] [CAPTCHA] Token injected (age: 50s)
+2026-04-08 04:28:48 [DEBUG   ] [CAPTCHA] Token injected (age: 50s)
+2026-04-08 04:28:48 [DEBUG   ] [HELPER] Screenshot saved: /home/hamas/Desktop/ahu_scraper/db_screenshots/last_page_abg_2026-04-08_04-28-48AM.png
+2026-04-08 04:28:48 [INFO    ] [WORKER-5] No more results for 'abg' at page 2
+2026-04-08 04:28:48 [DEBUG   ] [HP] Marked 'abg' as complete
+2026-04-08 04:28:48 [INFO    ] [WORKER-5] Keyword 'abg' marked as complete
+2026-04-08 04:28:48 [INFO    ] [WORKER-5] Finished processing keyword: 'abg' (Total unique: 227)
+2026-04-08 04:28:48 [INFO    ] [WORKER-5] Processing keyword: 'abi'
+2026-04-08 04:28:48 [INFO    ] [CAPTCHA] ♻️  Reusing token (age: 51s / 110s)
+2026-04-08 04:28:53 [DEBUG   ] [PARSER] Extracted 17 new companies for keyword 'aba'
+2026-04-08 04:28:54 [DEBUG   ] [CAPTCHA] Token injected (age: 61s)
+2026-04-08 04:28:54 [DEBUG   ] [HELPER] Screenshot saved: /home/hamas/Desktop/ahu_scraper/db_screenshots/last_page_abh_2026-04-08_04-28-54AM.png
+2026-04-08 04:28:54 [INFO    ] [WORKER-4] No more results for 'abh' at page 2
+2026-04-08 04:28:54 [DEBUG   ] [HP] Marked 'abh' as complete
+2026-04-08 04:28:54 [INFO    ] [WORKER-4] Keyword 'abh' marked as complete
+2026-04-08 04:28:54 [INFO    ] [WORKER-4] Finished processing keyword: 'abh' (Total unique: 244)
+2026-04-08 04:28:54 [INFO    ] [WORKER-4] Processing keyword: 'abj'
+2026-04-08 04:28:54 [INFO    ] [CAPTCHA] ♻️  Reusing token (age: 61s / 110s)
+2026-04-08 04:28:55 [DEBUG   ] [CAPTCHA] Token injected (age: 57s)
+2026-04-08 04:28:56 [DEBUG   ] [WRITER] Flushed 50 companies to CSV
+2026-04-08 04:28:59 [DEBUG   ] [PARSER] Extracted 20 new companies for keyword 'abc'
+2026-04-08 04:29:00 [DEBUG   ] [CAPTCHA] Token injected (age: 67s)
+2026-04-08 04:29:02 [DEBUG   ] [PARSER] Extracted 3 new companies for keyword 'abj'
+2026-04-08 04:29:02 [DEBUG   ] [CAPTCHA] Token injected (age: 87s)
+2026-04-08 04:29:02 [DEBUG   ] [HELPER] Screenshot saved: /home/hamas/Desktop/ahu_scraper/db_screenshots/last_page_aba_2026-04-08_04-29-02AM.png
+2026-04-08 04:29:02 [INFO    ] [WORKER-2] No more results for 'aba' at page 3
+2026-04-08 04:29:02 [DEBUG   ] [HP] Marked 'aba' as complete
+2026-04-08 04:29:02 [INFO    ] [WORKER-2] Keyword 'aba' marked as complete
+2026-04-08 04:29:02 [INFO    ] [WORKER-2] Finished processing keyword: 'aba' (Total unique: 273)
+2026-04-08 04:29:02 [INFO    ] [WORKER-2] Processing keyword: 'abk'
+2026-04-08 04:29:02 [INFO    ] [CAPTCHA] ♻️  Reusing token (age: 87s / 110s)
+2026-04-08 04:29:05 [DEBUG   ] [CAPTCHA] Token injected (age: 81s)
+2026-04-08 04:29:05 [DEBUG   ] [PARSER] Extracted 20 new companies for keyword 'abe'
+2026-04-08 04:29:09 [DEBUG   ] [PARSER] Extracted 20 new companies for keyword 'abi'
+2026-04-08 04:29:10 [DEBUG   ] [WRITER] Flushed 50 companies to CSV
+2026-04-08 04:29:11 [DEBUG   ] [CAPTCHA] Token injected (age: 77s)
+2026-04-08 04:29:11 [DEBUG   ] [PARSER] Extracted 13 new companies for keyword 'abc'
+2026-04-08 04:29:11 [DEBUG   ] [HELPER] Screenshot saved: /home/hamas/Desktop/ahu_scraper/db_screenshots/last_page_abj_2026-04-08_04-29-11AM.png
+2026-04-08 04:29:11 [INFO    ] [WORKER-4] No more results for 'abj' at page 2
+2026-04-08 04:29:11 [DEBUG   ] [HP] Marked 'abj' as complete
+2026-04-08 04:29:11 [INFO    ] [WORKER-4] Keyword 'abj' marked as complete
+2026-04-08 04:29:11 [INFO    ] [WORKER-4] Finished processing keyword: 'abj' (Total unique: 302)
+2026-04-08 04:29:11 [INFO    ] [WORKER-4] Processing keyword: 'abl'
+2026-04-08 04:29:11 [INFO    ] [CAPTCHA] ♻️  Reusing token (age: 78s / 110s)
+2026-04-08 04:29:13 [DEBUG   ] [CAPTCHA] Token injected (age: 75s)
+2026-04-08 04:29:13 [DEBUG   ] [PARSER] Extracted 1 new companies for keyword 'abe'
+2026-04-08 04:29:16 [DEBUG   ] [CAPTCHA] Token injected (age: 78s)
+2026-04-08 04:29:16 [DEBUG   ] [CAPTCHA] Token injected (age: 101s)
+2026-04-08 04:29:18 [DEBUG   ] [PARSER] Extracted 6 new companies for keyword 'abk'
+2026-04-08 04:29:21 [DEBUG   ] [CAPTCHA] Token injected (age: 88s)
+2026-04-08 04:29:21 [DEBUG   ] [CAPTCHA] Token injected (age: 97s)
+2026-04-08 04:29:22 [DEBUG   ] [HELPER] Screenshot saved: /home/hamas/Desktop/ahu_scraper/db_screenshots/last_page_abc_2026-04-08_04-29-21AM.png
+2026-04-08 04:29:22 [INFO    ] [WORKER-1] No more results for 'abc' at page 4
+2026-04-08 04:29:22 [DEBUG   ] [HP] Marked 'abc' as complete
+2026-04-08 04:29:22 [INFO    ] [WORKER-1] Keyword 'abc' marked as complete
+2026-04-08 04:29:22 [INFO    ] [WORKER-1] Finished processing keyword: 'abc' (Total unique: 317)
+2026-04-08 04:29:22 [INFO    ] [WORKER-1] Processing keyword: 'abm'
+2026-04-08 04:29:22 [INFO    ] [CAPTCHA] ♻️  Reusing token (age: 97s / 110s)
+2026-04-08 04:29:22 [DEBUG   ] [CAPTCHA] Token injected (age: 84s)
+2026-04-08 04:29:22 [DEBUG   ] [HELPER] Screenshot saved: /home/hamas/Desktop/ahu_scraper/db_screenshots/last_page_abe_2026-04-08_04-29-22AM.png
+2026-04-08 04:29:22 [INFO    ] [WORKER-3] No more results for 'abe' at page 4
+2026-04-08 04:29:22 [DEBUG   ] [HP] Marked 'abe' as complete
+2026-04-08 04:29:22 [INFO    ] [WORKER-3] Keyword 'abe' marked as complete
+2026-04-08 04:29:22 [INFO    ] [WORKER-3] Finished processing keyword: 'abe' (Total unique: 317)
+2026-04-08 04:29:22 [INFO    ] [WORKER-3] Processing keyword: 'abn'
+2026-04-08 04:29:22 [INFO    ] [CAPTCHA] ♻️  Reusing token (age: 85s / 110s)
+2026-04-08 04:29:25 [DEBUG   ] [PARSER] Extracted 5 new companies for keyword 'abl'
+2026-04-08 04:29:26 [DEBUG   ] [CAPTCHA] Token injected (age: 111s)
+2026-04-08 04:29:27 [DEBUG   ] [HELPER] Screenshot saved: /home/hamas/Desktop/ahu_scraper/db_screenshots/last_page_abk_2026-04-08_04-29-26AM.png
+2026-04-08 04:29:27 [INFO    ] [WORKER-2] No more results for 'abk' at page 2
+2026-04-08 04:29:27 [DEBUG   ] [HP] Marked 'abk' as complete
+2026-04-08 04:29:27 [INFO    ] [WORKER-2] Keyword 'abk' marked as complete
+2026-04-08 04:29:27 [INFO    ] [WORKER-2] Finished processing keyword: 'abk' (Total unique: 327)
+2026-04-08 04:29:27 [INFO    ] [WORKER-2] Processing keyword: 'abo'
+2026-04-08 04:29:27 [INFO    ] [CAPTCHA] Requesting fresh reCAPTCHA v3 token...
+2026-04-08 04:29:27 [DEBUG   ] [CAPTCHA] Solving via proxy: 45.147.133.69:12323
+2026-04-08 04:29:29 [DEBUG   ] [CAPTCHA] Token injected (age: 105s)
+2026-04-08 04:29:30 [DEBUG   ] [CAPTCHA] Token injected (age: 92s)
+2026-04-08 04:29:31 [DEBUG   ] [PARSER] Extracted 20 new companies for keyword 'abi'
+2026-04-08 04:29:33 [DEBUG   ] [CAPTCHA] Token injected (age: 100s)
+2026-04-08 04:29:33 [DEBUG   ] [HELPER] Screenshot saved: /home/hamas/Desktop/ahu_scraper/db_screenshots/last_page_abl_2026-04-08_04-29-33AM.png
+2026-04-08 04:29:33 [INFO    ] [WORKER-4] No more results for 'abl' at page 2
+2026-04-08 04:29:33 [DEBUG   ] [HP] Marked 'abl' as complete
+2026-04-08 04:29:33 [INFO    ] [WORKER-4] Keyword 'abl' marked as complete
+2026-04-08 04:29:33 [INFO    ] [WORKER-4] Finished processing keyword: 'abl' (Total unique: 342)
+2026-04-08 04:29:33 [INFO    ] [WORKER-4] Processing keyword: 'abp'
+2026-04-08 04:29:33 [INFO    ] [CAPTCHA] ♻️  Reusing token (age: 100s / 110s)
+2026-04-08 04:29:35 [DEBUG   ] [WRITER] Flushed 50 companies to CSV
+2026-04-08 04:29:36 [DEBUG   ] [PARSER] Extracted 10 new companies for keyword 'abn'
+2026-04-08 04:29:37 [DEBUG   ] [PARSER] Extracted 12 new companies for keyword 'abm'
+2026-04-08 04:29:38 [DEBUG   ] [CAPTCHA] Token injected (age: 101s)
+2026-04-08 04:29:39 [DEBUG   ] [CAPTCHA] Token injected (age: 106s)
+2026-04-08 04:29:39 [DEBUG   ] [PARSER] Extracted 1 new companies for keyword 'abp'
+2026-04-08 04:29:43 [DEBUG   ] [CAPTCHA] Token injected (age: 106s)
+2026-04-08 04:29:44 [DEBUG   ] [HELPER] Screenshot saved: /home/hamas/Desktop/ahu_scraper/db_screenshots/last_page_abn_2026-04-08_04-29-43AM.png
+2026-04-08 04:29:44 [INFO    ] [WORKER-3] No more results for 'abn' at page 2
+2026-04-08 04:29:44 [DEBUG   ] [HP] Marked 'abn' as complete
+2026-04-08 04:29:44 [INFO    ] [WORKER-3] Keyword 'abn' marked as complete
+2026-04-08 04:29:44 [INFO    ] [WORKER-3] Finished processing keyword: 'abn' (Total unique: 365)
+2026-04-08 04:29:44 [INFO    ] [WORKER-3] Processing keyword: 'abq'
+2026-04-08 04:29:44 [INFO    ] [CAPTCHA] ♻️  Reusing token (age: 106s / 110s)
+2026-04-08 04:29:44 [DEBUG   ] [CAPTCHA] Token injected (age: 120s)
+2026-04-08 04:29:44 [DEBUG   ] [HELPER] Screenshot saved: /home/hamas/Desktop/ahu_scraper/db_screenshots/last_page_abm_2026-04-08_04-29-44AM.png
+2026-04-08 04:29:44 [INFO    ] [WORKER-1] No more results for 'abm' at page 2
+2026-04-08 04:29:44 [DEBUG   ] [HP] Marked 'abm' as complete
+2026-04-08 04:29:44 [INFO    ] [WORKER-1] Keyword 'abm' marked as complete
+2026-04-08 04:29:44 [INFO    ] [WORKER-1] Finished processing keyword: 'abm' (Total unique: 367)
+2026-04-08 04:29:44 [INFO    ] [WORKER-1] Processing keyword: 'abr'
+2026-04-08 04:29:44 [INFO    ] [CAPTCHA] Requesting fresh reCAPTCHA v3 token...
+2026-04-08 04:29:44 [DEBUG   ] [CAPTCHA] Solving via proxy: 45.147.133.69:12323
+2026-04-08 04:29:46 [DEBUG   ] [CAPTCHA] Token injected (age: 113s)
+2026-04-08 04:29:46 [DEBUG   ] [HELPER] Screenshot saved: /home/hamas/Desktop/ahu_scraper/db_screenshots/last_page_abp_2026-04-08_04-29-46AM.png
+2026-04-08 04:29:46 [INFO    ] [WORKER-4] No more results for 'abp' at page 2
+2026-04-08 04:29:46 [DEBUG   ] [HP] Marked 'abp' as complete
+2026-04-08 04:29:46 [INFO    ] [WORKER-4] Keyword 'abp' marked as complete
+2026-04-08 04:29:46 [INFO    ] [WORKER-4] Finished processing keyword: 'abp' (Total unique: 369)
+2026-04-08 04:29:46 [INFO    ] [WORKER-4] Processing keyword: 'abs'
+2026-04-08 04:29:46 [INFO    ] [CAPTCHA] Requesting fresh reCAPTCHA v3 token...
+2026-04-08 04:29:46 [DEBUG   ] [CAPTCHA] Solving via proxy: 45.147.133.69:12323
+2026-04-08 04:29:49 [INFO    ] [CAPTCHA] ✅ Token received and cached
+2026-04-08 04:29:50 [DEBUG   ] [PARSER] Extracted 20 new companies for keyword 'abi'
+2026-04-08 04:29:50 [DEBUG   ] [CAPTCHA] Token injected (age: 113s)
+2026-04-08 04:29:50 [WARNING ] [CAPTCHA] Token expired — invalidating cache
+2026-04-08 04:29:50 [WARNING ] [CAPTCHA] Token manually invalidated
+2026-04-08 04:29:50 [WARNING ] [WORKER-3] Token expired for 'abq' at page 2
+2026-04-08 04:29:50 [INFO    ] [CAPTCHA] Requesting fresh reCAPTCHA v3 token...
+2026-04-08 04:29:50 [DEBUG   ] [CAPTCHA] Solving via proxy: 45.147.133.69:12323
+2026-04-08 04:29:56 [INFO    ] [CAPTCHA] ✅ Token received and cached
+2026-04-08 04:29:56 [DEBUG   ] [CAPTCHA] Token injected (age: 6s)
+2026-04-08 04:29:56 [DEBUG   ] [CAPTCHA] Token injected (age: 119s)
+2026-04-08 04:29:57 [DEBUG   ] [PARSER] Extracted 3 new companies for keyword 'abo'
+2026-04-08 04:30:02 [DEBUG   ] [CAPTCHA] Token injected (age: 6s)
+2026-04-08 04:30:03 [DEBUG   ] [CAPTCHA] Token injected (age: 13s)
+2026-04-08 04:30:03 [DEBUG   ] [HELPER] Screenshot saved: /home/hamas/Desktop/ahu_scraper/db_screenshots/last_page_abo_2026-04-08_04-30-03AM.png
+2026-04-08 04:30:03 [INFO    ] [WORKER-2] No more results for 'abo' at page 2
+2026-04-08 04:30:03 [DEBUG   ] [HP] Marked 'abo' as complete
+2026-04-08 04:30:03 [INFO    ] [WORKER-2] Keyword 'abo' marked as complete
+2026-04-08 04:30:03 [INFO    ] [WORKER-2] Finished processing keyword: 'abo' (Total unique: 394)
+2026-04-08 04:30:03 [INFO    ] [WORKER-2] Processing keyword: 'abt'
+2026-04-08 04:30:03 [INFO    ] [CAPTCHA] ♻️  Reusing token (age: 14s / 110s)
+2026-04-08 04:30:05 [DEBUG   ] [PARSER] Extracted 5 new companies for keyword 'abr'
+2026-04-08 04:30:05 [DEBUG   ] [WRITER] Flushed 50 companies to CSV
+2026-04-08 04:30:07 [DEBUG   ] [PARSER] Extracted 20 new companies for keyword 'abi'
+2026-04-08 04:30:08 [INFO    ] [CAPTCHA] ✅ Token received and cached
+2026-04-08 04:30:10 [DEBUG   ] [CAPTCHA] Token injected (age: 21s)
+2026-04-08 04:30:10 [DEBUG   ] [PARSER] Extracted 1 new companies for keyword 'abt'
+2026-04-08 04:30:12 [DEBUG   ] [CAPTCHA] Token injected (age: 16s)
+2026-04-08 04:30:12 [DEBUG   ] [HELPER] Screenshot saved: /home/hamas/Desktop/ahu_scraper/db_screenshots/last_page_abr_2026-04-08_04-30-12AM.png
+2026-04-08 04:30:12 [INFO    ] [WORKER-1] No more results for 'abr' at page 2
+2026-04-08 04:30:12 [DEBUG   ] [HP] Marked 'abr' as complete
+2026-04-08 04:30:12 [INFO    ] [WORKER-1] Keyword 'abr' marked as complete
+2026-04-08 04:30:12 [INFO    ] [WORKER-1] Finished processing keyword: 'abr' (Total unique: 406)
+2026-04-08 04:30:12 [INFO    ] [WORKER-1] Processing keyword: 'abu'
+2026-04-08 04:30:12 [INFO    ] [CAPTCHA] ♻️  Reusing token (age: 16s / 110s)
+2026-04-08 04:30:13 [DEBUG   ] [CAPTCHA] Token injected (age: 136s)
+2026-04-08 04:30:18 [DEBUG   ] [CAPTCHA] Token injected (age: 9s)
+2026-04-08 04:30:18 [DEBUG   ] [CAPTCHA] Token injected (age: 29s)
+2026-04-08 04:30:18 [DEBUG   ] [HELPER] Screenshot saved: /home/hamas/Desktop/ahu_scraper/db_screenshots/last_page_abt_2026-04-08_04-30-18AM.png
+2026-04-08 04:30:18 [INFO    ] [WORKER-2] No more results for 'abt' at page 2
+2026-04-08 04:30:18 [DEBUG   ] [HP] Marked 'abt' as complete
+2026-04-08 04:30:18 [INFO    ] [WORKER-2] Keyword 'abt' marked as complete
+2026-04-08 04:30:18 [INFO    ] [WORKER-2] Finished processing keyword: 'abt' (Total unique: 406)
+2026-04-08 04:30:18 [INFO    ] [WORKER-2] Processing keyword: 'abv'
+2026-04-08 04:30:18 [INFO    ] [CAPTCHA] ♻️  Reusing token (age: 29s / 110s)
+2026-04-08 04:30:22 [DEBUG   ] [CAPTCHA] Token injected (age: 25s)
+2026-04-08 04:30:23 [DEBUG   ] [CAPTCHA] Token injected (age: 145s)
+2026-04-08 04:30:25 [DEBUG   ] [CAPTCHA] Token injected (age: 35s)
+2026-04-08 04:30:25 [WARNING ] [CAPTCHA] Token expired — invalidating cache
+2026-04-08 04:30:25 [WARNING ] [CAPTCHA] Token manually invalidated
+2026-04-08 04:30:25 [WARNING ] [WORKER-2] Token expired for 'abv' at page 2
+2026-04-08 04:30:25 [INFO    ] [CAPTCHA] Requesting fresh reCAPTCHA v3 token...
+2026-04-08 04:30:25 [DEBUG   ] [CAPTCHA] Solving via proxy: 45.147.133.69:12323
+2026-04-08 04:30:28 [DEBUG   ] [CAPTCHA] Token injected (age: 150s)
+2026-04-08 04:30:31 [DEBUG   ] [PARSER] Extracted 20 new companies for keyword 'abs'
+2026-04-08 04:30:31 [DEBUG   ] [CAPTCHA] Token injected (age: 154s)
+2026-04-08 04:30:33 [INFO    ] [CAPTCHA] ✅ Token received and cached
+2026-04-08 04:30:34 [DEBUG   ] [PARSER] Extracted 20 new companies for keyword 'abu'
+2026-04-08 04:30:36 [DEBUG   ] [CAPTCHA] Token injected (age: 159s)
+2026-04-08 04:30:39 [DEBUG   ] [CAPTCHA] Token injected (age: 30s)
+2026-04-08 04:30:41 [DEBUG   ] [WRITER] Flushed 50 companies to CSV
+2026-04-08 04:30:41 [DEBUG   ] [CAPTCHA] Token injected (age: 8s)
+2026-04-08 04:30:41 [DEBUG   ] [HELPER] Screenshot saved: /home/hamas/Desktop/ahu_scraper/db_screenshots/last_page_abq_2026-04-08_04-30-41AM.png
+2026-04-08 04:30:41 [INFO    ] [WORKER-3] No more results for 'abq' at page 2
+2026-04-08 04:30:41 [DEBUG   ] [HP] Marked 'abq' as complete
+2026-04-08 04:30:41 [INFO    ] [WORKER-3] Keyword 'abq' marked as complete
+2026-04-08 04:30:41 [INFO    ] [WORKER-3] Finished processing keyword: 'abq' (Total unique: 452)
+2026-04-08 04:30:41 [INFO    ] [WORKER-3] Processing keyword: 'abw'
+2026-04-08 04:30:41 [INFO    ] [CAPTCHA] ♻️  Reusing token (age: 8s / 110s)
+2026-04-08 04:30:43 [DEBUG   ] [PARSER] Extracted 10 new companies for keyword 'abs'
+2026-04-08 04:30:43 [DEBUG   ] [CAPTCHA] Token injected (age: 47s)
+2026-04-08 04:30:44 [DEBUG   ] [CAPTCHA] Token injected (age: 167s)
+2026-04-08 04:30:46 [INFO    ] [CAPTCHA] ✅ Token received and cached
+2026-04-08 04:30:48 [DEBUG   ] [CAPTCHA] Token injected (age: 15s)
+2026-04-08 04:30:48 [WARNING ] [CAPTCHA] Token expired — invalidating cache
+2026-04-08 04:30:48 [WARNING ] [CAPTCHA] Token manually invalidated
+2026-04-08 04:30:48 [WARNING ] [WORKER-3] Token expired for 'abw' at page 2
+2026-04-08 04:30:48 [INFO    ] [CAPTCHA] Requesting fresh reCAPTCHA v3 token...
+2026-04-08 04:30:48 [DEBUG   ] [CAPTCHA] Solving via proxy: 45.147.133.69:12323
+2026-04-08 04:30:50 [DEBUG   ] [CAPTCHA] Token injected (age: 41s)
+2026-04-08 04:30:50 [DEBUG   ] [HELPER] Screenshot saved: /home/hamas/Desktop/ahu_scraper/db_screenshots/last_page_abs_2026-04-08_04-30-50AM.png
+2026-04-08 04:30:50 [INFO    ] [WORKER-4] No more results for 'abs' at page 3
+2026-04-08 04:30:50 [DEBUG   ] [HP] Marked 'abs' as complete
+2026-04-08 04:30:50 [INFO    ] [WORKER-4] Keyword 'abs' marked as complete
+2026-04-08 04:30:50 [INFO    ] [WORKER-4] Finished processing keyword: 'abs' (Total unique: 467)
+2026-04-08 04:30:50 [INFO    ] [WORKER-4] Processing keyword: 'abx'
+2026-04-08 04:30:50 [INFO    ] [CAPTCHA] ♻️  Reusing token (age: 42s / 110s)
+2026-04-08 04:30:51 [DEBUG   ] [CAPTCHA] Token injected (age: 174s)
+2026-04-08 04:30:53 [DEBUG   ] [CAPTCHA] Token injected (age: 6s)
+2026-04-08 04:30:54 [DEBUG   ] [HELPER] Screenshot saved: /home/hamas/Desktop/ahu_scraper/db_screenshots/last_page_abv_2026-04-08_04-30-53AM.png
+2026-04-08 04:30:54 [INFO    ] [WORKER-2] No more results for 'abv' at page 2
+2026-04-08 04:30:54 [DEBUG   ] [HP] Marked 'abv' as complete
+2026-04-08 04:30:54 [INFO    ] [WORKER-2] Keyword 'abv' marked as complete
+2026-04-08 04:30:54 [INFO    ] [WORKER-2] Finished processing keyword: 'abv' (Total unique: 472)
+2026-04-08 04:30:54 [INFO    ] [WORKER-2] Processing keyword: 'aby'
+2026-04-08 04:30:54 [INFO    ] [CAPTCHA] ♻️  Reusing token (age: 7s / 110s)
+2026-04-08 04:30:55 [DEBUG   ] [PARSER] Extracted 20 new companies for keyword 'abu'
+2026-04-08 04:30:57 [DEBUG   ] [CAPTCHA] Token injected (age: 49s)
+2026-04-08 04:30:57 [DEBUG   ] [PARSER] Extracted 1 new companies for keyword 'abx'
+2026-04-08 04:30:58 [DEBUG   ] [CAPTCHA] Token injected (age: 181s)
+2026-04-08 04:31:04 [DEBUG   ] [CAPTCHA] Token injected (age: 17s)
+2026-04-08 04:31:05 [DEBUG   ] [CAPTCHA] Token injected (age: 68s)
+2026-04-08 04:31:06 [DEBUG   ] [CAPTCHA] Token injected (age: 188s)
+2026-04-08 04:31:08 [DEBUG   ] [CAPTCHA] Token injected (age: 59s)
+2026-04-08 04:31:08 [DEBUG   ] [HELPER] Screenshot saved: /home/hamas/Desktop/ahu_scraper/db_screenshots/last_page_abx_2026-04-08_04-31-08AM.png
+2026-04-08 04:31:08 [INFO    ] [WORKER-4] No more results for 'abx' at page 2
+2026-04-08 04:31:08 [DEBUG   ] [HP] Marked 'abx' as complete
+2026-04-08 04:31:08 [INFO    ] [WORKER-4] Keyword 'abx' marked as complete
+2026-04-08 04:31:08 [INFO    ] [WORKER-4] Finished processing keyword: 'abx' (Total unique: 482)
+2026-04-08 04:31:08 [INFO    ] [WORKER-4] Processing keyword: 'abz'
+2026-04-08 04:31:08 [INFO    ] [CAPTCHA] ♻️  Reusing token (age: 59s / 110s)
+2026-04-08 04:31:10 [DEBUG   ] [CAPTCHA] Token injected (age: 193s)
+2026-04-08 04:31:13 [DEBUG   ] [WRITER] Flushed 50 companies to CSV
+2026-04-08 04:31:15 [DEBUG   ] [CAPTCHA] Token injected (age: 66s)
+2026-04-08 04:31:15 [WARNING ] [CAPTCHA] Token expired — invalidating cache
+2026-04-08 04:31:15 [WARNING ] [CAPTCHA] Token manually invalidated
+2026-04-08 04:31:15 [WARNING ] [WORKER-4] Token expired for 'abz' at page 2
+2026-04-08 04:31:15 [INFO    ] [CAPTCHA] Requesting fresh reCAPTCHA v3 token...
+2026-04-08 04:31:15 [DEBUG   ] [CAPTCHA] Solving via proxy: 45.147.133.69:12323
+2026-04-08 04:31:16 [DEBUG   ] [CAPTCHA] Token injected (age: 198s)
+2026-04-08 04:31:18 [DEBUG   ] [PARSER] Extracted 20 new companies for keyword 'aby'
+2026-04-08 04:31:19 [DEBUG   ] [PARSER] Extracted 20 new companies for keyword 'abu'
+2026-04-08 04:31:21 [DEBUG   ] [CAPTCHA] Token injected (age: 203s)
+2026-04-08 04:31:24 [DEBUG   ] [CAPTCHA] Token injected (age: 37s)
+2026-04-08 04:31:24 [DEBUG   ] [HELPER] Screenshot saved: /home/hamas/Desktop/ahu_scraper/db_screenshots/last_page_aby_2026-04-08_04-31-24AM.png
+2026-04-08 04:31:24 [INFO    ] [WORKER-2] No more results for 'aby' at page 2
+2026-04-08 04:31:24 [DEBUG   ] [HP] Marked 'aby' as complete
+2026-04-08 04:31:24 [INFO    ] [WORKER-2] Keyword 'aby' marked as complete
+2026-04-08 04:31:24 [INFO    ] [WORKER-2] Finished processing keyword: 'aby' (Total unique: 517)
+2026-04-08 04:31:24 [INFO    ] [WORKER-2] Processing keyword: 'aca'
+2026-04-08 04:31:24 [INFO    ] [CAPTCHA] ♻️  Reusing token (age: 37s / 110s)
+2026-04-08 04:31:27 [DEBUG   ] [CAPTCHA] Token injected (age: 91s)
+2026-04-08 04:31:29 [DEBUG   ] [CAPTCHA] Token injected (age: 211s)
+2026-04-08 04:31:31 [DEBUG   ] [CAPTCHA] Token injected (age: 44s)
+2026-04-08 04:31:31 [INFO    ] [CAPTCHA] ✅ Token received and cached
+2026-04-08 04:31:33 [DEBUG   ] [CAPTCHA] Token injected (age: 216s)
+2026-04-08 04:31:38 [DEBUG   ] [PARSER] Extracted 13 new companies for keyword 'aca'
+2026-04-08 04:31:38 [DEBUG   ] [CAPTCHA] Token injected (age: 6s)
+2026-04-08 04:31:38 [DEBUG   ] [HELPER] Screenshot saved: /home/hamas/Desktop/ahu_scraper/db_screenshots/last_page_abw_2026-04-08_04-31-38AM.png
+2026-04-08 04:31:38 [INFO    ] [WORKER-3] No more results for 'abw' at page 2
+2026-04-08 04:31:38 [DEBUG   ] [HP] Marked 'abw' as complete
+2026-04-08 04:31:38 [INFO    ] [WORKER-3] Keyword 'abw' marked as complete
+2026-04-08 04:31:38 [INFO    ] [WORKER-3] Finished processing keyword: 'abw' (Total unique: 547)
+2026-04-08 04:31:38 [INFO    ] [WORKER-3] Processing keyword: 'acb'
+2026-04-08 04:31:38 [INFO    ] [CAPTCHA] ♻️  Reusing token (age: 7s / 110s)
+2026-04-08 04:31:39 [DEBUG   ] [CAPTCHA] Token injected (age: 222s)
+2026-04-08 04:31:40 [DEBUG   ] [PARSER] Extracted 20 new companies for keyword 'abu'
+2026-04-08 04:31:40 [DEBUG   ] [WRITER] Flushed 50 companies to CSV
+2026-04-08 04:31:46 [DEBUG   ] [CAPTCHA] Token injected (age: 15s)
+2026-04-08 04:31:46 [WARNING ] [CAPTCHA] Token expired — invalidating cache
+2026-04-08 04:31:46 [WARNING ] [CAPTCHA] Token manually invalidated
+2026-04-08 04:31:46 [WARNING ] [WORKER-3] Token expired for 'acb' at page 2
+2026-04-08 04:31:46 [INFO    ] [CAPTCHA] Requesting fresh reCAPTCHA v3 token...
+2026-04-08 04:31:46 [DEBUG   ] [CAPTCHA] Solving via proxy: 45.147.133.69:12323
+2026-04-08 04:31:47 [DEBUG   ] [CAPTCHA] Token injected (age: 60s)
+2026-04-08 04:31:47 [DEBUG   ] [HELPER] Screenshot saved: /home/hamas/Desktop/ahu_scraper/db_screenshots/last_page_aca_2026-04-08_04-31-47AM.png
+2026-04-08 04:31:47 [INFO    ] [WORKER-2] No more results for 'aca' at page 2
+2026-04-08 04:31:47 [DEBUG   ] [HP] Marked 'aca' as complete
+2026-04-08 04:31:47 [INFO    ] [WORKER-2] Keyword 'aca' marked as complete
+2026-04-08 04:31:47 [INFO    ] [WORKER-2] Finished processing keyword: 'aca' (Total unique: 550)
+2026-04-08 04:31:47 [INFO    ] [WORKER-2] Processing keyword: 'acc'
+2026-04-08 04:31:47 [INFO    ] [CAPTCHA] ♻️  Reusing token (age: 60s / 110s)
+2026-04-08 04:31:48 [DEBUG   ] [CAPTCHA] Token injected (age: 230s)
+2026-04-08 04:31:52 [DEBUG   ] [CAPTCHA] Token injected (age: 116s)
+2026-04-08 04:31:53 [DEBUG   ] [CAPTCHA] Token injected (age: 235s)
+2026-04-08 04:31:53 [DEBUG   ] [PARSER] Extracted 2 new companies for keyword 'abu'
+2026-04-08 04:31:57 [DEBUG   ] [CAPTCHA] Token injected (age: 70s)
+2026-04-08 04:31:57 [INFO    ] [CAPTCHA] ✅ Token received and cached
+2026-04-08 04:31:58 [DEBUG   ] [CAPTCHA] Token injected (age: 241s)
+2026-04-08 04:32:00 [DEBUG   ] [CAPTCHA] Token injected (age: 123s)
+2026-04-08 04:32:00 [DEBUG   ] [HELPER] Screenshot saved: /home/hamas/Desktop/ahu_scraper/db_screenshots/last_page_abu_2026-04-08_04-32-00AM.png
+2026-04-08 04:32:00 [INFO    ] [WORKER-1] No more results for 'abu' at page 6
+2026-04-08 04:32:00 [DEBUG   ] [HP] Marked 'abu' as complete
+2026-04-08 04:32:00 [INFO    ] [WORKER-1] Keyword 'abu' marked as complete
+2026-04-08 04:32:00 [INFO    ] [WORKER-1] Finished processing keyword: 'abu' (Total unique: 555)
+2026-04-08 04:32:00 [INFO    ] [WORKER-1] Processing keyword: 'acd'
+2026-04-08 04:32:00 [INFO    ] [CAPTCHA] Requesting fresh reCAPTCHA v3 token...
+2026-04-08 04:32:00 [DEBUG   ] [CAPTCHA] Solving via proxy: 45.147.133.69:12323
+2026-04-08 04:32:04 [DEBUG   ] [CAPTCHA] Token injected (age: 6s)
+2026-04-08 04:32:04 [DEBUG   ] [HELPER] Screenshot saved: /home/hamas/Desktop/ahu_scraper/db_screenshots/last_page_abz_2026-04-08_04-32-04AM.png
+2026-04-08 04:32:04 [INFO    ] [WORKER-4] No more results for 'abz' at page 2
+2026-04-08 04:32:04 [DEBUG   ] [HP] Marked 'abz' as complete
+2026-04-08 04:32:04 [INFO    ] [WORKER-4] Keyword 'abz' marked as complete
+2026-04-08 04:32:04 [INFO    ] [WORKER-4] Finished processing keyword: 'abz' (Total unique: 563)
+2026-04-08 04:32:04 [INFO    ] [WORKER-4] Processing keyword: 'ace'
+2026-04-08 04:32:04 [INFO    ] [CAPTCHA] ♻️  Reusing token (age: 6s / 110s)
+2026-04-08 04:32:04 [DEBUG   ] [CAPTCHA] Token injected (age: 247s)
+2026-04-08 04:32:08 [DEBUG   ] [PARSER] Extracted 20 new companies for keyword 'acc'
+2026-04-08 04:32:08 [INFO    ] [CAPTCHA] ✅ Token received and cached
+2026-04-08 04:32:11 [INFO    ] [CAPTCHA] ✅ Token received and cached
+2026-04-08 04:32:14 [DEBUG   ] [CAPTCHA] Token injected (age: 257s)
+2026-04-08 04:32:16 [DEBUG   ] [CAPTCHA] Token injected (age: 89s)
+2026-04-08 04:32:16 [DEBUG   ] [CAPTCHA] Token injected (age: 7s)
+2026-04-08 04:32:16 [DEBUG   ] [HELPER] Screenshot saved: /home/hamas/Desktop/ahu_scraper/db_screenshots/last_page_acb_2026-04-08_04-32-16AM.png
+2026-04-08 04:32:16 [INFO    ] [WORKER-3] No more results for 'acb' at page 2
+2026-04-08 04:32:16 [DEBUG   ] [HP] Marked 'acb' as complete
+2026-04-08 04:32:16 [INFO    ] [WORKER-3] Keyword 'acb' marked as complete
+2026-04-08 04:32:16 [INFO    ] [WORKER-3] Finished processing keyword: 'acb' (Total unique: 572)
+2026-04-08 04:32:16 [INFO    ] [WORKER-3] Processing keyword: 'acf'
+2026-04-08 04:32:16 [INFO    ] [CAPTCHA] ♻️  Reusing token (age: 8s / 110s)
+2026-04-08 04:32:18 [DEBUG   ] [PARSER] Extracted 5 new companies for keyword 'acc'
+2026-04-08 04:32:18 [DEBUG   ] [CAPTCHA] Token injected (age: 20s)
+2026-04-08 04:32:20 [DEBUG   ] [CAPTCHA] Token injected (age: 8s)
+2026-04-08 04:32:20 [WARNING ] [CAPTCHA] Token expired — invalidating cache
+2026-04-08 04:32:20 [WARNING ] [CAPTCHA] Token manually invalidated
+2026-04-08 04:32:20 [WARNING ] [WORKER-1] Token expired for 'acd' at page 2
+2026-04-08 04:32:20 [INFO    ] [CAPTCHA] Requesting fresh reCAPTCHA v3 token...
+2026-04-08 04:32:20 [DEBUG   ] [CAPTCHA] Solving via proxy: 45.147.133.69:12323
+2026-04-08 04:32:23 [DEBUG   ] [CAPTCHA] Token injected (age: 266s)
+2026-04-08 04:32:24 [DEBUG   ] [CAPTCHA] Token injected (age: 16s)
+2026-04-08 04:32:24 [WARNING ] [CAPTCHA] Token expired — invalidating cache
+2026-04-08 04:32:24 [WARNING ] [CAPTCHA] Token manually invalidated
+2026-04-08 04:32:24 [WARNING ] [WORKER-3] Token expired for 'acf' at page 2
+2026-04-08 04:32:24 [INFO    ] [CAPTCHA] Requesting fresh reCAPTCHA v3 token...
+2026-04-08 04:32:24 [DEBUG   ] [CAPTCHA] Solving via proxy: 45.147.133.69:12323
+2026-04-08 04:32:26 [DEBUG   ] [CAPTCHA] Token injected (age: 99s)
+2026-04-08 04:32:26 [DEBUG   ] [HELPER] Screenshot saved: /home/hamas/Desktop/ahu_scraper/db_screenshots/last_page_acc_2026-04-08_04-32-26AM.png
+2026-04-08 04:32:26 [INFO    ] [WORKER-2] No more results for 'acc' at page 3
+2026-04-08 04:32:26 [DEBUG   ] [HP] Marked 'acc' as complete
+2026-04-08 04:32:26 [INFO    ] [WORKER-2] Keyword 'acc' marked as complete
+2026-04-08 04:32:26 [INFO    ] [WORKER-2] Finished processing keyword: 'acc' (Total unique: 592)
+2026-04-08 04:32:26 [INFO    ] [WORKER-2] Processing keyword: 'acg'
+2026-04-08 04:32:26 [INFO    ] [CAPTCHA] ♻️  Reusing token (age: 99s / 110s)
+2026-04-08 04:32:28 [DEBUG   ] [CAPTCHA] Token injected (age: 270s)
+2026-04-08 04:32:28 [DEBUG   ] [PARSER] Extracted 20 new companies for keyword 'ace'
+2026-04-08 04:32:34 [DEBUG   ] [CAPTCHA] Token injected (age: 107s)
+2026-04-08 04:32:34 [DEBUG   ] [CAPTCHA] Token injected (age: 277s)
+2026-04-08 04:32:35 [DEBUG   ] [PARSER] Extracted 2 new companies for keyword 'acg'
+2026-04-08 04:32:36 [DEBUG   ] [CAPTCHA] Token injected (age: 38s)
+2026-04-08 04:32:37 [DEBUG   ] [WRITER] Flushed 50 companies to CSV
+2026-04-08 04:32:40 [DEBUG   ] [CAPTCHA] Token injected (age: 283s)
+2026-04-08 04:32:42 [DEBUG   ] [CAPTCHA] Token injected (age: 115s)
+2026-04-08 04:32:42 [DEBUG   ] [HELPER] Screenshot saved: /home/hamas/Desktop/ahu_scraper/db_screenshots/last_page_acg_2026-04-08_04-32-42AM.png
+2026-04-08 04:32:42 [INFO    ] [WORKER-2] No more results for 'acg' at page 2
+2026-04-08 04:32:42 [DEBUG   ] [HP] Marked 'acg' as complete
+2026-04-08 04:32:42 [INFO    ] [WORKER-2] Keyword 'acg' marked as complete
+2026-04-08 04:32:42 [INFO    ] [WORKER-2] Finished processing keyword: 'acg' (Total unique: 607)
+2026-04-08 04:32:42 [INFO    ] [WORKER-2] Processing keyword: 'ach'
+2026-04-08 04:32:42 [INFO    ] [CAPTCHA] Requesting fresh reCAPTCHA v3 token...
+2026-04-08 04:32:42 [DEBUG   ] [CAPTCHA] Solving via proxy: 45.147.133.69:12323
+2026-04-08 04:32:46 [DEBUG   ] [CAPTCHA] Token injected (age: 288s)
+2026-04-08 04:32:51 [DEBUG   ] [CAPTCHA] Token injected (age: 293s)
+2026-04-08 04:32:52 [DEBUG   ] [PARSER] Extracted 20 new companies for keyword 'ace'
+2026-04-08 04:32:55 [DEBUG   ] [CAPTCHA] Token injected (age: 297s)
+2026-04-08 04:32:57 [INFO    ] [CAPTCHA] ✅ Token received and cached
+2026-04-08 04:32:59 [DEBUG   ] [CAPTCHA] Token injected (age: 61s)
+2026-04-08 04:33:00 [DEBUG   ] [CAPTCHA] Token injected (age: 302s)
+2026-04-08 04:33:03 [DEBUG   ] [CAPTCHA] Token injected (age: 6s)
+2026-04-08 04:33:03 [DEBUG   ] [HELPER] Screenshot saved: /home/hamas/Desktop/ahu_scraper/db_screenshots/last_page_acf_2026-04-08_04-33-03AM.png
+2026-04-08 04:33:03 [INFO    ] [WORKER-3] No more results for 'acf' at page 2
+2026-04-08 04:33:03 [DEBUG   ] [HP] Marked 'acf' as complete
+2026-04-08 04:33:03 [INFO    ] [WORKER-3] Keyword 'acf' marked as complete
+2026-04-08 04:33:03 [INFO    ] [WORKER-3] Finished processing keyword: 'acf' (Total unique: 626)
+2026-04-08 04:33:03 [INFO    ] [WORKER-3] Processing keyword: 'aci'
+2026-04-08 04:33:03 [INFO    ] [CAPTCHA] ♻️  Reusing token (age: 6s / 110s)
+2026-04-08 04:33:04 [DEBUG   ] [CAPTCHA] Token injected (age: 307s)
+2026-04-08 04:33:04 [INFO    ] [CAPTCHA] ✅ Token received and cached
+2026-04-08 04:33:10 [DEBUG   ] [PARSER] Extracted 20 new companies for keyword 'ace'
+2026-04-08 04:33:11 [DEBUG   ] [CAPTCHA] Token injected (age: 14s)
+2026-04-08 04:33:12 [DEBUG   ] [CAPTCHA] Token injected (age: 314s)
+2026-04-08 04:33:15 [DEBUG   ] [WRITER] Flushed 50 companies to CSV
+2026-04-08 04:33:15 [DEBUG   ] [PARSER] Extracted 12 new companies for keyword 'aci'
+2026-04-08 04:33:17 [DEBUG   ] [CAPTCHA] Token injected (age: 12s)
+2026-04-08 04:33:18 [DEBUG   ] [PARSER] Extracted 2 new companies for keyword 'ach'
+2026-04-08 04:33:18 [DEBUG   ] [CAPTCHA] Token injected (age: 321s)
+2026-04-08 04:33:23 [DEBUG   ] [CAPTCHA] Token injected (age: 85s)
+2026-04-08 04:33:24 [DEBUG   ] [CAPTCHA] Token injected (age: 26s)
+2026-04-08 04:33:24 [DEBUG   ] [HELPER] Screenshot saved: /home/hamas/Desktop/ahu_scraper/db_screenshots/last_page_aci_2026-04-08_04-33-24AM.png
+2026-04-08 04:33:24 [INFO    ] [WORKER-3] No more results for 'aci' at page 2
+2026-04-08 04:33:24 [DEBUG   ] [HP] Marked 'aci' as complete
+2026-04-08 04:33:24 [INFO    ] [WORKER-3] Keyword 'aci' marked as complete
+2026-04-08 04:33:24 [INFO    ] [WORKER-3] Finished processing keyword: 'aci' (Total unique: 653)
+2026-04-08 04:33:24 [INFO    ] [WORKER-3] Processing keyword: 'acj'
+2026-04-08 04:33:24 [INFO    ] [CAPTCHA] ♻️  Reusing token (age: 26s / 110s)
+2026-04-08 04:33:25 [DEBUG   ] [CAPTCHA] Token injected (age: 328s)
+2026-04-08 04:33:27 [DEBUG   ] [CAPTCHA] Token injected (age: 22s)
+2026-04-08 04:33:27 [DEBUG   ] [HELPER] Screenshot saved: /home/hamas/Desktop/ahu_scraper/db_screenshots/last_page_ach_2026-04-08_04-33-27AM.png
+2026-04-08 04:33:27 [INFO    ] [WORKER-2] No more results for 'ach' at page 2
+2026-04-08 04:33:27 [DEBUG   ] [HP] Marked 'ach' as complete
+2026-04-08 04:33:27 [INFO    ] [WORKER-2] Keyword 'ach' marked as complete
+2026-04-08 04:33:27 [INFO    ] [WORKER-2] Finished processing keyword: 'ach' (Total unique: 657)
+2026-04-08 04:33:27 [INFO    ] [WORKER-2] Processing keyword: 'ack'
+2026-04-08 04:33:27 [INFO    ] [CAPTCHA] ♻️  Reusing token (age: 23s / 110s)
+2026-04-08 04:33:32 [DEBUG   ] [CAPTCHA] Token injected (age: 334s)
+2026-04-08 04:33:32 [DEBUG   ] [CAPTCHA] Token injected (age: 34s)
+2026-04-08 04:33:32 [DEBUG   ] [PARSER] Extracted 1 new companies for keyword 'acj'
+2026-04-08 04:33:34 [DEBUG   ] [CAPTCHA] Token injected (age: 30s)
+2026-04-08 04:33:35 [INFO    ] [CAPTCHA] ✅ Token received and cached
+2026-04-08 04:33:36 [DEBUG   ] [PARSER] Extracted 20 new companies for keyword 'ace'
+2026-04-08 04:33:37 [DEBUG   ] [PARSER] Extracted 7 new companies for keyword 'ack'
+2026-04-08 04:33:39 [DEBUG   ] [CAPTCHA] Token injected (age: 341s)
+2026-04-08 04:38:57 [INFO    ] 
+ 
+ 
+
+2026-04-08 04:38:57 [INFO    ] ============================================================
+2026-04-08 04:38:57 [INFO    ]   AHU Company Scraper - Starting
+2026-04-08 04:38:57 [INFO    ] ============================================================
+2026-04-08 04:38:57 [INFO    ] [HP] Loaded 650 existing NBRs IDs from CSV
+2026-04-08 04:38:57 [INFO    ] [MAIN] Loaded 650 existing NBRs IDs from CSV
+2026-04-08 04:38:57 [INFO    ] [KEYWORDS] Found last processed keyword in CSV: 'aci'
+2026-04-08 04:38:57 [INFO    ] [KEYWORDS] Completed keywords: 58
+2026-04-08 04:38:57 [DEBUG   ] [KEYWORDS] Completed: aaj, aan, aad, aab, aai, aca, aav, abl, aaz, abw...
+2026-04-08 04:38:57 [INFO    ] [KEYWORDS] Loaded 0 keywords into queue
+2026-04-08 04:38:57 [INFO    ] [KEYWORDS] Skipped 58 already completed keywords
+2026-04-08 04:38:57 [WARNING ] [KEYWORDS] Resume keyword 'aci' not found. Starting from beginning.
+2026-04-08 04:38:57 [INFO    ] [KEYWORDS] Reloaded 17518 keywords from start
+2026-04-08 04:38:57 [INFO    ] [HP] Total 5 proxies loaded.
+2026-04-08 04:38:57 [INFO    ] [MAIN] Starting with 5 workers
+2026-04-08 04:38:58 [INFO    ] [MAIN] Browser launched
+2026-04-08 04:38:58 [INFO    ] [WORKER-1] Starting
+2026-04-08 04:38:58 [INFO    ] [FG] Real Chrome version: 146.0.7680.177
+2026-04-08 04:38:59 [INFO    ] [HP] Timezone: Asia/Jakarta
+2026-04-08 04:39:00 [INFO    ] [HP] Proxy public IP: 45.147.133.69
+2026-04-08 04:39:00 [INFO    ] [WORKER-2] Starting
+2026-04-08 04:39:00 [INFO    ] [FG] Real Chrome version: 146.0.7680.177
+2026-04-08 04:39:00 [INFO    ] [HP] Timezone: Asia/Jakarta
+2026-04-08 04:39:02 [INFO    ] [HP] Proxy public IP: 45.147.133.69
+2026-04-08 04:39:02 [INFO    ] [WORKER-3] Starting
+2026-04-08 04:39:02 [INFO    ] [FG] Real Chrome version: 146.0.7680.177
+2026-04-08 04:39:02 [INFO    ] [HP] Timezone: Asia/Jakarta
+2026-04-08 04:39:04 [INFO    ] [HP] Proxy public IP: 45.147.133.69
+2026-04-08 04:39:04 [INFO    ] [WORKER-4] Starting
+2026-04-08 04:39:04 [INFO    ] [FG] Real Chrome version: 146.0.7680.177
+2026-04-08 04:39:04 [INFO    ] [HP] Timezone: Asia/Jakarta
+2026-04-08 04:39:06 [INFO    ] [HP] Proxy public IP: 45.147.133.69
+2026-04-08 04:39:06 [INFO    ] [WORKER-5] Starting
+2026-04-08 04:39:06 [INFO    ] [FG] Real Chrome version: 146.0.7680.177
+2026-04-08 04:39:07 [INFO    ] [HP] Timezone: Asia/Jakarta
+2026-04-08 04:39:08 [INFO    ] [HP] Proxy public IP: 45.147.133.69
+2026-04-08 04:39:08 [INFO    ] [WORKER-1] Processing keyword: 'abi'
+2026-04-08 04:39:08 [INFO    ] [CAPTCHA] Requesting fresh reCAPTCHA v3 token...
+2026-04-08 04:39:08 [DEBUG   ] [CAPTCHA] Solving via proxy: 45.147.133.69:12323
+2026-04-08 04:39:08 [INFO    ] [WORKER-3] Processing keyword: 'acd'
+2026-04-08 04:39:08 [INFO    ] [CAPTCHA] Requesting fresh reCAPTCHA v3 token...
+2026-04-08 04:39:08 [DEBUG   ] [CAPTCHA] Solving via proxy: 45.147.133.69:12323
+2026-04-08 04:39:08 [INFO    ] [WORKER-4] Processing keyword: 'ace'
+2026-04-08 04:39:08 [INFO    ] [CAPTCHA] Requesting fresh reCAPTCHA v3 token...
+2026-04-08 04:39:08 [DEBUG   ] [CAPTCHA] Solving via proxy: 45.147.133.69:12323
+2026-04-08 04:39:08 [INFO    ] [WORKER-5] Processing keyword: 'acj'
+2026-04-08 04:39:08 [INFO    ] [CAPTCHA] Requesting fresh reCAPTCHA v3 token...
+2026-04-08 04:39:08 [DEBUG   ] [CAPTCHA] Solving via proxy: 45.147.133.69:12323
+2026-04-08 04:39:08 [INFO    ] [WORKER-2] Processing keyword: 'ack'
+2026-04-08 04:39:08 [INFO    ] [CAPTCHA] Requesting fresh reCAPTCHA v3 token...
+2026-04-08 04:39:08 [DEBUG   ] [CAPTCHA] Solving via proxy: 45.147.133.69:12323
+2026-04-08 04:41:50 [INFO    ] 
+ 
+ 
+
+2026-04-08 04:41:50 [INFO    ] ============================================================
+2026-04-08 04:41:50 [INFO    ]   AHU Company Scraper - Starting
+2026-04-08 04:41:50 [INFO    ] ============================================================
+2026-04-08 04:41:50 [INFO    ] [HP] Loaded 650 existing NBRs IDs from CSV
+2026-04-08 04:41:50 [INFO    ] [MAIN] Loaded 650 existing NBRs IDs from CSV
+2026-04-08 04:41:50 [INFO    ] [KEYWORDS] Found last processed keyword in CSV: 'aci'
+2026-04-08 04:41:50 [INFO    ] [KEYWORDS] Completed keywords: 58
+2026-04-08 04:41:50 [DEBUG   ] [KEYWORDS] Completed: aaf, acb, abk, abc, acg, abv, acc, aad, aca, aai...
+2026-04-08 04:41:50 [INFO    ] [KEYWORDS] Loaded 0 keywords into queue
+2026-04-08 04:41:50 [INFO    ] [KEYWORDS] Skipped 58 already completed keywords
+2026-04-08 04:41:50 [WARNING ] [KEYWORDS] Resume keyword 'aci' not found. Starting from beginning.
+2026-04-08 04:41:50 [INFO    ] [KEYWORDS] Reloaded 17518 keywords from start
+2026-04-08 04:41:50 [INFO    ] [HP] Total 1 proxies loaded.
+2026-04-08 04:41:50 [INFO    ] [MAIN] Starting with 1 workers
+2026-04-08 04:41:50 [INFO    ] [MAIN] Browser launched
+2026-04-08 04:41:50 [INFO    ] [WORKER-1] Starting
+2026-04-08 04:41:50 [INFO    ] [FG] Real Chrome version: 146.0.7680.177
+2026-04-08 04:41:51 [INFO    ] [HP] Timezone: Asia/Jakarta
+2026-04-08 04:41:52 [INFO    ] [HP] Proxy public IP: 45.147.133.69
+2026-04-08 04:41:52 [INFO    ] [WORKER-1] Processing keyword: 'abi'
+2026-04-08 04:41:52 [INFO    ] [CAPTCHA] Requesting fresh reCAPTCHA v3 token...
+2026-04-08 04:41:52 [DEBUG   ] [CAPTCHA] Solving via proxy: 45.147.133.69:12323
+2026-04-08 04:42:25 [INFO    ] [CAPTCHA] ✅ Token received and cached
+2026-04-08 05:55:41 [INFO    ] 
+ 
+ 
+
+2026-04-08 05:55:41 [INFO    ] ============================================================
+2026-04-08 05:55:41 [INFO    ]   AHU Company Scraper - Starting
+2026-04-08 05:55:41 [INFO    ] ============================================================
+2026-04-08 05:55:41 [INFO    ] [HP] Loaded 650 existing NBRs IDs from CSV
+2026-04-08 05:55:41 [INFO    ] [MAIN] Loaded 650 existing NBRs IDs from CSV
+2026-04-08 05:55:41 [WARNING ] [HP] Could not load completed keywords: Expecting value: line 1 column 1 (char 0)
+2026-04-08 05:55:41 [INFO    ] [KEYWORDS] Found last processed keyword in CSV: 'aci'
+2026-04-08 05:55:41 [INFO    ] [KEYWORDS] Completed keywords: 0
+2026-04-08 05:55:41 [INFO    ] [KEYWORDS] Resuming from keyword: 'aci'
+2026-04-08 05:55:41 [INFO    ] [KEYWORDS] Skipped 61 keywords before resume point
+2026-04-08 05:55:41 [INFO    ] [KEYWORDS] Loaded 17515 keywords into queue
+2026-04-08 05:55:41 [INFO    ] [KEYWORDS] Skipped 0 already completed keywords
+2026-04-08 05:55:41 [INFO    ] [HP] Total 1 proxies loaded.
+2026-04-08 05:55:41 [INFO    ] [MAIN] Starting with 1 workers
+2026-04-08 05:55:48 [INFO    ] [MAIN] Browser launched
+2026-04-08 05:55:48 [INFO    ] [WORKER-1] Starting
+2026-04-08 05:55:48 [INFO    ] [FG] Real Chrome version: 146.0.7680.177
+2026-04-08 05:55:49 [INFO    ] [HP] Timezone: Asia/Jakarta
+2026-04-08 05:55:50 [INFO    ] [HP] Proxy public IP: 45.147.133.69
+2026-04-08 05:55:51 [INFO    ] [WORKER-1] Processing keyword: 'acj'
+2026-04-08 05:55:51 [INFO    ] [CAPTCHA] Requesting fresh reCAPTCHA v3 token...
+2026-04-08 05:55:51 [DEBUG   ] [CAPTCHA] Solving via proxy: 45.147.133.69:12323
+2026-04-08 05:56:24 [INFO    ] [CAPTCHA] ✅ Token received and cached
+2026-04-08 05:56:36 [DEBUG   ] [CAPTCHA] Token injected (age: 11s)
+2026-04-08 05:56:37 [DEBUG   ] [PARSER] Extracted 1 new companies for keyword 'acj'
+2026-04-08 05:56:45 [DEBUG   ] [CAPTCHA] Token injected (age: 20s)
+2026-04-08 05:56:45 [DEBUG   ] [HELPER] Screenshot saved: /home/hamas/Desktop/ahu_scraper/db_screenshots/last_page_acj_2026-04-08_05-56-45AM.png
+2026-04-08 05:56:45 [INFO    ] [WORKER-1] No more results for 'acj' at page 2
+2026-04-08 05:56:45 [DEBUG   ] [HP] Marked 'acj' as complete
+2026-04-08 05:56:45 [INFO    ] [WORKER-1] Keyword 'acj' marked as complete
+2026-04-08 05:56:45 [INFO    ] [WORKER-1] Finished processing keyword: 'acj' (Total unique: 651)
+2026-04-08 05:56:45 [INFO    ] [WORKER-1] Processing keyword: 'ack'
+2026-04-08 05:56:45 [INFO    ] [CAPTCHA] ♻️  Reusing token (age: 20s / 110s)
+2026-04-08 05:56:52 [DEBUG   ] [CAPTCHA] Token injected (age: 27s)
+2026-04-08 05:56:58 [DEBUG   ] [PARSER] Extracted 7 new companies for keyword 'ack'
+2026-04-08 05:57:04 [DEBUG   ] [CAPTCHA] Token injected (age: 39s)
+2026-04-08 05:57:04 [DEBUG   ] [HELPER] Screenshot saved: /home/hamas/Desktop/ahu_scraper/db_screenshots/last_page_ack_2026-04-08_05-57-04AM.png
+2026-04-08 05:57:04 [INFO    ] [WORKER-1] No more results for 'ack' at page 2
+2026-04-08 05:57:04 [DEBUG   ] [HP] Marked 'ack' as complete
+2026-04-08 05:57:04 [INFO    ] [WORKER-1] Keyword 'ack' marked as complete
+2026-04-08 05:57:04 [INFO    ] [WORKER-1] Finished processing keyword: 'ack' (Total unique: 658)
+2026-04-08 05:57:04 [INFO    ] [WORKER-1] Processing keyword: 'acl'
+2026-04-08 05:57:04 [INFO    ] [CAPTCHA] ♻️  Reusing token (age: 40s / 110s)
+2026-04-08 05:57:11 [DEBUG   ] [CAPTCHA] Token injected (age: 46s)
+2026-04-08 05:57:12 [DEBUG   ] [PARSER] Extracted 3 new companies for keyword 'acl'
